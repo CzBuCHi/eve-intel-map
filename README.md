@@ -20,3 +20,4 @@ times in system and ship columns will be inserted automatically by server in EVE
 ## implemented
 - server implemented as duplex wcf service hosted on IIS.
 - client not implemented yet, just some client-server testing code...
+- client static data (eve map and skip information)
