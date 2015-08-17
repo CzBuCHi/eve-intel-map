@@ -151,6 +151,147 @@ namespace eve_intel_map.IntelService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KosPlayerInfo", Namespace="http://schemas.datacontract.org/2004/07/eve_intel_server")]
+    [System.SerializableAttribute()]
+    public partial class KosPlayerInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long LastKnownSystemField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime LastKnownSystemTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PilotNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PilotShipField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime PilotShipTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid SenderIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long LastKnownSystem {
+            get {
+                return this.LastKnownSystemField;
+            }
+            set {
+                if ((this.LastKnownSystemField.Equals(value) != true)) {
+                    this.LastKnownSystemField = value;
+                    this.RaisePropertyChanged("LastKnownSystem");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime LastKnownSystemTime {
+            get {
+                return this.LastKnownSystemTimeField;
+            }
+            set {
+                if ((this.LastKnownSystemTimeField.Equals(value) != true)) {
+                    this.LastKnownSystemTimeField = value;
+                    this.RaisePropertyChanged("LastKnownSystemTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PilotName {
+            get {
+                return this.PilotNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PilotNameField, value) != true)) {
+                    this.PilotNameField = value;
+                    this.RaisePropertyChanged("PilotName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PilotShip {
+            get {
+                return this.PilotShipField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PilotShipField, value) != true)) {
+                    this.PilotShipField = value;
+                    this.RaisePropertyChanged("PilotShip");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime PilotShipTime {
+            get {
+                return this.PilotShipTimeField;
+            }
+            set {
+                if ((this.PilotShipTimeField.Equals(value) != true)) {
+                    this.PilotShipTimeField = value;
+                    this.RaisePropertyChanged("PilotShipTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid SenderId {
+            get {
+                return this.SenderIdField;
+            }
+            set {
+                if ((this.SenderIdField.Equals(value) != true)) {
+                    this.SenderIdField = value;
+                    this.RaisePropertyChanged("SenderId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="IntelService.IIntelService", CallbackContract=typeof(eve_intel_map.IntelService.IIntelServiceCallback))]
     public interface IIntelService {
@@ -166,6 +307,12 @@ namespace eve_intel_map.IntelService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IIntelService/BroadcastLocalKos")]
         System.Threading.Tasks.Task BroadcastLocalKosAsync(eve_intel_map.IntelService.LocalKosInfo kosInfo);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IIntelService/BroadcastKosPlayerInfo")]
+        void BroadcastKosPlayerInfo(eve_intel_map.IntelService.KosPlayerInfo playerInfo);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IIntelService/BroadcastKosPlayerInfo")]
+        System.Threading.Tasks.Task BroadcastKosPlayerInfoAsync(eve_intel_map.IntelService.KosPlayerInfo playerInfo);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -173,6 +320,9 @@ namespace eve_intel_map.IntelService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IIntelService/LocalKosInfo")]
         void LocalKosInfo(eve_intel_map.IntelService.LocalKosInfo kosInfo);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IIntelService/KosPlayerInfo")]
+        void KosPlayerInfo(eve_intel_map.IntelService.KosPlayerInfo playerInfo);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IIntelService/OnlineClientsUpdate")]
         void OnlineClientsUpdate(long onlineClients);
@@ -220,6 +370,14 @@ namespace eve_intel_map.IntelService {
         
         public System.Threading.Tasks.Task BroadcastLocalKosAsync(eve_intel_map.IntelService.LocalKosInfo kosInfo) {
             return base.Channel.BroadcastLocalKosAsync(kosInfo);
+        }
+        
+        public void BroadcastKosPlayerInfo(eve_intel_map.IntelService.KosPlayerInfo playerInfo) {
+            base.Channel.BroadcastKosPlayerInfo(playerInfo);
+        }
+        
+        public System.Threading.Tasks.Task BroadcastKosPlayerInfoAsync(eve_intel_map.IntelService.KosPlayerInfo playerInfo) {
+            return base.Channel.BroadcastKosPlayerInfoAsync(playerInfo);
         }
     }
 }

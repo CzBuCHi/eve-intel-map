@@ -35,12 +35,24 @@ namespace eve_intel_server
         }
 
         public void BroadcastLocalKos(LocalKosInfo kosInfo) {
+            Broadcast(callback => callback.LocalKosInfo(kosInfo), kosInfo.SenderId);
+        }
+
+        public void BroadcastKosPlayerInfo(KosPlayerInfo playerInfo) {
+            Broadcast(callback => callback.KosPlayerInfo(playerInfo), playerInfo.SenderId);
+        }
+
+        private void OnlineClientsUpdate() {
+            Broadcast(callback => callback.OnlineClientsUpdate(_Clients.Count));
+        }
+
+        private void Broadcast(Action<IIntelServiceCallback> callback, Guid? senderId = null) {
             List<Guid> deadClients = new List<Guid>();
-            lock (_Locker) {                
+            lock (_Locker) {
                 foreach (KeyValuePair<Guid, IIntelServiceCallback> client in _Clients) {
-                    if (client.Key != kosInfo.SenderId) {
+                    if (client.Key != senderId) {
                         try {
-                            client.Value.LocalKosInfo(kosInfo);
+                            callback(client.Value);
                         } catch {
                             deadClients.Add(client.Key);
                         }
@@ -57,33 +69,6 @@ namespace eve_intel_server
 
             if (deadClients.Count > 0) {
                 OnlineClientsUpdate();
-            }
-        }
-
-        // Notify alive clients about deaths ...
-        private static void OnlineClientsUpdate() {
-            while (true) {
-                List<Guid> deadClients = new List<Guid>();
-                lock (_Locker) {
-                    foreach (KeyValuePair<Guid, IIntelServiceCallback> client in _Clients) {
-                        try {
-                            client.Value.OnlineClientsUpdate(_Clients.Count);
-                        } catch {
-                            deadClients.Add(client.Key);
-                        }
-                    }
-                    // in meanwhile some clients may die ...
-                    if (deadClients.Count > 0) {
-                        foreach (Guid client in deadClients) {
-                            _Clients.Remove(client);
-                        }
-                    }
-                }
-
-                // ... if that hapends notify rest again ...
-                if (deadClients.Count == 0) {
-                    break;
-                }
             }
         }
     }

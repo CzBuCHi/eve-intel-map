@@ -18,6 +18,10 @@ namespace eve_intel_map
             listBox1.Items.Insert(0, "system: " + kosInfo.SystemId + ", pilots: " + string.Join(", ", kosInfo.PilotNames));
         }
 
+        public void KosPlayerInfo(KosPlayerInfo playerInfo) {
+            
+        }
+
         public void OnlineClientsUpdate(long onlineClients) {
             label1.Text = @"clients: " + onlineClients;
         }

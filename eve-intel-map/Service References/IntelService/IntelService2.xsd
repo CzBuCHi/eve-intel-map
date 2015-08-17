@@ -17,4 +17,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="LocalKosInfo" nillable="true" type="tns:LocalKosInfo" />
+  <xs:complexType name="KosPlayerInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastKnownSystem" type="xs:long" />
+      <xs:element minOccurs="0" name="LastKnownSystemTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PilotName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PilotShip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PilotShipTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SenderId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KosPlayerInfo" nillable="true" type="tns:KosPlayerInfo" />
 </xs:schema>
