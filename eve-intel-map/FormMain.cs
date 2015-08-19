@@ -5,12 +5,12 @@ using eve_intel_map.IntelService;
 
 namespace eve_intel_map
 {
-    public partial class Form1 : Form, IIntelServiceCallback
+    public partial class FormMain : Form, IIntelServiceCallback
     {
         private IntelServiceClient _Client;
         private Guid _ClientId;
 
-        public Form1() {
+        public FormMain() {
             InitializeComponent();
         }
 
