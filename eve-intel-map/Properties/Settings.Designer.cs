@@ -8,20 +8,102 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace eve_intel_map.Properties
-{
-
-
+namespace eve_intel_map.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
+        
         public static Settings Default {
             get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("224, 255, 224")]
+        public global::System.Drawing.Color colorKos0 {
+            get {
+                return ((global::System.Drawing.Color)(this["colorKos0"]));
+            }
+            set {
+                this["colorKos0"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("255, 224, 224")]
+        public global::System.Drawing.Color colorKos1 {
+            get {
+                return ((global::System.Drawing.Color)(this["colorKos1"]));
+            }
+            set {
+                this["colorKos1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("255, 192, 192")]
+        public global::System.Drawing.Color colorKos3 {
+            get {
+                return ((global::System.Drawing.Color)(this["colorKos3"]));
+            }
+            set {
+                this["colorKos3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("255, 128, 128")]
+        public global::System.Drawing.Color colorKos5 {
+            get {
+                return ((global::System.Drawing.Color)(this["colorKos5"]));
+            }
+            set {
+                this["colorKos5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("255, 64, 64")]
+        public global::System.Drawing.Color colorKos10 {
+            get {
+                return ((global::System.Drawing.Color)(this["colorKos10"]));
+            }
+            set {
+                this["colorKos10"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Red")]
+        public global::System.Drawing.Color colorKos20 {
+            get {
+                return ((global::System.Drawing.Color)(this["colorKos20"]));
+            }
+            set {
+                this["colorKos20"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Maroon")]
+        public global::System.Drawing.Color colorKos20plus {
+            get {
+                return ((global::System.Drawing.Color)(this["colorKos20plus"]));
+            }
+            set {
+                this["colorKos20plus"] = value;
             }
         }
     }

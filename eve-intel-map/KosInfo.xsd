@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KosInfo" targetNamespace="http://tempuri.org/KosInfo.xsd" xmlns:mstns="http://tempuri.org/KosInfo.xsd" xmlns="http://tempuri.org/KosInfo.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KosInfo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="KosInfo" msprop:Generator_UserDSName="KosInfo">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KosInfo" msdata:Locale="en" msprop:Generator_TableClassName="KosInfoDataTable" msprop:Generator_TableVarName="tableKosInfo" msprop:Generator_TablePropName="_KosInfo" msprop:Generator_RowDeletingName="KosInfoRowDeleting" msprop:Generator_RowChangingName="KosInfoRowChanging" msprop:Generator_RowEvHandlerName="KosInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="KosInfoRowDeleted" msprop:Generator_UserTableName="KosInfo" msprop:Generator_RowChangedName="KosInfoRowChanged" msprop:Generator_RowEvArgName="KosInfoRowChangeEvent" msprop:Generator_RowClassName="KosInfoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PlayerName" msprop:Generator_ColumnVarNameInTable="columnPlayerName" msprop:Generator_ColumnPropNameInRow="PlayerName" msprop:Generator_ColumnPropNameInTable="PlayerNameColumn" msprop:Generator_UserColumnName="PlayerName" type="xs:string" />
+              <xs:element name="LastKnownLocation" msprop:Generator_ColumnVarNameInTable="columnLastKnownLocation" msprop:Generator_ColumnPropNameInRow="LastKnownLocation" msprop:Generator_ColumnPropNameInTable="LastKnownLocationColumn" msprop:Generator_UserColumnName="LastKnownLocation" type="xs:string" minOccurs="0" />
+              <xs:element name="LastKnownLocationTime" msprop:Generator_ColumnVarNameInTable="columnLastKnownLocationTime" msprop:Generator_ColumnPropNameInRow="LastKnownLocationTime" msprop:Generator_ColumnPropNameInTable="LastKnownLocationTimeColumn" msprop:Generator_UserColumnName="LastKnownLocationTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ShipType" msprop:Generator_ColumnVarNameInTable="columnShipType" msprop:Generator_ColumnPropNameInRow="ShipType" msprop:Generator_ColumnPropNameInTable="ShipTypeColumn" msprop:Generator_UserColumnName="ShipType" type="xs:int" minOccurs="0" />
+              <xs:element name="ShipTypeTime" msprop:Generator_ColumnVarNameInTable="columnShipTypeTime" msprop:Generator_ColumnPropNameInRow="ShipTypeTime" msprop:Generator_ColumnPropNameInTable="ShipTypeTimeColumn" msprop:Generator_UserColumnName="ShipTypeTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Comment" msprop:Generator_ColumnVarNameInTable="columnComment" msprop:Generator_ColumnPropNameInRow="Comment" msprop:Generator_ColumnPropNameInTable="CommentColumn" msprop:Generator_UserColumnName="Comment" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KosInfo" />
+      <xs:field xpath="mstns:PlayerName" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

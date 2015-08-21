@@ -78,12 +78,35 @@
     <Compile Include="controls\ColorConfig.Designer.cs">
       <DependentUpon>ColorConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="controls\ColorsConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\ColorsConfig.Designer.cs">
+      <DependentUpon>ColorsConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\KosInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\KosInfo.Designer.cs">
+      <DependentUpon>KosInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="DbHelper.cs" />
+    <Compile Include="FormConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConfig.Designer.cs">
+      <DependentUpon>FormConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KosInfo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KosInfo.xsd</DependentUpon>
     </Compile>
     <Compile Include="model\DataContext.cs" />
     <Compile Include="model\Race.cs" />
@@ -102,6 +125,15 @@
     <EmbeddedResource Include="controls\ColorConfig.resx">
       <DependentUpon>ColorConfig.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="controls\ColorsConfig.resx">
+      <DependentUpon>ColorsConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\KosInfo.resx">
+      <DependentUpon>KosInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConfig.resx">
+      <DependentUpon>FormConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +146,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="KosInfo.xsc">
+      <DependentUpon>KosInfo.xsd</DependentUpon>
+    </None>
+    <None Include="KosInfo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KosInfo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="KosInfo.xss">
+      <DependentUpon>KosInfo.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
