@@ -10,7 +10,7 @@ namespace eve_intel_map.model
     // ReSharper disable once ClassNeverInstantiated.Global
     public class ShipType
     {
-        [Column("ship_id", Order = 0)]
+        [Column("ship_type_id", Order = 0)]
         [Key]
         public int Id { get; set; }
 

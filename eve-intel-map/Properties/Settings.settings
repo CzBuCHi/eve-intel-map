@@ -23,5 +23,8 @@
     <Setting Name="colorKos20plus" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Maroon</Value>
     </Setting>
+    <Setting Name="intelLogName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

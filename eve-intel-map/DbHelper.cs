@@ -22,7 +22,7 @@ namespace eve_intel_map
                    select o.SolarSystemName;
         }
 
-        #region Import data from MySQL Dumps - see http://eve-marketdata.com/developers/mysql.php
+        #region Create database, import data
 
         public static void EnsureDatatabaseExists() {
             ConnectionStringSettings c = ConfigurationManager.ConnectionStrings["eve-intel-map"];
@@ -128,7 +128,7 @@ CREATE TABLE [eve_races] (
         private static void CreateTable_ShipTypes() {
             using (SQLiteCommand command = new SQLiteCommand(@"
 CREATE TABLE [eve_ship_types] (
-    [ship_id] INTEGER NOT NULL PRIMARY KEY,
+    [ship_type_id] INTEGER NOT NULL PRIMARY KEY,
     [ship_type_name] TEXT NOT NULL
 )", _Connection)) {
                 command.ExecuteNonQuery();

@@ -106,5 +106,17 @@ namespace eve_intel_map.Properties {
                 this["colorKos20plus"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string intelLogName {
+            get {
+                return ((string)(this["intelLogName"]));
+            }
+            set {
+                this["intelLogName"] = value;
+            }
+        }
     }
 }
