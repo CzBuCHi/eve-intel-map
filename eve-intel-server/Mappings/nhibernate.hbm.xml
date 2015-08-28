@@ -41,8 +41,11 @@
   <class name="EvePlayerInfo" table="EvePlayerInfos">
     <id name="Id" />
     <property name="PlayerId" />
+    <property name="PlayerName" />
+    <property name="IsKos" />
     <many-to-one name="ShipInfo" class="EveShipInfo" />
     <property name="ShipInfoTime" />
+    <property name="IsShipInfoConfirmed" />
     <many-to-one name="Solarsystem" class="EveMapSolarsystem" />
     <property name="SolarsystemTime" />
   </class>

@@ -47,8 +47,11 @@ CREATE TABLE [EveShipInfos] (
 CREATE TABLE [EvePlayerInfos] (
 	[Id] INTEGER NOT NULL PRIMARY KEY,
 	[PlayerId] INTEGER NOT NULL,
-	[ShipInfo] INTEGER NULL,
+    [PlayerName] TEXT NOT NULL,
+    [IsKos] BIT NOT NULL,
+	[ShipInfo] INTEGER NULL,    
 	[ShipInfoTime] DATE NULL,
+    [IsShipInfoConfirmed] BIT NOT NULL,
 	[Solarsystem] INTEGER NULL,
 	[SolarsystemTime] DATE NULL,
 

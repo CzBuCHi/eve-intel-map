@@ -1,0 +1,48 @@
+client - server interactions:
+-> client request
+<- server response to client who generated request
+<= server broadcast to all active clients
+
+[connect]
+-> hello
+            <- hi
+-> player api key   
+            kos check on all player characters (http://kos.cva-eve.org/api/?c=json&type=unit&q={1})
+            if kos
+            <- kos character 'xyz' detected; close connection     // this should keep unwanted elements from accessing intel...      
+            else
+            <- online client count, current kos player info (table EvePlayerInfos serialized as csv | sqlite dump)   note: encrypt data?
+show main window
+
+
+[disconnect]
+->  bye
+            <- close connection
+            <= client count change
+cleanup current kos player info
+            
+
+
+[kos check]
+-> kos check: 'character1\ncharacter2\n...\ncharacterN'
+            kos check, save ALL characters into EvePlayerInfo
+            if kos
+            <= list of kos players
+popup window with kos character names, red indicator on main form
+            else
+            <- all ok
+green indicator on main form
+
+[character update] // solar system, ship type
+-> new info about character (serialized instance of EvePlayerInfo class)
+            <= info about character
+            
+[character killed]
+-> kill 'character1'
+            remove EvePlayerInfo from database
+            <= 'character1' dead
+remove character info
+
+
+SERVER:
+sheduled restart at 11:00 EVE time, cleanup of EvePlayerInfo table
