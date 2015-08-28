@@ -1,6 +1,8 @@
 /.vs
+/packages
 /eve-intel-map/bin
 /eve-intel-map/obj
 /eve-intel-server/bin
 /eve-intel-server/obj
-/packages
+/eve-intel-server-web/bin
+/Logs

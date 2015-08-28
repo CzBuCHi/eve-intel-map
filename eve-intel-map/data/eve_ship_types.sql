@@ -1,5 +1,0 @@
-LOCK TABLES `eve_ship_types` WRITE;
-/*!40000 ALTER TABLE `eve_ship_types` DISABLE KEYS */;
-INSERT INTO `eve_ship_types` VALUES (0,'Assault Frigate'),(1,'Battlecruiser'),(2,'Attack Battlecruiser'),(3,'Battleship'),(4,'Black Ops'),(5,'Capital Industrial Ship'),(6,'Carrier'),(7,'Command Ship'),(8,'Covert Ops'),(9,'Cruiser'),(10,'Destroyer'),(11,'Dreadnought'),(12,'Electronic Attack Frigate'),(13,'Exhumer Barge'),(14,'Exploration Frigate'),(15,'Faction Battleship'),(16,'Faction Cruiser'),(17,'Faction Frigate'),(18,'Faction Shuttle'),(19,'Force Recon'),(20,'Frigate'),(21,'Heavy Assault Cruiser'),(22,'Heavy Interdictor'),(23,'Industrial Ship'),(24,'Interceptor'),(25,'Interdictor'),(26,'Jump Freighter'),(27,'Logistics Cruiser'),(28,'Marauder'),(29,'Mining Barge'),(30,'Recon Ship'),(31,'Rookie Ship'),(32,'Special Edition Battlecruiser'),(33,'Stealth Bomber'),(34,'Strategic Cruiser'),(35,'Tactical Destroyer'),(36,'Titan'),(37,'Transport Ship');
-/*!40000 ALTER TABLE `eve_ship_types` ENABLE KEYS */;
-UNLOCK TABLES;

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="eve_intel_server.Domain" assembly="eve-intel-server">
+
+  <class name="EveMapRegion" table="EveMapRegions">
+    <id name="Id" />
+    <property name="Name" />
+  </class>
+
+  <class name="EveMapSolarsystem" table="EveMapSolarsystems">
+    <id name="Id" />
+    <property name="Name" />
+    <many-to-one name="Region" class="EveMapRegion" />
+  </class>
+
+  <class name="EveMapSolarsystemJump" table="EveMapSolarsystemJumps">
+    <composite-id>
+      <key-many-to-one name="FromSolarsystem" class="EveMapSolarsystem" />
+      <key-many-to-one name="ToSolarsystem" class="EveMapSolarsystem" />
+    </composite-id>
+  </class>
+
+  <class name="EveRace" table="EveRaces">
+    <id name="Id" />
+    <property name="Name" />
+  </class>
+
+  <class name="EveShipType" table="EveShipTypes">
+    <id name="Id" />
+    <property name="Name" />
+  </class>
+
+  <class name="EveShipInfo" table="EveShipInfos">
+    <id name="Id" />
+    <property name="ShipName" />
+    <many-to-one name="ShipType" class="EveShipType" />
+    <property name="TechLevel" />
+    <many-to-one name="Race" class="EveRace" />
+  </class>
+
+  <class name="EvePlayerInfo" table="EvePlayerInfos">
+    <id name="Id" />
+    <property name="PlayerId" />
+    <many-to-one name="ShipInfo" class="EveShipInfo" />
+    <property name="ShipInfoTime" />
+    <many-to-one name="Solarsystem" class="EveMapSolarsystem" />
+    <property name="SolarsystemTime" />
+  </class>
+
+</hibernate-mapping>
