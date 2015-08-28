@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eve-intel-server", "eve-intel-server\eve-intel-server.csproj", "{F8993D0C-396A-4D94-9DBB-607EB7A1AA24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eve-intel-map", "eve-intel-map\eve-intel-map.csproj", "{8243D770-37CA-446D-8997-A6D21AF9DC67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F8993D0C-396A-4D94-9DBB-607EB7A1AA24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8993D0C-396A-4D94-9DBB-607EB7A1AA24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8993D0C-396A-4D94-9DBB-607EB7A1AA24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8243D770-37CA-446D-8997-A6D21AF9DC67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8243D770-37CA-446D-8997-A6D21AF9DC67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8243D770-37CA-446D-8997-A6D21AF9DC67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8243D770-37CA-446D-8997-A6D21AF9DC67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
