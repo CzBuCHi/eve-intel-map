@@ -38,15 +38,46 @@
     <many-to-one name="Race" class="EveRace" />
   </class>
 
-  <class name="EvePlayerInfo" table="EvePlayerInfos">
+  <class name="CvaCharacterInfo" table="CvaCharacterInfos">
     <id name="Id" />
-    <property name="PlayerName" />
-    <property name="IsKos" />
+    <property name="Type" />
+    <property name="Label" />
+    <property name="Icon" />
+    <property name="Kos" />
+    <property name="EveId" />
+    <many-to-one name="Corp" class="CvaCorporationInfo" />
+  </class>
+
+  <class name="CvaCorporationInfo" table="CvaCorporationInfos">
+    <id name="Id" />
+    <property name="Type" />
+    <property name="Label" />
+    <property name="Icon" />
+    <property name="Kos" />
+    <property name="EveId" />
+    <property name="Ticker" />
+    <property name="Npc" />
+    <many-to-one name="Alliance" class="CvaAllianceInfo" />
+  </class>
+
+  <class name="CvaAllianceInfo" table="CvaAllianceInfos">
+    <id name="Id" />
+    <property name="Type" />
+    <property name="Label" />
+    <property name="Icon" />
+    <property name="Kos" />
+    <property name="EveId" />
+    <property name="Ticker" />
+  </class>
+
+  <class name="IntelData" table="IntelData">
+    <id name="Id" />
+    <one-to-one name="Character" class="CvaCharacterInfo" />
     <many-to-one name="ShipInfo" class="EveShipInfo" />
-    <property name="ShipInfoTime" />
-    <property name="IsShipInfoConfirmed" />
+    <property name="ShipInfoDate" />
+    <property name="ShipInfoConfirmed" />
     <many-to-one name="Solarsystem" class="EveMapSolarsystem" />
-    <property name="SolarsystemTime" />
+    <property name="SolarsystemDate" />
   </class>
 
 </hibernate-mapping>

@@ -30,4 +30,9 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SecondConnection">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

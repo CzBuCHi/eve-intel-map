@@ -32,5 +32,11 @@ namespace eve_intel_server.Service
         /// <param name="clientCount">Actual client count</param>
         [OperationContract(IsOneWay = true)]
         void ClientCountUpdate(int clientCount);
+
+        /// <summary>
+        /// Server informs client, that another client was trying to connect with save keyId and vCode
+        /// </summary>
+        [OperationContract(IsOneWay = true)]
+        void SecondConnection();
     }
 }

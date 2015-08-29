@@ -47,6 +47,9 @@
   <wsdl:message name="IEveIntel_ClientCountUpdate_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ClientCountUpdate" />
   </wsdl:message>
+  <wsdl:message name="IEveIntel_SecondConnection_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SecondConnection" />
+  </wsdl:message>
   <wsdl:portType name="IEveIntel">
     <wsdl:operation name="Connect">
       <wsdl:input wsaw:Action="http://tempuri.org/IEveIntel/Connect" message="tns:IEveIntel_Connect_InputMessage" />
@@ -57,6 +60,9 @@
     </wsdl:operation>
     <wsdl:operation name="ClientCountUpdate">
       <wsdl:output wsaw:Action="http://tempuri.org/IEveIntel/ClientCountUpdate" message="tns:IEveIntel_ClientCountUpdate_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SecondConnection">
+      <wsdl:output wsaw:Action="http://tempuri.org/IEveIntel/SecondConnection" message="tns:IEveIntel_SecondConnection_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IEveIntel" type="tns:IEveIntel">
@@ -79,6 +85,12 @@
     </wsdl:operation>
     <wsdl:operation name="ClientCountUpdate">
       <soap12:operation soapAction="http://tempuri.org/IEveIntel/ClientCountUpdate" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecondConnection">
+      <soap12:operation soapAction="http://tempuri.org/IEveIntel/SecondConnection" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

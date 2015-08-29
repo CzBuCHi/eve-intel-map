@@ -44,16 +44,52 @@ CREATE TABLE [EveShipInfos] (
     FOREIGN KEY([Race]) REFERENCES [EveRaces](Id)
 );
 
-CREATE TABLE [EvePlayerInfos] (
+CREATE TABLE [CvaAllianceInfos] (
 	[Id] INTEGER NOT NULL PRIMARY KEY,	
-    [PlayerName] TEXT NOT NULL,
-    [IsKos] BIT NOT NULL,
-	[ShipInfo] INTEGER NULL,    
-	[ShipInfoTime] DATE NULL,
-    [IsShipInfoConfirmed] BIT NOT NULL,
-	[Solarsystem] INTEGER NULL,
-	[SolarsystemTime] DATE NULL,
+    [Type] TEXT NOT NULL,
+    [Label] TEXT NOT NULL,
+	[Icon] TEXT NOT NULL,    
+	[Kos] BIT NOT NULL,
+    [EveId] INTEGER NOT NULL,
+	[Ticker] TEXT NOT NULL
+);
 
-	FOREIGN KEY([ShipInfo]) REFERENCES [EveShipInfos](Id),
+CREATE TABLE [CvaCorporationInfos] (
+	[Id] INTEGER NOT NULL PRIMARY KEY,	
+    [Type] TEXT NOT NULL,
+    [Label] TEXT NOT NULL,
+	[Icon] TEXT NOT NULL,    
+	[Kos] BIT NOT NULL,
+    [EveId] INTEGER NOT NULL,
+	[Ticker] TEXT NOT NULL,
+    [Npc] BIT NOT NULL,
+	[Alliance] INTEGER NULL,
+
+	FOREIGN KEY([Alliance]) REFERENCES [CvaAllianceInfos](Id)    
+);
+
+CREATE TABLE [CvaCharacterInfos] (
+	[Id] INTEGER NOT NULL PRIMARY KEY,	
+    [Type] TEXT NOT NULL,
+    [Label] TEXT NOT NULL,
+	[Icon] TEXT NULL,    
+	[Kos] BIT NULL,
+    [EveId] INTEGER NOT NULL,
+	[Corp] INTEGER NOT NULL,
+
+	FOREIGN KEY([Corp]) REFERENCES [CvaCorporationInfos](Id)
+);
+
+CREATE TABLE [IntelData] (
+	[Id] INTEGER NOT NULL PRIMARY KEY,	
+    [Character] INTEGER NOT NULL,
+    [ShipInfo] INTEGER NULL,
+    [ShipInfoDate] DATE NULL,
+    [ShipInfoConfirmed] BIT NOT NULL,
+    [Solarsystem] INTEGER NULL,
+    [SolarsystemDate] DATE NULL,
+
+    FOREIGN KEY([Character]) REFERENCES [CvaCharacterInfos](Id),
+    FOREIGN KEY([ShipInfo]) REFERENCES [EveShipInfos](Id),
     FOREIGN KEY([Solarsystem]) REFERENCES [EveMapSolarsystems](Id)
 );

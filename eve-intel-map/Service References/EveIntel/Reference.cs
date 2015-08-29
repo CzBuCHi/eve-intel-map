@@ -33,6 +33,9 @@ namespace eve_intel_map.EveIntel {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEveIntel/ClientCountUpdate")]
         void ClientCountUpdate(int clientCount);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEveIntel/SecondConnection")]
+        void SecondConnection();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

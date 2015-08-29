@@ -12,7 +12,7 @@
 <body>
 <ul>
     <%
-        using (ISession session = DataHelper.GetCurrentSession()) {
+        using (ISession session = DataHelper.OpenSession()) {
             EveShipInfo[] ships = session.Query<EveShipInfo>().ToArray();
 
 
