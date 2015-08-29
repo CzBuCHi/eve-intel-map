@@ -4,8 +4,6 @@ client - server interactions:
 <= server broadcast to all active clients
 
 [connect]
--> hello
-            <- hi
 -> player api key   
             kos check on all player characters (http://kos.cva-eve.org/api/?c=json&type=unit&q={1})
             if kos

@@ -22,6 +22,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,18 +42,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EveAI.Core, Version=2.6.0.0, Culture=neutral, PublicKeyToken=670e812152ebd673, processorArchitecture=MSIL">
+      <HintPath>..\packages\EVEAI.2.6.0.0\lib\net20\EveAI.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EveAI.Live, Version=2.6.0.0, Culture=neutral, PublicKeyToken=670e812152ebd673, processorArchitecture=MSIL">
+      <HintPath>..\packages\EVEAI.2.6.0.0\lib\net20\EveAI.Live.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ionic.Zip.Reduced, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EVEAI.2.6.0.0\lib\net20\Ionic.Zip.Reduced.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -71,13 +91,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.aspx" />
-    <Content Include="Design\Init.sql" />
+    <Content Include="Design\Insert.sql" />
+    <Content Include="Design\Create.sql" />
     <EmbeddedResource Include="Mappings\nhibernate.hbm.xml" />
-    <Content Include="Global.asax" />
-    <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CvaKos\CvaClient.cs" />
+    <Compile Include="CvaKos\CvaInfo.cs" />
     <Compile Include="DataHelper.cs" />
     <Compile Include="Domain\EvePlayerInfo.cs" />
     <Compile Include="Domain\EveMapRegion.cs" />
@@ -86,14 +106,10 @@
     <Compile Include="Domain\EveRace.cs" />
     <Compile Include="Domain\EveShipInfo.cs" />
     <Compile Include="Domain\EveShipType.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Properties\JetBrains.Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="eve-intel-map.db3" />
+    <Compile Include="Service\EveIntel.cs" />
+    <Compile Include="Service\IEveIntel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

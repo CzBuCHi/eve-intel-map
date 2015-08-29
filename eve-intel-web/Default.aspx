@@ -12,17 +12,17 @@
 <body>
 <ul>
     <%
-        EveRace[] races;
         using (ISession session = DataHelper.GetCurrentSession()) {
-            races = session.Query<EveRace>().ToArray();
-        }
-        
-        foreach (EveRace race in races) {
+            EveShipInfo[] ships = session.Query<EveShipInfo>().ToArray();
+
+
+            foreach (EveShipInfo ship in ships) {
     %>
         <li>
-            <%= race.Id %> - <%= race.Name %>
+            <%= ship.Id %> - <%= ship.ShipName %> - <%= ship.Race.Name %> - T<%= ship.TechLevel %> - <%= ship.ShipType.Name %>
         </li>
-    <%	
+    <%
+            }
         }
     %>
 </ul>

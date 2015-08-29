@@ -1,11 +1,16 @@
-﻿namespace eve_intel_server.Domain
+﻿using JetBrains.Annotations;
+
+namespace eve_intel_server.Domain
 {
     public class EveMapSolarsystem
     {
-        public virtual long Id { get; set; }
-        public virtual string Name { get; set; }
-        public virtual long? RegionId => Region?.Id;
+        public virtual long Id { get; protected set; }
 
-        public virtual EveMapRegion Region { get; set; }
+        [NotNull]
+        public virtual string Name { get; protected set; }
+        public virtual long RegionId => Region.Id;
+
+        [NotNull]
+        public virtual EveMapRegion Region { get; protected set; }
     }
 }

@@ -6,20 +6,12 @@ namespace eve_intel_server.Domain
     {
         public virtual long FromSolarsystemId => FromSolarsystem.Id;
         public virtual long ToSolarsystemId => ToSolarsystem.Id;
-        public virtual long FromRegionId => FromRegion.Id;
-        public virtual long ToRegionId => ToRegion.Id;
 
         [NotNull]
-        public virtual EveMapSolarsystem FromSolarsystem { get; set; }
+        public virtual EveMapSolarsystem FromSolarsystem { get; protected set; }
 
         [NotNull]
-        public virtual EveMapSolarsystem ToSolarsystem { get; set; }
-
-        [NotNull]
-        public virtual EveMapRegion FromRegion { get; set; }
-
-        [NotNull]
-        public virtual EveMapRegion ToRegion { get; set; }
+        public virtual EveMapSolarsystem ToSolarsystem { get; protected set; }
 
         public override bool Equals(object obj) {
             if (ReferenceEquals(null, obj)) {
@@ -34,12 +26,12 @@ namespace eve_intel_server.Domain
             return Equals((EveMapSolarsystemJump) obj);
         }
 
-        protected bool Equals(EveMapSolarsystemJump other) {
-            return Equals(FromSolarsystem, other.FromSolarsystem) && Equals(ToSolarsystem, other.ToSolarsystem);
+        protected bool Equals([NotNull] EveMapSolarsystemJump other) {
+            return FromSolarsystem.Equals(other.FromSolarsystem) && ToSolarsystem.Equals(other.ToSolarsystem);
         }
 
         public override int GetHashCode() {
-            unchecked {                
+            unchecked {
                 // ReSharper disable NonReadonlyMemberInGetHashCode
                 return (FromSolarsystem.GetHashCode()*397) ^ ToSolarsystem.GetHashCode();
                 // ReSharper restore NonReadonlyMemberInGetHashCode

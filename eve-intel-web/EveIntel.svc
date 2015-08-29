@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Service="eve_intel_server.Service.EveIntel" %>
