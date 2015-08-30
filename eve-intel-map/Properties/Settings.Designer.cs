@@ -118,5 +118,17 @@ namespace eve_intel_map.Properties {
                 this["intelLogName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long currentSystemId {
+            get {
+                return ((long)(this["currentSystemId"]));
+            }
+            set {
+                this["currentSystemId"] = value;
+            }
+        }
     }
 }

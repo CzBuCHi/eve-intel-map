@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 
-namespace eve_intel_server.Domain
+namespace eve_intel_server.Model
 {
     public class EveShipInfo
     {

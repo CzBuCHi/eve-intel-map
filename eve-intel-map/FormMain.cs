@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.ServiceModel;
 using System.Windows.Forms;
 using eve_intel_map.EveIntel;
+using eve_intel_map.Model;
+using eve_intel_map.Properties;
 
 namespace eve_intel_map
 {
@@ -13,23 +16,25 @@ namespace eve_intel_map
         public FormMain() {
             InitializeComponent();
             _EveIntel = new EveIntelClient(new InstanceContext(this));
+
+            EveMapSolarsystem[] eveMapSolarsystems = DbHelper.DataContext.SolarSystems.ToArray();
+            comboBox1.DataSource = eveMapSolarsystems;
+            if (Settings.Default.currentSystemId != 0) {
+                comboBox1.SelectedIndex = Array.FindIndex(eveMapSolarsystems, system => system.Id == Settings.Default.currentSystemId);
+                EveMapSolarsystem solarsystem = (EveMapSolarsystem)comboBox1.SelectedItem;
+                map1.CurrentSystemName = solarsystem.Name;
+            } else {
+                comboBox1.SelectedIndex = 0;
+            }
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
         }
 
-        #region Implementation of IEveIntelCallback
-
-        public void ClientCountUpdate(int clientCount) {
-            label1.Text = @"clients: " + clientCount;
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
+            EveMapSolarsystem solarsystem = (EveMapSolarsystem) comboBox1.SelectedItem;
+            map1.CurrentSystemName = solarsystem.Name;
+            Settings.Default.currentSystemId = solarsystem.Id;
+            Settings.Default.Save();
         }
-
-        public void SecondConnection() {
-            MessageBox.Show(@"Second connection to server detected! Disconnection both.");
-            _ClientId = Guid.Empty;
-            button2.Enabled = true;
-            button3.Enabled = false;
-            label1.Text = @"clients: disconnected";
-        }
-
-        #endregion
 
         private void button2_Click(object sender, EventArgs e) {
             Guid? id = _EveIntel.Connect(4637402, "H9TKjC7jatai0Ms97LL9zChRTFhdfdNr67IF5VcFbMG6T6Yr4oXkFWJPn0h4UOfp");
@@ -51,6 +56,26 @@ namespace eve_intel_map
             button2.Enabled = true;
             button3.Enabled = false;
             label1.Text = @"clients: disconnected";
+        }
+
+        #region Implementation of IEveIntelCallback
+
+        public void ClientCountUpdate(int clientCount) {
+            label1.Text = @"clients: " + clientCount;
+        }
+
+        public void SecondConnection() {
+            MessageBox.Show(@"Second connection to server detected! Disconnection both.");
+            _ClientId = Guid.Empty;
+            button2.Enabled = true;
+            button3.Enabled = false;
+            label1.Text = @"clients: disconnected";
+        }
+
+        #endregion
+
+        private void FormMain_Load(object sender, EventArgs e) {
+
         }
     }
 }

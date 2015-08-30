@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace eve_intel_server.Domain
+namespace eve_intel_server.Model
 {
     public class CvaCharacterInfo : CvaBaseInfo
     {

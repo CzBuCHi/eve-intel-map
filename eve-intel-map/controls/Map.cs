@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
+using eve_intel_map.Model;
 using Microsoft.Msagl.Core.Routing;
 using Microsoft.Msagl.Drawing;
 using Microsoft.Msagl.Layout.MDS;
@@ -58,11 +59,7 @@ namespace eve_intel_map.controls
             try {
                 lock (_Nodes) {
                     foreach (Node node in _Nodes.Values) {
-                        if (node.LabelText == CurrentSystemName) {
-                            node.Attr.FillColor = Color.GreenYellow;
-                        } else {
-                            node.Attr.FillColor = Color.Transparent;
-                        }
+                        node.Attr.FillColor = node.LabelText == CurrentSystemName ? Color.GreenYellow : Color.Transparent;
                     }
                     foreach (KeyValuePair<string, DateTime> pair in Intel) {
                         Node node;
@@ -143,60 +140,57 @@ namespace eve_intel_map.controls
         }
 
         private IEnumerable<SystemInfo> GetConnected(IEnumerable<SystemInfo> prev, int[] prevIds) {
-            //foreach (SystemInfo o in prev) {
-            //    IQueryable<SolarSystem> q = from o3 in DbHelper.DataContext.SolarSystemJumps
-            //            join o4 in DbHelper.DataContext.SolarSystems on o3.ToSolarsystemId equals o4.Id
-            //            where o3.FromSolarsystemId == o.Id
-            //            select o4;
+            foreach (SystemInfo o in prev) {
+                IQueryable<EveMapSolarsystem> q = from jump in DbHelper.DataContext.SolarSystemJumps
+                                                  join system in DbHelper.DataContext.SolarSystems on jump.ToSolarsystem equals system.Id
+                                                  where jump.FromSolarsystem == o.Id
+                                                  select system;
 
-            //    foreach (SolarSystem o2 in q) {
-            //        o.Childrens++;
-            //        if (prevIds.Contains(o2.Id)) {
-            //            continue;
-            //        }
-            //        yield return new SystemInfo {
-            //            Id = o2.Id,
-            //            Parent = o,
-            //            Name = o2.SolarSystemName
-            //        };
-            //    }
-            //}
-            yield break;
+                foreach (EveMapSolarsystem o2 in q) {
+                    o.Childrens++;
+                    if (prevIds.Contains(o2.Id)) {
+                        continue;
+                    }
+                    yield return new SystemInfo {
+                        Id = o2.Id,
+                        Parent = o,
+                        Name = o2.Name
+                    };
+                }
+            }
         }
 
         private void GetSystems(out Dictionary<int, SystemInfo> infos, out SystemInfo[][] systemsByJumps) {
-            infos = new Dictionary<int, SystemInfo>();
-            systemsByJumps = new SystemInfo[0][];
 
-            //    IEnumerable<SystemInfo> current = from o in DbHelper.DataContext.SolarSystems
-            //                                      where o.SolarSystemName == _CurrentSystemName
-            //                                      select new SystemInfo {
-            //                                          Id = o.Id,
-            //                                          Name = o.SolarSystemName
-            //                                      };
+               IEnumerable<SystemInfo> current = from system in DbHelper.DataContext.SolarSystems
+                                                 where system.Name == _CurrentSystemName
+                                                 select new SystemInfo {
+                                                     Id = system.Id,
+                                                     Name = system.Name
+                                                 };
 
-            //    current = current.ToArray();
+               current = current.ToArray();
 
-            //    List<SystemInfo[]> jumps = new List<SystemInfo[]> {(SystemInfo[]) current};
-            //    SystemInfo[] total = current.ToArray();
+               List<SystemInfo[]> jumps = new List<SystemInfo[]> {(SystemInfo[]) current};
+               SystemInfo[] total = current.ToArray();
 
-            //    while (total.Length < MaxVisibleSystems) {
-            //        SystemInfo[] next = GetConnected(current, total.Select(o => o.Id).ToArray()).ToArray();
-            //        if (total.Length + next.Length > 20) {
-            //            int count = MaxVisibleSystems - total.Length;
-            //            if (count < next.Length) {
-            //                SystemInfo[] array = new SystemInfo[count];
-            //                Array.Copy(next, array, count);
-            //                next = array;
-            //            }
-            //        }
-            //        total = total.Union(next).ToArray();
-            //        jumps.Add(next);
-            //        current = next;
-            //    }
+               while (total.Length < MaxVisibleSystems) {
+                   SystemInfo[] next = GetConnected(current, total.Select(o => o.Id).ToArray()).ToArray();
+                   if (total.Length + next.Length > 20) {
+                       int count = MaxVisibleSystems - total.Length;
+                       if (count < next.Length) {
+                           SystemInfo[] array = new SystemInfo[count];
+                           Array.Copy(next, array, count);
+                           next = array;
+                       }
+                   }
+                   total = total.Union(next).ToArray();
+                   jumps.Add(next);
+                   current = next;
+               }
 
-            //    infos = total.ToDictionary(o => o.Id);
-            //    systemsByJumps = jumps.ToArray();
+               infos = total.ToDictionary(o => o.Id);
+               systemsByJumps = jumps.ToArray();
         }
 
         private void Map_SizeChanged(object sender, EventArgs e) {

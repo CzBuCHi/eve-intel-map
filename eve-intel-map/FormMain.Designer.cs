@@ -28,6 +28,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.map1 = new eve_intel_map.controls.Map();
             this.SuspendLayout();
             // 
             // label1
@@ -59,16 +61,42 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.DisplayMember = "Name";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(53, 166);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 7;
+            // 
+            // map1
+            // 
+            this.map1.BackColor = System.Drawing.Color.White;
+            this.map1.CurrentSystemName = null;
+            this.map1.IntelShowDuration = 10;
+            this.map1.KosShowDuration = 20;
+            this.map1.Location = new System.Drawing.Point(269, 12);
+            this.map1.MaxVisibleSystems = 20;
+            this.map1.Name = "map1";
+            this.map1.Size = new System.Drawing.Size(862, 600);
+            this.map1.TabIndex = 6;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 320);
+            this.ClientSize = new System.Drawing.Size(1184, 660);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.map1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Name = "FormMain";
             this.Text = "FormMain";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,6 +106,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private controls.Map map1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

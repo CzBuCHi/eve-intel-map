@@ -1,13 +1,13 @@
 ﻿using NHibernate;
 using NHibernate.Cfg;
 
-namespace eve_intel_server
+namespace eve_intel_server.Model
 {
-    public static class DataHelper
+    public static class DataContext
     {
         private static readonly ISessionFactory _SessionFactory;
 
-        static DataHelper() {
+        static DataContext() {
             _SessionFactory = new Configuration().Configure().BuildSessionFactory();
         }
 

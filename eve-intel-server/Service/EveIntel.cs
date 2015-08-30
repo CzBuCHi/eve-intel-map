@@ -4,7 +4,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading;
 using eve_intel_server.CvaKos;
-using eve_intel_server.Domain;
+using eve_intel_server.Model;
 using EveAI.Live;
 using EveAI.Live.Account;
 using JetBrains.Annotations;
@@ -27,7 +27,7 @@ namespace eve_intel_server.Service
             long[] characterIds = characters.Select(o => o.CharacterID).ToArray();
 
             CvaCharacterInfo[] result = new CvaCharacterInfo[characters.Length];
-            using (ISession session = DataHelper.OpenSession()) {
+            using (ISession session = DataContext.OpenSession()) {
                 // try read info from local db
                 IQueryable<CvaCharacterInfo> q = from o in session.Query<CvaCharacterInfo>()
                                                  where characterIds.Contains(o.EveId)

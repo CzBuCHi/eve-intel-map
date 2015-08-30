@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Net;
-using eve_intel_server.Domain;
+using eve_intel_server.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 

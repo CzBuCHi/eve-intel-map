@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using NHibernate;
 using NHibernate.Linq;
 
-namespace eve_intel_server.Domain
+namespace eve_intel_server.Model
 {
     public class IntelData
     {
@@ -21,10 +21,8 @@ namespace eve_intel_server.Domain
 
         public virtual DateTime? ShipInfoDate { get; set; }
         public virtual bool ShipInfoConfirmed { get; set; }
-        public virtual long? SolarsystemId => Solarsystem?.Id;
 
-        [CanBeNull]
-        public virtual EveMapSolarsystem Solarsystem { get; set; }
+        public virtual long Solarsystem { get; set; }
 
         public virtual DateTime? SolarsystemDate { get; set; }
 
@@ -34,10 +32,6 @@ namespace eve_intel_server.Domain
 
         public virtual void SetShipInfoId(long? value, ISession session) {
             ShipInfo = value == null ? null : session.Query<EveShipInfo>().First(o => o.Id == value.Value);
-        }
-
-        public virtual void SetSolarsystemId(long? value, ISession session) {
-            Solarsystem = value == null ? null : session.Query<EveMapSolarsystem>().First(o => o.Id == value.Value);
         }
     }
 }

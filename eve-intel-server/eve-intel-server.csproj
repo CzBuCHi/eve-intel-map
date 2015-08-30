@@ -91,25 +91,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Design\Insert.sql" />
     <Content Include="Design\Create.sql" />
     <EmbeddedResource Include="Mappings\nhibernate.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CvaKos\CvaClient.cs" />
-    <Compile Include="DataHelper.cs" />
-    <Compile Include="Domain\CvaAllianceInfo.cs" />
-    <Compile Include="Domain\CvaBaseInfo.cs" />
-    <Compile Include="Domain\CvaCharacterInfo.cs" />
-    <Compile Include="Domain\CvaCorporationInfo.cs" />
-    <Compile Include="Domain\EvePlayerInfo.cs" />
-    <Compile Include="Domain\EveMapRegion.cs" />
-    <Compile Include="Domain\EveMapSolarsystem.cs" />
-    <Compile Include="Domain\EveMapSolarsystemJump.cs" />
-    <Compile Include="Domain\EveRace.cs" />
-    <Compile Include="Domain\EveShipInfo.cs" />
-    <Compile Include="Domain\EveShipType.cs" />
-    <Compile Include="Domain\IntelData.cs" />
+    <Compile Include="Model\DataContext.cs" />
+    <Compile Include="Model\CvaAllianceInfo.cs" />
+    <Compile Include="Model\CvaBaseInfo.cs" />
+    <Compile Include="Model\CvaCharacterInfo.cs" />
+    <Compile Include="Model\CvaCorporationInfo.cs" />
+    <Compile Include="Model\EveRace.cs" />
+    <Compile Include="Model\EveShipInfo.cs" />
+    <Compile Include="Model\EveShipType.cs" />
+    <Compile Include="Model\IntelData.cs" />
     <Compile Include="Properties\JetBrains.Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EveIntel.cs" />

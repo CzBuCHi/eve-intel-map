@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" %>
 <%@ Import Namespace="eve_intel_server" %>
-<%@ Import Namespace="eve_intel_server.Domain" %>
+<%@ Import Namespace="eve_intel_server.Model" %>
 <%@ Import Namespace="log4net" %>
 <%@ Import Namespace="NHibernate" %>
 <%@ Import Namespace="NHibernate.Linq" %>
@@ -12,7 +12,7 @@
 <body>
 <ul>
     <%
-        using (ISession session = DataHelper.OpenSession()) {
+        using (ISession session = DataContext.OpenSession()) {
             EveShipInfo[] ships = session.Query<EveShipInfo>().ToArray();
 
 
