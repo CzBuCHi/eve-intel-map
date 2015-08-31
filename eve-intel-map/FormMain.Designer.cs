@@ -29,7 +29,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.map1 = new eve_intel_map.controls.Map();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.mapControl1 = new eve_intel_map.controls.MapControl();
             this.SuspendLayout();
             // 
             // label1
@@ -66,31 +67,44 @@
             this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox1.DisplayMember = "Name";
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(53, 166);
+            this.comboBox1.Location = new System.Drawing.Point(15, 99);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 7;
             // 
-            // map1
+            // comboBox2
             // 
-            this.map1.BackColor = System.Drawing.Color.White;
-            this.map1.CurrentSystemName = null;
-            this.map1.IntelShowDuration = 10;
-            this.map1.KosShowDuration = 20;
-            this.map1.Location = new System.Drawing.Point(269, 12);
-            this.map1.MaxVisibleSystems = 20;
-            this.map1.Name = "map1";
-            this.map1.Size = new System.Drawing.Size(862, 600);
-            this.map1.TabIndex = 6;
+            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox2.DisplayMember = "Name";
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(15, 171);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 8;
+            // 
+            // mapControl1
+            // 
+            this.mapControl1.CurrentSystem = ((long)(0));
+            this.mapControl1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.mapControl1.Location = new System.Drawing.Point(192, 0);
+            this.mapControl1.MaxVisibleSystems = 20;
+            this.mapControl1.Name = "mapControl1";
+            this.mapControl1.RegionId = null;
+            this.mapControl1.Size = new System.Drawing.Size(1327, 660);
+            this.mapControl1.TabIndex = 9;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 660);
+            this.ClientSize = new System.Drawing.Size(1519, 660);
+            this.Controls.Add(this.mapControl1);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.map1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
@@ -106,8 +120,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private controls.Map map1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private controls.MapControl mapControl1;
     }
 }
 

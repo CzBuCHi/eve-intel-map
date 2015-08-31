@@ -20,18 +20,21 @@ namespace eve_intel_map
             EveMapSolarsystem[] eveMapSolarsystems = DbHelper.DataContext.SolarSystems.ToArray();
             comboBox1.DataSource = eveMapSolarsystems;
             if (Settings.Default.currentSystemId != 0) {
-                comboBox1.SelectedIndex = Array.FindIndex(eveMapSolarsystems, system => system.Id == Settings.Default.currentSystemId);
-                EveMapSolarsystem solarsystem = (EveMapSolarsystem)comboBox1.SelectedItem;
-                map1.CurrentSystemName = solarsystem.Name;
+                comboBox1.SelectedIndex = Array.FindIndex(eveMapSolarsystems, system => system.Id == Settings.Default.currentSystemId);                                
             } else {
                 comboBox1.SelectedIndex = 0;
             }
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+
+            comboBox2.DataSource = DbHelper.DataContext.Regions.ToArray();
+            comboBox2.SelectedIndex = -1;
+            comboBox2.SelectedIndexChanged += this.comboBox2_SelectedIndexChanged;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
-            EveMapSolarsystem solarsystem = (EveMapSolarsystem) comboBox1.SelectedItem;
-            map1.CurrentSystemName = solarsystem.Name;
+            EveMapSolarsystem solarsystem = (EveMapSolarsystem) comboBox1.SelectedItem;            
+            mapControl1.CurrentSystem = solarsystem.Id;
+
             Settings.Default.currentSystemId = solarsystem.Id;
             Settings.Default.Save();
         }
@@ -76,6 +79,11 @@ namespace eve_intel_map
 
         private void FormMain_Load(object sender, EventArgs e) {
 
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) {
+            EveMapRegion region = (EveMapRegion)comboBox2.SelectedItem;
+            mapControl1.RegionId = region.Id;
         }
     }
 }
