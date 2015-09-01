@@ -26,6 +26,10 @@
         /// </summary>
         private void InitializeComponent() {
             this.gViewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+            this.dataSet = new eve_intel_map.Data.DataSet();
+            this.eveMapSolarsystemsTableAdapter = new eve_intel_map.Data.DataSetTableAdapters.EveMapSolarsystemsTableAdapter();
+            this.eveMapSolarsystemJumpsTableAdapter = new eve_intel_map.Data.DataSetTableAdapters.EveMapSolarsystemJumpsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // gViewer
@@ -68,12 +72,26 @@
             this.gViewer.ZoomWhenMouseWheelScroll = false;
             this.gViewer.ZoomWindowThreshold = 0.05D;
             // 
+            // dataSet
+            // 
+            this.dataSet.DataSetName = "DataSet";
+            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // eveMapSolarsystemsTableAdapter
+            // 
+            this.eveMapSolarsystemsTableAdapter.ClearBeforeFill = true;
+            // 
+            // eveMapSolarsystemJumpsTableAdapter
+            // 
+            this.eveMapSolarsystemJumpsTableAdapter.ClearBeforeFill = true;
+            // 
             // MapControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gViewer);
             this.Name = "MapControl";
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -81,5 +99,8 @@
         #endregion
 
         private Microsoft.Msagl.GraphViewerGdi.GViewer gViewer;
+        private Data.DataSet dataSet;
+        private Data.DataSetTableAdapters.EveMapSolarsystemsTableAdapter eveMapSolarsystemsTableAdapter;
+        private Data.DataSetTableAdapters.EveMapSolarsystemJumpsTableAdapter eveMapSolarsystemJumpsTableAdapter;
     }
 }

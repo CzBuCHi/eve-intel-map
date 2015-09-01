@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using eve_intel_map.Model;
+using eve_intel_map.Data;
 using JetBrains.Annotations;
 using Microsoft.Msagl.Core.Routing;
 using Microsoft.Msagl.Drawing;
@@ -17,6 +17,8 @@ namespace eve_intel_map.controls
 
         public MapControl() {
             InitializeComponent();
+            eveMapSolarsystemsTableAdapter.Fill(dataSet.EveMapSolarsystems);
+            eveMapSolarsystemJumpsTableAdapter.Fill(dataSet.EveMapSolarsystemJumps);
         }
 
         public int MaxVisibleSystems { get; set; } = 20;
@@ -43,7 +45,7 @@ namespace eve_intel_map.controls
             }
         }
 
-        private readonly Dictionary<int, Node> _Nodes = new Dictionary<int, Node>();
+        private readonly Dictionary<long, Node> _Nodes = new Dictionary<long, Node>();
 
         private void UpdateGraph() {
             gViewer.Graph = null;
@@ -63,7 +65,7 @@ namespace eve_intel_map.controls
         }
 
         private void CreateNodesAndEdges([NotNull] Graph graph, [NotNull] IEnumerable<SystemInfo> systems) {
-            Dictionary<int, HashSet<int>> dict = new Dictionary<int, HashSet<int>>();
+            Dictionary<long, HashSet<long>> dict = new Dictionary<long, HashSet<long>>();
 
             lock (_Nodes) {
                 _Nodes.Clear();
@@ -78,9 +80,9 @@ namespace eve_intel_map.controls
                         continue;
                     }
 
-                    HashSet<int> list;
+                    HashSet<long> list;
                     if (!dict.TryGetValue(info.Parent.Id, out list)) {
-                        list = new HashSet<int>();
+                        list = new HashSet<long>();
                         dict[info.Parent.Id] = list;
                     }
                     if (!list.Contains(info.System.Id)) {
@@ -90,8 +92,8 @@ namespace eve_intel_map.controls
             }
 
             HashSet<string> edges = new HashSet<string>();
-            foreach (KeyValuePair<int, HashSet<int>> pair in dict) {
-                foreach (int item in pair.Value) {
+            foreach (KeyValuePair<long, HashSet<long>> pair in dict) {
+                foreach (long item in pair.Value) {
                     if (edges.Contains(item + "-" + pair.Key)) {
                         continue;
                     }
@@ -106,29 +108,31 @@ namespace eve_intel_map.controls
 
         private IEnumerable<SystemInfo> GetSystems() {
 
-            IEnumerable<SystemInfo> current = from system in DbHelper.DataContext.SolarSystems
-                                              where system.Id == CurrentSystem
-                                              select new SystemInfo {
-                                                  System = system
-                                              };
-
+            // find current system
+            IEnumerable<SystemInfo> q = from system in dataSet.EveMapSolarsystems
+                                        where system.Id == CurrentSystem
+                                        select new SystemInfo {
+                                            System = system
+                                        };
             if (RegionId != null) {
-                current = from system in current
-                          where system.System.RegionId == RegionId.Value
-                          select system;
+                q = from system in q
+                    where system.System.RegionId == RegionId.Value
+                    select system;
+            }
 
-                current = current.ToArray();
-                if (!current.Any()) {
-                    current = (from system in DbHelper.DataContext.SolarSystems
+            SystemInfo[] current = q.ToArray();
+            if (current.Length == 0) {
+                // current system is not in specified region - pick first system in region as current
+                if (RegionId != null) {
+                    current = (from system in dataSet.EveMapSolarsystems
                                where system.RegionId == RegionId
                                select new SystemInfo {
                                    System = system
-                               }).Take(1);
-
+                               }).Take(1).ToArray();
+                } else {
+                    return Enumerable.Empty<SystemInfo>();
                 }
             }
-            current = current.ToArray();
-
 
             SystemInfo[] total = current.ToArray();
             while (RegionId != null || total.Length < MaxVisibleSystems) {
@@ -153,19 +157,19 @@ namespace eve_intel_map.controls
         }
 
         [NotNull]
-        private IEnumerable<SystemInfo> GetConnected([NotNull] IEnumerable<SystemInfo> prev, [NotNull] int[] prevIds) {
+        private IEnumerable<SystemInfo> GetConnected([NotNull] IEnumerable<SystemInfo> prev, [NotNull] long[] prevIds) {
             foreach (SystemInfo o in prev) {
-                IQueryable<EveMapSolarsystem> q = from jump in DbHelper.DataContext.SolarSystemJumps
-                                                  join system in DbHelper.DataContext.SolarSystems on jump.ToSolarsystem equals system.Id
-                                                  where jump.FromSolarsystem == o.System.Id
-                                                  select system;
+                IEnumerable<DataSet.EveMapSolarsystemsRow> q = from jump in dataSet.EveMapSolarsystemJumps
+                                                               join system in dataSet.EveMapSolarsystems on jump.ToSolarsystem equals system.Id
+                                                               where jump.FromSolarsystem == o.System.Id
+                                                               select system;
                 if (RegionId != null) {
                     q = from system in q
                         where system.RegionId == RegionId.Value
                         select system;
                 }
 
-                foreach (EveMapSolarsystem o2 in q) {
+                foreach (var o2 in q) {
                     if (prevIds.Contains(o2.Id)) {
                         continue;
                     }
@@ -180,8 +184,8 @@ namespace eve_intel_map.controls
 
         public class SystemInfo
         {
-            public EveMapSolarsystem System { get; set; }
-            public EveMapSolarsystem Parent { get; set; }
+            public DataSet.EveMapSolarsystemsRow System { get; set; }
+            public DataSet.EveMapSolarsystemsRow Parent { get; set; }
         }
     }
 }

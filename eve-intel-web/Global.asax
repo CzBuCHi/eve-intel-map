@@ -6,6 +6,8 @@
     private ILog _Logger;
 
     protected void Application_Start(object sender, EventArgs e) {
+        log4net.Config.XmlConfigurator.Configure();
+
         _Logger = LogManager.GetLogger(GetType());
         _Logger.Debug("[Start]");
     }

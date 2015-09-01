@@ -130,5 +130,15 @@ namespace eve_intel_map.Properties {
                 this["currentSystemId"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=D:\\github\\eve-intel\\eve-intel-map\\eve-intel-map.db3")]
+        public string eve_intel_mapConnectionString {
+            get {
+                return ((string)(this["eve_intel_mapConnectionString"]));
+            }
+        }
     }
 }

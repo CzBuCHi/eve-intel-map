@@ -8,6 +8,7 @@ namespace eve_intel_server.Model
 
         [NotNull]
         public virtual string ShipName { get; protected set; }
+
         public virtual long ShipTypeId => ShipType.Id;
         public virtual int TechLevel { get; protected set; }
         public virtual long RaceId => Race.Id;

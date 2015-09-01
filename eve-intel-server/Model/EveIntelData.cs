@@ -6,13 +6,13 @@ using NHibernate.Linq;
 
 namespace eve_intel_server.Model
 {
-    public class IntelData
+    public class EveIntelData
     {
         public virtual long Id { get; set; }
         public virtual long CharacterId => Character.Id;
 
         [NotNull]
-        public virtual CvaCharacterInfo Character { get; set; }
+        public virtual EveIntelCharacterInfo Character { get; set; }
 
         public virtual long? ShipInfoId => ShipInfo?.Id;
 
@@ -21,13 +21,11 @@ namespace eve_intel_server.Model
 
         public virtual DateTime? ShipInfoDate { get; set; }
         public virtual bool ShipInfoConfirmed { get; set; }
-
         public virtual long Solarsystem { get; set; }
-
         public virtual DateTime? SolarsystemDate { get; set; }
 
         public virtual void SetCharacterId(long value, ISession session) {
-            Character = session.Query<CvaCharacterInfo>().First(o => o.Id == value);
+            Character = session.Query<EveIntelCharacterInfo>().First(o => o.Id == value);
         }
 
         public virtual void SetShipInfoId(long? value, ISession session) {

@@ -31,8 +31,10 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://eve-intel.cs/EveIntel.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://eve-intel.cs/EveIntel.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://eve-intel.cs/EveIntel.svc?xsd=xsd2" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://eve-intel.cs/EveIntel.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://eve-intel.cs/EveIntel.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/eve_intel_server.Model" />
+      <xsd:import schemaLocation="http://eve-intel.cs/EveIntel.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IEveIntel_Connect_InputMessage">
@@ -44,11 +46,17 @@
   <wsdl:message name="IEveIntel_Disconnect_InputMessage">
     <wsdl:part name="parameters" element="tns:Disconnect" />
   </wsdl:message>
+  <wsdl:message name="IEveIntel_UpdateLocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLocal" />
+  </wsdl:message>
   <wsdl:message name="IEveIntel_ClientCountUpdate_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ClientCountUpdate" />
   </wsdl:message>
   <wsdl:message name="IEveIntel_SecondConnection_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:SecondConnection" />
+  </wsdl:message>
+  <wsdl:message name="IEveIntel_ClientLocalUpdate_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ClientLocalUpdate" />
   </wsdl:message>
   <wsdl:portType name="IEveIntel">
     <wsdl:operation name="Connect">
@@ -58,11 +66,17 @@
     <wsdl:operation name="Disconnect">
       <wsdl:input wsaw:Action="http://tempuri.org/IEveIntel/Disconnect" message="tns:IEveIntel_Disconnect_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateLocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEveIntel/UpdateLocal" message="tns:IEveIntel_UpdateLocal_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ClientCountUpdate">
       <wsdl:output wsaw:Action="http://tempuri.org/IEveIntel/ClientCountUpdate" message="tns:IEveIntel_ClientCountUpdate_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="SecondConnection">
       <wsdl:output wsaw:Action="http://tempuri.org/IEveIntel/SecondConnection" message="tns:IEveIntel_SecondConnection_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClientLocalUpdate">
+      <wsdl:output wsaw:Action="http://tempuri.org/IEveIntel/ClientLocalUpdate" message="tns:IEveIntel_ClientLocalUpdate_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IEveIntel" type="tns:IEveIntel">
@@ -83,6 +97,12 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="UpdateLocal">
+      <soap12:operation soapAction="http://tempuri.org/IEveIntel/UpdateLocal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="ClientCountUpdate">
       <soap12:operation soapAction="http://tempuri.org/IEveIntel/ClientCountUpdate" style="document" />
       <wsdl:output>
@@ -91,6 +111,12 @@
     </wsdl:operation>
     <wsdl:operation name="SecondConnection">
       <soap12:operation soapAction="http://tempuri.org/IEveIntel/SecondConnection" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientLocalUpdate">
+      <soap12:operation soapAction="http://tempuri.org/IEveIntel/ClientLocalUpdate" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

@@ -9,7 +9,9 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -22,10 +24,12 @@
     <MetadataSource Address="http://eve-intel.cs/EveIntel.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="EveIntel.xsd" MetadataType="Schema" ID="6f987d7e-4136-4d7d-aa69-e562b8c8ca44" SourceId="1" SourceUrl="http://eve-intel.cs/EveIntel.svc?xsd=xsd0" />
-    <MetadataFile FileName="EveIntel.disco" MetadataType="Disco" ID="60797b8a-cb09-44f4-8685-5e3c8043d725" SourceId="1" SourceUrl="http://eve-intel.cs/EveIntel.svc?disco" />
     <MetadataFile FileName="EveIntel.wsdl" MetadataType="Wsdl" ID="e5877261-06ee-4770-9e57-89ad274e58c0" SourceId="1" SourceUrl="http://eve-intel.cs/EveIntel.svc?wsdl" />
+    <MetadataFile FileName="EveIntel.disco" MetadataType="Disco" ID="60797b8a-cb09-44f4-8685-5e3c8043d725" SourceId="1" SourceUrl="http://eve-intel.cs/EveIntel.svc?disco" />
     <MetadataFile FileName="EveIntel1.xsd" MetadataType="Schema" ID="d9b35a76-f604-49ce-b4a8-74d8a78a954c" SourceId="1" SourceUrl="http://eve-intel.cs/EveIntel.svc?xsd=xsd1" />
+    <MetadataFile FileName="EveIntel.xsd" MetadataType="Schema" ID="6f987d7e-4136-4d7d-aa69-e562b8c8ca44" SourceId="1" SourceUrl="http://eve-intel.cs/EveIntel.svc?xsd=xsd0" />
+    <MetadataFile FileName="EveIntel2.xsd" MetadataType="Schema" ID="6ab9c12d-fef8-46a1-b9d0-767b90f96b8d" SourceId="1" SourceUrl="http://eve-intel.cs/EveIntel.svc?xsd=xsd3" />
+    <MetadataFile FileName="EveIntel21.xsd" MetadataType="Schema" ID="149e8962-963a-4a01-a8db-cd9cfb08e0f0" SourceId="1" SourceUrl="http://eve-intel.cs/EveIntel.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

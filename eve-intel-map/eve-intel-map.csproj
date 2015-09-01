@@ -111,10 +111,17 @@
     <Compile Include="controls\MapControl.Designer.cs">
       <DependentUpon>MapControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\DataContext.cs" />
-    <Compile Include="Model\EveMapRegion.cs" />
-    <Compile Include="Model\EveMapSolarSystem.cs" />
-    <Compile Include="Model\EveMapSolarSystemJump.cs" />
+    <Compile Include="controls\PlayersGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\PlayersGrid.Designer.cs">
+      <DependentUpon>PlayersGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +154,9 @@
     <EmbeddedResource Include="controls\MapControl.resx">
       <DependentUpon>MapControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="controls\PlayersGrid.resx">
+      <DependentUpon>PlayersGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormConfig.resx">
       <DependentUpon>FormConfig.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +172,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Data\DataSet.xsc">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Data\DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data\DataSet.xss">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </None>
     <None Include="eve-intel-map.db3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -202,6 +223,12 @@
     <None Include="Service References\EveIntel\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\EveIntel\EveIntel2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EveIntel\EveIntel21.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\EveIntel\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

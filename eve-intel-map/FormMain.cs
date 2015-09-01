@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Windows.Forms;
+using eve_intel_map.Data;
 using eve_intel_map.EveIntel;
-using eve_intel_map.Model;
 using eve_intel_map.Properties;
 
 namespace eve_intel_map
@@ -17,27 +18,29 @@ namespace eve_intel_map
             InitializeComponent();
             _EveIntel = new EveIntelClient(new InstanceContext(this));
 
-            EveMapSolarsystem[] eveMapSolarsystems = DbHelper.DataContext.SolarSystems.ToArray();
-            comboBox1.DataSource = eveMapSolarsystems;
-            if (Settings.Default.currentSystemId != 0) {
-                comboBox1.SelectedIndex = Array.FindIndex(eveMapSolarsystems, system => system.Id == Settings.Default.currentSystemId);                                
-            } else {
-                comboBox1.SelectedIndex = 0;
-            }
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            eveMapSolarsystemsTableAdapter.Fill(dataSet.EveMapSolarsystems);
+            eveMapRegionsTableAdapter.Fill(dataSet.EveMapRegions);
 
-            comboBox2.DataSource = DbHelper.DataContext.Regions.ToArray();
-            comboBox2.SelectedIndex = -1;
-            comboBox2.SelectedIndexChanged += this.comboBox2_SelectedIndexChanged;
+            mapControl1.CurrentSystem = Settings.Default.currentSystemId;
+            comboBox2.SelectedValue = Settings.Default.currentSystemId;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
-            EveMapSolarsystem solarsystem = (EveMapSolarsystem) comboBox1.SelectedItem;            
-            mapControl1.CurrentSystem = solarsystem.Id;
-
-            Settings.Default.currentSystemId = solarsystem.Id;
-            Settings.Default.Save();
+            mapControl1.RegionId = (long?)comboBox1.SelectedValue;
         }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) {
+            long? solarsystemId = (long?)comboBox2.SelectedValue;
+
+            if (solarsystemId != null) {
+                mapControl1.CurrentSystem = (long) solarsystemId;
+                Settings.Default.currentSystemId = (long) solarsystemId;
+                Settings.Default.Save();
+            }            
+        }
+
 
         private void button2_Click(object sender, EventArgs e) {
             Guid? id = _EveIntel.Connect(4637402, "H9TKjC7jatai0Ms97LL9zChRTFhdfdNr67IF5VcFbMG6T6Yr4oXkFWJPn0h4UOfp");
@@ -75,15 +78,39 @@ namespace eve_intel_map
             label1.Text = @"clients: disconnected";
         }
 
-        #endregion
-
-        private void FormMain_Load(object sender, EventArgs e) {
-
+        public void ClientLocalUpdate(long solarsystemId, List<EveIntelCharacterInfo> characters) {
+            foreach (var character in characters) {
+                DataSet.PlayerInfoRow row = dataSet.PlayerInfo.NewPlayerInfoRow();
+                row.Id = character.EveId;
+                row.Name = character.Label;
+                row.Solarsystem = solarsystemId;
+                row.SolarsystemTime = DateTime.Now;
+                dataSet.PlayerInfo.AddPlayerInfoRow(row);
+            }
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) {
-            EveMapRegion region = (EveMapRegion)comboBox2.SelectedItem;
-            mapControl1.RegionId = region.Id;
+        #endregion
+
+      
+        private void button1_Click(object sender, EventArgs e) {
+            //string text = Clipboard.GetText();
+            //if (string.IsNullOrEmpty(text)) {
+            //    return;
+            //}
+            //List<string> names = text.Split(new[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+            // dummy data
+            List<string> names = new List<string> { "kazzard20", "naderah", "Commander John Snow"};
+            if (names.Count > 0) {
+                _EveIntel.UpdateLocal(_ClientId, Settings.Default.currentSystemId, names);
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e) {
+            comboBox1.Enabled = checkBox1.Checked;
+            if (!checkBox1.Checked) {
+                comboBox1.SelectedIndex = -1;
+            }
         }
     }
 }
