@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using eve_intel_server.CvaKos;
 using JetBrains.Annotations;
 using NHibernate;
 using NHibernate.Linq;
@@ -12,7 +13,7 @@ namespace eve_intel_server.Model
         public virtual long CharacterId => Character.Id;
 
         [NotNull]
-        public virtual EveIntelCharacterInfo Character { get; set; }
+        public virtual CvaCharacterInfo Character { get; set; }
 
         public virtual long? ShipInfoId => ShipInfo?.Id;
 
@@ -25,7 +26,7 @@ namespace eve_intel_server.Model
         public virtual DateTime? SolarsystemDate { get; set; }
 
         public virtual void SetCharacterId(long value, ISession session) {
-            Character = session.Query<EveIntelCharacterInfo>().First(o => o.Id == value);
+            Character = session.Query<CvaCharacterInfo>().First(o => o.Id == value);
         }
 
         public virtual void SetShipInfoId(long? value, ISession session) {

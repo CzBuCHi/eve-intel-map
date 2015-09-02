@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.Xml;
 using eve_intel_server.Model;
 using JetBrains.Annotations;
 
 namespace eve_intel_server.Service
 {
     [ServiceContract(CallbackContract = typeof (IEveIntelCallback))]
-    [ServiceKnownType(typeof(EveIntelCharacterInfo))]
-    [ServiceKnownType(typeof(EveIntelCorporationInfo))]
-    [ServiceKnownType(typeof(EveIntelAllianceInfo))]
+    [ServiceKnownType(typeof (EveIntelCharacterInfo))]
+    [ServiceKnownType(typeof (EveIntelCorporationInfo))]
+    [ServiceKnownType(typeof (EveIntelAllianceInfo))]
     public interface IEveIntel
     {
         /// <summary>

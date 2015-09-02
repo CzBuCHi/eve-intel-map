@@ -14,12 +14,12 @@ namespace eve_intel_server.CvaKos
         private const string cUrlFormat = "http://kos.cva-eve.org/api/?c=json&type={0}&q={1}";
 
         [CanBeNull]
-        public static EveIntelCharacterInfo GetCharacterInfo(long eveId, [NotNull] string name) {
+        public static CvaCharacterInfo GetCharacterInfo(long eveId, [NotNull] string name) {
             JObject jObject = GetJObject(name, "unit");
 
             JToken jTotal = jObject["total"];
             if (jTotal.Value<int>() == 0) {
-                return new EveIntelCharacterInfo {
+                return new CvaCharacterInfo {
                     Id = -1,
                     EveId = eveId,
                     Type = "unit",
@@ -28,17 +28,17 @@ namespace eve_intel_server.CvaKos
             }
 
             JArray jResults = (JArray) jObject["results"];
-            EveIntelCharacterInfo[] results = jResults.ToObject<EveIntelCharacterInfo[]>();
+            CvaCharacterInfo[] results = jResults.ToObject<CvaCharacterInfo[]>();
             return results.FirstOrDefault(o => o.EveId == eveId);
         }
 
         [CanBeNull]
-        public static EveIntelCorporationInfo GetCorpInfo(long eveId, [NotNull] string name) {
+        public static CvaCorporationInfo GetCorpInfo(long eveId, [NotNull] string name) {
             JObject jObject = GetJObject(name, "corp");
 
             JToken jTotal = jObject["total"];
             if (jTotal.Value<int>() == 0) {
-                return new EveIntelCorporationInfo {
+                return new CvaCorporationInfo {
                     Id = -1,
                     EveId = eveId,
                     Type = "corp",
@@ -47,17 +47,17 @@ namespace eve_intel_server.CvaKos
             }
 
             JArray jResults = (JArray) jObject["results"];
-            EveIntelCorporationInfo[] results = jResults.ToObject<EveIntelCorporationInfo[]>();
+            CvaCorporationInfo[] results = jResults.ToObject<CvaCorporationInfo[]>();
             return results.FirstOrDefault(o => o.EveId == eveId);
         }
 
         [CanBeNull]
-        public static EveIntelAllianceInfo GetAllianceInfo(long eveId, [NotNull] string name) {
+        public static CvaAllianceInfo GetAllianceInfo(long eveId, [NotNull] string name) {
             JObject jObject = GetJObject(name, "alliance");
 
             JToken jTotal = jObject["total"];
             if (jTotal.Value<int>() == 0) {
-                return new EveIntelAllianceInfo {
+                return new CvaAllianceInfo {
                     Id = -1,
                     EveId = eveId,
                     Type = "alliance",
@@ -66,7 +66,7 @@ namespace eve_intel_server.CvaKos
             }
 
             JArray jResults = (JArray) jObject["results"];
-            EveIntelAllianceInfo[] results = jResults.ToObject<EveIntelAllianceInfo[]>();
+            CvaAllianceInfo[] results = jResults.ToObject<CvaAllianceInfo[]>();
             return results.FirstOrDefault(o => o.EveId == eveId);
         }
 

@@ -15,7 +15,7 @@ namespace eve_intel_map.EveIntel {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EveIntelCharacterInfo", Namespace="http://schemas.datacontract.org/2004/07/eve_intel_server.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EveIntelCharacterInfo", Namespace="http://schemas.datacontract.org/2004/07/eve_intel_server.Service")]
     [System.SerializableAttribute()]
     public partial class EveIntelCharacterInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -29,19 +29,10 @@ namespace eve_intel_map.EveIntel {
         private long EveIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IconField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool KosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LabelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TypeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -80,32 +71,6 @@ namespace eve_intel_map.EveIntel {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Icon {
-            get {
-                return this.IconField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IconField, value) != true)) {
-                    this.IconField = value;
-                    this.RaisePropertyChanged("Icon");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public bool Kos {
             get {
                 return this.KosField;
@@ -131,19 +96,6 @@ namespace eve_intel_map.EveIntel {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Type {
-            get {
-                return this.TypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -156,7 +108,7 @@ namespace eve_intel_map.EveIntel {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EveIntelCorporationInfo", Namespace="http://schemas.datacontract.org/2004/07/eve_intel_server.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EveIntelCorporationInfo", Namespace="http://schemas.datacontract.org/2004/07/eve_intel_server.Service")]
     [System.SerializableAttribute()]
     public partial class EveIntelCorporationInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -170,12 +122,6 @@ namespace eve_intel_map.EveIntel {
         private long EveIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IconField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool KosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -183,12 +129,6 @@ namespace eve_intel_map.EveIntel {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool NpcField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TickerField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TypeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -222,32 +162,6 @@ namespace eve_intel_map.EveIntel {
                 if ((this.EveIdField.Equals(value) != true)) {
                     this.EveIdField = value;
                     this.RaisePropertyChanged("EveId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Icon {
-            get {
-                return this.IconField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IconField, value) != true)) {
-                    this.IconField = value;
-                    this.RaisePropertyChanged("Icon");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -291,32 +205,6 @@ namespace eve_intel_map.EveIntel {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ticker {
-            get {
-                return this.TickerField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TickerField, value) != true)) {
-                    this.TickerField = value;
-                    this.RaisePropertyChanged("Ticker");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Type {
-            get {
-                return this.TypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -329,7 +217,7 @@ namespace eve_intel_map.EveIntel {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EveIntelAllianceInfo", Namespace="http://schemas.datacontract.org/2004/07/eve_intel_server.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EveIntelAllianceInfo", Namespace="http://schemas.datacontract.org/2004/07/eve_intel_server.Service")]
     [System.SerializableAttribute()]
     public partial class EveIntelAllianceInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -340,22 +228,10 @@ namespace eve_intel_map.EveIntel {
         private long EveIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IconField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool KosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LabelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TickerField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TypeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -376,32 +252,6 @@ namespace eve_intel_map.EveIntel {
                 if ((this.EveIdField.Equals(value) != true)) {
                     this.EveIdField = value;
                     this.RaisePropertyChanged("EveId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Icon {
-            get {
-                return this.IconField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IconField, value) != true)) {
-                    this.IconField = value;
-                    this.RaisePropertyChanged("Icon");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -428,32 +278,6 @@ namespace eve_intel_map.EveIntel {
                 if ((object.ReferenceEquals(this.LabelField, value) != true)) {
                     this.LabelField = value;
                     this.RaisePropertyChanged("Label");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ticker {
-            get {
-                return this.TickerField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TickerField, value) != true)) {
-                    this.TickerField = value;
-                    this.RaisePropertyChanged("Ticker");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Type {
-            get {
-                return this.TypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
                 }
             }
         }

@@ -33,21 +33,20 @@ namespace eve_intel_server.Service
             _Logger.Debug("GetEveIntelCharacterInfos: '" + string.Join("', '", characters.Values) + "'");
             long[] characterIds = characters.Keys.ToArray();
 
-            Dictionary<long, EveIntelCharacterInfo> result = new Dictionary<long, EveIntelCharacterInfo>();
-            //CvaCharacterInfo[] result = new CvaCharacterInfo[characterIds.Length];
+            Dictionary<long, CvaCharacterInfo> result = new Dictionary<long, CvaCharacterInfo>();
             using (ISession session = DataContext.OpenSession()) {
                 // try read info from local db
-                IQueryable<EveIntelCharacterInfo> q = from o in session.Query<EveIntelCharacterInfo>()
-                                                      where characterIds.Contains(o.EveId)
-                                                      select o;
+                IQueryable<CvaCharacterInfo> q = from o in session.Query<CvaCharacterInfo>()
+                                                 where characterIds.Contains(o.EveId)
+                                                 select o;
                 int cached = 0;
-                foreach (EveIntelCharacterInfo item in q) {
+                foreach (CvaCharacterInfo item in q) {
                     result[item.EveId] = item;
                     ++cached;
                 }
 
                 if (cached == characters.Count) {
-                    return result.Values.ToArray();
+                    return result.Values.Select(Convert.GetEveIntelCharacterInfo).ToArray();
                 }
 
                 // download infos not stored in local db and save them
@@ -57,18 +56,22 @@ namespace eve_intel_server.Service
                             continue;
                         }
 
-                        EveIntelCharacterInfo character = CvaClient.GetCharacterInfo(pair.Key, pair.Value);
-                        if (character.Corp.Alliance != null) {
-                            session.SaveOrUpdate(character.Corp.Alliance);
+                        CvaCharacterInfo character = CvaClient.GetCharacterInfo(pair.Key, pair.Value);
+                        if (character != null) {
+                            if (character.Corp.Alliance != null) {
+                                session.SaveOrUpdate(character.Corp.Alliance);
+                            }
+                            session.SaveOrUpdate(character.Corp);
+                            session.Save(character);
+                            result.Add(character.EveId, character);
                         }
-                        session.SaveOrUpdate(character.Corp);
-                        session.Save(character);
-                        result.Add(character.EveId, character);
                     }
                     trans.Commit();
                 }
             }
-            return result.Values.ToArray();
+
+
+            return result.Values.Select(Convert.GetEveIntelCharacterInfo).ToArray();
         }
 
         #endregion
@@ -221,7 +224,6 @@ namespace eve_intel_server.Service
                 return null;
             }
 
-
             // kos check against all player characters
             EveIntelCharacterInfo[] characterInfos = GetEveIntelCharacterInfos(characters);
             EveIntelCharacterInfo[] kosInfos = characterInfos.Where(o => o.Kos).ToArray();
@@ -229,7 +231,6 @@ namespace eve_intel_server.Service
                 _Logger.Warn("Connect: kos characters: '" + string.Join("', '", kosInfos.Select(o => o.Label)));
                 return null;
             }
-
 
             // generate client id
             Guid result = Guid.NewGuid();

@@ -20,17 +20,17 @@
     <many-to-one name="Race" class="EveRace" />
   </class>
 
-  <class name="EveIntelCharacterInfo" table="EveIntelCharacterInfos">
+  <class name="CvaCharacterInfo" table="CvaCharacterInfos">
     <id name="Id" />
     <property name="Type" />
     <property name="Label" />
     <property name="Icon" />
     <property name="Kos" />
     <property name="EveId" />
-    <many-to-one name="Corp" class="EveIntelCorporationInfo" />
+    <many-to-one name="Corp" class="CvaCorporationInfo" />
   </class>
 
-  <class name="EveIntelCorporationInfo" table="EveIntelCorporationInfos">
+  <class name="CvaCorporationInfo" table="CvaCorporationInfos">
     <id name="Id" />
     <property name="Type" />
     <property name="Label" />
@@ -39,10 +39,10 @@
     <property name="EveId" />
     <property name="Ticker" />
     <property name="Npc" />
-    <many-to-one name="Alliance" class="EveIntelAllianceInfo" />
+    <many-to-one name="Alliance" class="CvaAllianceInfo" />
   </class>
 
-  <class name="EveIntelAllianceInfo" table="EveIntelAllianceInfos">
+  <class name="CvaAllianceInfo" table="CvaAllianceInfos">
     <id name="Id" />
     <property name="Type" />
     <property name="Label" />
@@ -54,7 +54,7 @@
 
   <class name="EveIntelData" table="EveIntelData">
     <id name="Id" />
-    <one-to-one name="Character" class="EveIntelCharacterInfo" />
+    <one-to-one name="Character" class="CvaCharacterInfo" />
     <many-to-one name="ShipInfo" class="EveShipInfo" />
     <property name="ShipInfoDate" />
     <property name="ShipInfoConfirmed" />

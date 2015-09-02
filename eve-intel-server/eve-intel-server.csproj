@@ -70,9 +70,11 @@
       <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.98.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -95,11 +97,17 @@
     <EmbeddedResource Include="Mappings\nhibernate.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Convert.cs" />
     <Compile Include="CvaKos\CvaClient.cs" />
+    <Compile Include="Data\DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\DataContext.cs" />
-    <Compile Include="Model\EveIntelAllianceInfo.cs" />
-    <Compile Include="Model\EveIntelCharacterInfo.cs" />
-    <Compile Include="Model\EveIntelCorporationInfo.cs" />
+    <Compile Include="CvaKos\CvaAllianceInfo.cs" />
+    <Compile Include="CvaKos\CvaCharacterInfo.cs" />
+    <Compile Include="CvaKos\CvaCorporationInfo.cs" />
     <Compile Include="Model\EveRace.cs" />
     <Compile Include="Model\EveShipInfo.cs" />
     <Compile Include="Model\EveShipType.cs" />
@@ -107,10 +115,34 @@
     <Compile Include="Properties\JetBrains.Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EveIntel.cs" />
+    <Compile Include="Service\EveIntelAllianceInfo.cs" />
+    <Compile Include="Service\EveIntelCharacterInfo.cs" />
+    <Compile Include="Service\EveIntelCorporationInfo.cs" />
     <Compile Include="Service\IEveIntel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\DataSet.xsc">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Data\DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Data\DataSet.xss">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Data\universeDataDx.db" />
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
