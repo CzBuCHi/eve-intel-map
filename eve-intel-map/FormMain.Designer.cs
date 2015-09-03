@@ -31,7 +31,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.eveMapRegionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet = new eve_intel_map.Data.DataSet();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.eveMapSolarsystemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mapControl1 = new eve_intel_map.controls.MapControl();
@@ -39,10 +38,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.eveMapRegionsTableAdapter = new eve_intel_map.Data.DataSetTableAdapters.EveMapRegionsTableAdapter();
-            this.eveMapSolarsystemsTableAdapter = new eve_intel_map.Data.DataSetTableAdapters.EveMapSolarsystemsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.eveMapRegionsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eveMapSolarsystemsBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -94,12 +90,10 @@
             // eveMapRegionsBindingSource
             // 
             this.eveMapRegionsBindingSource.DataMember = "EveMapRegions";
-            this.eveMapRegionsBindingSource.DataSource = this.dataSet;
+            
             // 
             // dataSet
             // 
-            this.dataSet.DataSetName = "DataSet";
-            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // comboBox2
             // 
@@ -118,7 +112,7 @@
             // eveMapSolarsystemsBindingSource
             // 
             this.eveMapSolarsystemsBindingSource.DataMember = "EveMapSolarsystems";
-            this.eveMapSolarsystemsBindingSource.DataSource = this.dataSet;
+            
             // 
             // mapControl1
             // 
@@ -178,11 +172,11 @@
             // 
             // eveMapRegionsTableAdapter
             // 
-            this.eveMapRegionsTableAdapter.ClearBeforeFill = true;
+            
             // 
             // eveMapSolarsystemsTableAdapter
             // 
-            this.eveMapSolarsystemsTableAdapter.ClearBeforeFill = true;
+            
             // 
             // FormMain
             // 
@@ -195,7 +189,7 @@
             this.Name = "FormMain";
             this.Text = "FormMain";
             ((System.ComponentModel.ISupportInitialize)(this.eveMapRegionsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
+            
             ((System.ComponentModel.ISupportInitialize)(this.eveMapSolarsystemsBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -213,11 +207,9 @@
         private controls.PlayersGrid playersGrid1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
-        private Data.DataSet dataSet;
+        
         private System.Windows.Forms.BindingSource eveMapRegionsBindingSource;
-        private Data.DataSetTableAdapters.EveMapRegionsTableAdapter eveMapRegionsTableAdapter;
         private System.Windows.Forms.BindingSource eveMapSolarsystemsBindingSource;
-        private Data.DataSetTableAdapters.EveMapSolarsystemsTableAdapter eveMapSolarsystemsTableAdapter;
         private System.Windows.Forms.CheckBox checkBox1;
     }
 }

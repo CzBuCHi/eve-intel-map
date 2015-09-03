@@ -117,10 +117,10 @@
     <Compile Include="controls\PlayersGrid.Designer.cs">
       <DependentUpon>PlayersGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\DataSet.Designer.cs">
+    <Compile Include="Data\ClientData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet.xsd</DependentUpon>
+      <DependentUpon>ClientData.xsd</DependentUpon>
     </Compile>
     <Compile Include="FormConfig.cs">
       <SubType>Form</SubType>
@@ -172,16 +172,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Data\DataSet.xsc">
-      <DependentUpon>DataSet.xsd</DependentUpon>
+    <None Include="Data\ClientData.xsc">
+      <DependentUpon>ClientData.xsd</DependentUpon>
     </None>
-    <None Include="Data\DataSet.xsd">
+    <None Include="Data\ClientData.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>ClientData.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Data\DataSet.xss">
-      <DependentUpon>DataSet.xsd</DependentUpon>
+    <None Include="Data\ClientData.xss">
+      <DependentUpon>ClientData.xsd</DependentUpon>
     </None>
     <None Include="eve-intel-map.db3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

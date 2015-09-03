@@ -18,9 +18,7 @@ namespace eve_intel_map
             InitializeComponent();
             _EveIntel = new EveIntelClient(new InstanceContext(this));
 
-            eveMapSolarsystemsTableAdapter.Fill(dataSet.EveMapSolarsystems);
-            eveMapRegionsTableAdapter.Fill(dataSet.EveMapRegions);
-
+            
             mapControl1.CurrentSystem = Settings.Default.currentSystemId;
             comboBox2.SelectedValue = Settings.Default.currentSystemId;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
@@ -80,12 +78,12 @@ namespace eve_intel_map
 
         public void ClientLocalUpdate(long solarsystemId, List<EveIntelCharacterInfo> characters) {
             foreach (var character in characters) {
-                DataSet.PlayerInfoRow row = dataSet.PlayerInfo.NewPlayerInfoRow();
-                row.Id = character.EveId;
-                row.Name = character.Label;
-                row.Solarsystem = solarsystemId;
-                row.SolarsystemTime = DateTime.Now;
-                dataSet.PlayerInfo.AddPlayerInfoRow(row);
+                //DataSet.PlayerInfoRow row = dataSet.PlayerInfo.NewPlayerInfoRow();
+                //row.Id = character.EveId;
+                //row.Name = character.Label;
+                //row.Solarsystem = solarsystemId;
+                //row.SolarsystemTime = DateTime.Now;
+                //dataSet.PlayerInfo.AddPlayerInfoRow(row);
             }
         }
 

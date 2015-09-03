@@ -32,18 +32,13 @@
             this.shipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.playerInfoEveShipNamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.playerInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet = new eve_intel_map.Data.DataSet();
             this.shipTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.solarsystemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.playerInfoEveMapSolarsystemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.solarsystemTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.playerInfoTableAdapter = new eve_intel_map.Data.DataSetTableAdapters.PlayerInfoTableAdapter();
-            this.eveMapSolarsystemsTableAdapter = new eve_intel_map.Data.DataSetTableAdapters.EveMapSolarsystemsTableAdapter();
-            this.eveShipNamesTableAdapter = new eve_intel_map.Data.DataSetTableAdapters.EveShipNamesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerInfoEveShipNamesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerInfoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerInfoEveMapSolarsystemsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,12 +104,8 @@
             // playerInfoBindingSource
             // 
             this.playerInfoBindingSource.DataMember = "PlayerInfo";
-            this.playerInfoBindingSource.DataSource = this.dataSet;
-            // 
-            // dataSet
-            // 
-            this.dataSet.DataSetName = "DataSet";
-            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            
+            
             // 
             // shipTimeDataGridViewTextBoxColumn
             // 
@@ -152,15 +143,15 @@
             // 
             // playerInfoTableAdapter
             // 
-            this.playerInfoTableAdapter.ClearBeforeFill = true;
+            
             // 
             // eveMapSolarsystemsTableAdapter
             // 
-            this.eveMapSolarsystemsTableAdapter.ClearBeforeFill = true;
+            
             // 
             // eveShipNamesTableAdapter
             // 
-            this.eveShipNamesTableAdapter.ClearBeforeFill = true;
+            
             // 
             // PlayersGrid
             // 
@@ -172,7 +163,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerInfoEveShipNamesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerInfoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
+            
             ((System.ComponentModel.ISupportInitialize)(this.playerInfoEveMapSolarsystemsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -189,11 +180,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn shipConfirmedDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource playerInfoEveShipNamesBindingSource;
         private System.Windows.Forms.BindingSource playerInfoBindingSource;
-        private Data.DataSet dataSet;
         private System.Windows.Forms.BindingSource playerInfoEveMapSolarsystemsBindingSource;
-        private Data.DataSetTableAdapters.PlayerInfoTableAdapter playerInfoTableAdapter;
-        private Data.DataSetTableAdapters.EveMapSolarsystemsTableAdapter eveMapSolarsystemsTableAdapter;
-        private Data.DataSetTableAdapters.EveShipNamesTableAdapter eveShipNamesTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn shipDataGridViewTextBoxColumn;
