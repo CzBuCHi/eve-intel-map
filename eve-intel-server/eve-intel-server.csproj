@@ -74,10 +74,6 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Data.SQLite, Version=1.0.98.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.98.1\lib\net451\System.Data.SQLite.dll</HintPath>
       <Private>True</Private>
@@ -112,30 +108,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Design\Create.sql" />
-    <EmbeddedResource Include="Mappings\nhibernate.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Convert.cs" />
     <Compile Include="CvaKos\CvaClient.cs" />
-    <Compile Include="Data\ClientData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClientData.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Data\UniverseData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UniverseData.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataContext.cs" />
     <Compile Include="CvaKos\CvaAllianceInfo.cs" />
     <Compile Include="CvaKos\CvaCharacterInfo.cs" />
     <Compile Include="CvaKos\CvaCorporationInfo.cs" />
-    <Compile Include="Model\EveRace.cs" />
-    <Compile Include="Model\EveShipInfo.cs" />
-    <Compile Include="Model\EveShipType.cs" />
-    <Compile Include="Model\EveIntelData.cs" />
+    <Compile Include="Data\DataManager.cs" />
     <Compile Include="Properties\JetBrains.Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EveIntel.cs" />
@@ -148,29 +126,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\UniverseData.xsc">
-      <DependentUpon>UniverseData.xsd</DependentUpon>
-    </Content>
-    <Content Include="Data\ClientData.xsc">
-      <DependentUpon>ClientData.xsd</DependentUpon>
-    </Content>
-    <None Include="Data\ClientData.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ClientData.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Data\ClientData.xss">
-      <DependentUpon>ClientData.xsd</DependentUpon>
-    </Content>
-    <None Include="Data\UniverseData.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>UniverseData.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Data\UniverseData.xss">
-      <DependentUpon>UniverseData.xsd</DependentUpon>
-    </Content>
-    <None Include="Data\universeDataDx.db" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
@@ -211,11 +166,4 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.98.1\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.98.1\build\net451\System.Data.SQLite.Core.targets'))" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

@@ -5,12 +5,10 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading;
 using eve_intel_server.CvaKos;
-using eve_intel_server.Model;
+
 using EveAI.Live;
 using JetBrains.Annotations;
 using log4net;
-using NHibernate;
-using NHibernate.Linq;
 
 namespace eve_intel_server.Service
 {
@@ -31,47 +29,45 @@ namespace eve_intel_server.Service
         [NotNull]
         private static EveIntelCharacterInfo[] GetEveIntelCharacterInfos([NotNull] Dictionary<long, string> characters) {
             _Logger.Debug("GetEveIntelCharacterInfos: '" + string.Join("', '", characters.Values) + "'");
-            long[] characterIds = characters.Keys.ToArray();
+            return null;
+            //long[] characterIds = characters.Keys.ToArray();
+            //Dictionary<long, CvaCharacterInfo> result = new Dictionary<long, CvaCharacterInfo>();
+            //using (ISession session = DataContext.OpenSession()) {
+            //    // try read info from local db
+            //    IQueryable<CvaCharacterInfo> q = from o in session.Query<CvaCharacterInfo>()
+            //                                     where characterIds.Contains(o.EveId)
+            //                                     select o;
+            //    int cached = 0;
+            //    foreach (CvaCharacterInfo item in q) {
+            //        result[item.EveId] = item;
+            //        ++cached;
+            //    }
 
-            Dictionary<long, CvaCharacterInfo> result = new Dictionary<long, CvaCharacterInfo>();
-            using (ISession session = DataContext.OpenSession()) {
-                // try read info from local db
-                IQueryable<CvaCharacterInfo> q = from o in session.Query<CvaCharacterInfo>()
-                                                 where characterIds.Contains(o.EveId)
-                                                 select o;
-                int cached = 0;
-                foreach (CvaCharacterInfo item in q) {
-                    result[item.EveId] = item;
-                    ++cached;
-                }
+            //    if (cached == characters.Count) {
+            //        return result.Values.Select(Convert.GetEveIntelCharacterInfo).ToArray();
+            //    }
 
-                if (cached == characters.Count) {
-                    return result.Values.Select(Convert.GetEveIntelCharacterInfo).ToArray();
-                }
+            //    // download infos not stored in local db and save them
+            //    using (ITransaction trans = session.BeginTransaction()) {
+            //        foreach (KeyValuePair<long, string> pair in characters) {
+            //            if (result.ContainsKey(pair.Key)) {
+            //                continue;
+            //            }
 
-                // download infos not stored in local db and save them
-                using (ITransaction trans = session.BeginTransaction()) {
-                    foreach (KeyValuePair<long, string> pair in characters) {
-                        if (result.ContainsKey(pair.Key)) {
-                            continue;
-                        }
-
-                        CvaCharacterInfo character = CvaClient.GetCharacterInfo(pair.Key, pair.Value);
-                        if (character != null) {
-                            if (character.Corp.Alliance != null) {
-                                session.SaveOrUpdate(character.Corp.Alliance);
-                            }
-                            session.SaveOrUpdate(character.Corp);
-                            session.Save(character);
-                            result.Add(character.EveId, character);
-                        }
-                    }
-                    trans.Commit();
-                }
-            }
-
-
-            return result.Values.Select(Convert.GetEveIntelCharacterInfo).ToArray();
+            //            CvaCharacterInfo character = CvaClient.GetCharacterInfo(pair.Key, pair.Value);
+            //            if (character != null) {
+            //                if (character.Corp.Alliance != null) {
+            //                    session.SaveOrUpdate(character.Corp.Alliance);
+            //                }
+            //                session.SaveOrUpdate(character.Corp);
+            //                session.Save(character);
+            //                result.Add(character.EveId, character);
+            //            }
+            //        }
+            //        trans.Commit();
+            //    }
+            //}
+            //return result.Values.Select(Convert.GetEveIntelCharacterInfo).ToArray();
         }
 
         #endregion

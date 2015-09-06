@@ -2,7 +2,6 @@
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Xml;
-using eve_intel_server.Model;
 using JetBrains.Annotations;
 
 namespace eve_intel_server.Service

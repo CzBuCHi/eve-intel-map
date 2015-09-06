@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using System.Net;
-using eve_intel_server.Model;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
