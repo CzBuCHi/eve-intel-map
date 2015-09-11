@@ -96,12 +96,6 @@
     <Compile Include="controls\HotkeyControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="controls\KosInfo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="controls\KosInfo.Designer.cs">
-      <DependentUpon>KosInfo.cs</DependentUpon>
-    </Compile>
     <Compile Include="controls\LogWatcher.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -117,10 +111,10 @@
     <Compile Include="controls\PlayersGrid.Designer.cs">
       <DependentUpon>PlayersGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\ClientData.Designer.cs">
+    <Compile Include="Data\StaticData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ClientData.xsd</DependentUpon>
+      <DependentUpon>StaticData.xsd</DependentUpon>
     </Compile>
     <Compile Include="FormConfig.cs">
       <SubType>Form</SubType>
@@ -148,9 +142,6 @@
     <EmbeddedResource Include="controls\ColorsConfig.resx">
       <DependentUpon>ColorsConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\KosInfo.resx">
-      <DependentUpon>KosInfo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="controls\MapControl.resx">
       <DependentUpon>MapControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,19 +163,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Data\ClientData.xsc">
-      <DependentUpon>ClientData.xsd</DependentUpon>
+    <None Include="Data\StaticData.xsc">
+      <DependentUpon>StaticData.xsd</DependentUpon>
     </None>
-    <None Include="Data\ClientData.xsd">
+    <None Include="Data\StaticData.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ClientData.Designer.cs</LastGenOutput>
+      <LastGenOutput>StaticData.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Data\ClientData.xss">
-      <DependentUpon>ClientData.xsd</DependentUpon>
-    </None>
-    <None Include="eve-intel-map.db3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Include="Data\StaticData.xss">
+      <DependentUpon>StaticData.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

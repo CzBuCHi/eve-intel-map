@@ -140,5 +140,25 @@ namespace eve_intel_map.Properties {
                 return ((string)(this["eve_intel_mapConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=D:\\github\\eve-intel\\eve-intel-web\\eve-intel.sqlite")]
+        public string eve_intelConnectionString {
+            get {
+                return ((string)(this["eve_intelConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=D:\\github\\eve-intel\\eve-intel-map\\eve-intel.sqlite")]
+        public string eve_intelConnectionString1 {
+            get {
+                return ((string)(this["eve_intelConnectionString1"]));
+            }
+        }
     }
 }

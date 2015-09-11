@@ -26,10 +26,10 @@
         /// </summary>
         private void InitializeComponent() {
             this.gViewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
-            this.clientData = new eve_intel_map.Data.ClientData();
-            this.mapSolarSystemsTableAdapter = new eve_intel_map.Data.ClientDataTableAdapters.mapSolarSystemsTableAdapter();
-            this.mapSolarSystemJumpsTableAdapter = new eve_intel_map.Data.ClientDataTableAdapters.mapSolarSystemJumpsTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.clientData)).BeginInit();
+            this.staticData = new eve_intel_map.Data.StaticData();
+            this.mapSolarSystemTableAdapter = new eve_intel_map.Data.StaticDataTableAdapters.mapSolarSystemTableAdapter();
+            this.mapSolarSystemJumpTableAdapter = new eve_intel_map.Data.StaticDataTableAdapters.mapSolarSystemJumpTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.staticData)).BeginInit();
             this.SuspendLayout();
             // 
             // gViewer
@@ -72,18 +72,18 @@
             this.gViewer.ZoomWhenMouseWheelScroll = false;
             this.gViewer.ZoomWindowThreshold = 0.05D;
             // 
-            // clientData
+            // staticData
             // 
-            this.clientData.DataSetName = "ClientData";
-            this.clientData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.staticData.DataSetName = "ClientData";
+            this.staticData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // mapSolarSystemsTableAdapter
+            // mapSolarSystemTableAdapter
             // 
-            this.mapSolarSystemsTableAdapter.ClearBeforeFill = true;
+            this.mapSolarSystemTableAdapter.ClearBeforeFill = true;
             // 
-            // mapSolarSystemJumpsTableAdapter
+            // mapSolarSystemJumpTableAdapter
             // 
-            this.mapSolarSystemJumpsTableAdapter.ClearBeforeFill = true;
+            this.mapSolarSystemJumpTableAdapter.ClearBeforeFill = true;
             // 
             // MapControl
             // 
@@ -91,7 +91,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gViewer);
             this.Name = "MapControl";
-            ((System.ComponentModel.ISupportInitialize)(this.clientData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staticData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -99,8 +99,8 @@
         #endregion
 
         private Microsoft.Msagl.GraphViewerGdi.GViewer gViewer;
-        private Data.ClientData clientData;
-        private Data.ClientDataTableAdapters.mapSolarSystemsTableAdapter mapSolarSystemsTableAdapter;
-        private Data.ClientDataTableAdapters.mapSolarSystemJumpsTableAdapter mapSolarSystemJumpsTableAdapter;
+        private Data.StaticData staticData;
+        private Data.StaticDataTableAdapters.mapSolarSystemTableAdapter mapSolarSystemTableAdapter;
+        private Data.StaticDataTableAdapters.mapSolarSystemJumpTableAdapter mapSolarSystemJumpTableAdapter;
     }
 }

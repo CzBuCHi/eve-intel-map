@@ -39,7 +39,7 @@
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(120, 20);
             this.label.TabIndex = 0;
-            this.label.Text = "label1";
+            this.label.Text = "caption";
             this.label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox

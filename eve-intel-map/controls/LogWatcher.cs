@@ -32,7 +32,7 @@ namespace eve_intel_map.controls
                     File.Delete(file);
                 }
             } catch {
-                MessageBox.Show("Unable to delete EVE log files. EVE is running?", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(@"Unable to delete EVE log files. EVE is running?", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -51,7 +51,7 @@ namespace eve_intel_map.controls
 
                 return q.Distinct().ToArray();
             } catch{
-                MessageBox.Show("Unable to find EVE log files. Please run EVE first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(@"Unable to find EVE log files. Please run EVE first.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return new string[0];
             }
         }

@@ -18,8 +18,8 @@ namespace eve_intel_map.controls
 
         public MapControl() {
             InitializeComponent();
-            mapSolarSystemsTableAdapter.Fill(clientData.mapSolarSystems);
-            mapSolarSystemJumpsTableAdapter.Fill(clientData.mapSolarSystemJumps);
+            mapSolarSystemTableAdapter.Fill(staticData.mapSolarSystem);
+            mapSolarSystemJumpTableAdapter.Fill(staticData.mapSolarSystemJump);
         }
 
         public int MaxVisibleSystems { get; set; } = 20;
@@ -107,7 +107,7 @@ namespace eve_intel_map.controls
 
         private IEnumerable<SystemInfo> GetSystems() {
             // find current system
-            IEnumerable<SystemInfo> q = from system in clientData.mapSolarSystems
+            IEnumerable<SystemInfo> q = from system in staticData.mapSolarSystem
                                         where system.solarSystemID == CurrentSystem
                                         select new SystemInfo {
                                             System = system
@@ -122,7 +122,7 @@ namespace eve_intel_map.controls
             if (current.Length == 0) {
                 // current system is not in specified region - pick first system in region as current
                 if (RegionId != null) {
-                    current = (from system in clientData.mapSolarSystems
+                    current = (from system in staticData.mapSolarSystem
                                where system.regionID == RegionId
                                select new SystemInfo {
                                    System = system
@@ -155,10 +155,10 @@ namespace eve_intel_map.controls
         }
 
         [NotNull]
-        private IEnumerable<SystemInfo> GetConnected([NotNull] IEnumerable<SystemInfo> prev, [NotNull] long[] prevIds) {
+        private IEnumerable<SystemInfo> GetConnected([NotNull] IEnumerable<SystemInfo> prev, [NotNull] int[] prevIds) {
             foreach (SystemInfo o in prev) {
-                IEnumerable<ClientData.mapSolarSystemsRow> q = from jump in clientData.mapSolarSystemJumps
-                                                               join system in clientData.mapSolarSystems on jump.toSolarSystemID equals system.solarSystemID
+                IEnumerable<StaticData.mapSolarSystemRow> q = from jump in staticData.mapSolarSystemJump
+                                                               join system in staticData.mapSolarSystem on jump.toSolarSystemID equals system.solarSystemID
                                                                where jump.fromSolarSystemID == o.System.solarSystemID
                                                                select system;
                 if (RegionId != null) {
@@ -167,7 +167,7 @@ namespace eve_intel_map.controls
                         select system;
                 }
 
-                foreach (ClientData.mapSolarSystemsRow o2 in q) {
+                foreach (StaticData.mapSolarSystemRow o2 in q) {
                     if (prevIds.Contains(o2.solarSystemID)) {
                         continue;
                     }
@@ -182,8 +182,8 @@ namespace eve_intel_map.controls
 
         public class SystemInfo
         {
-            public ClientData.mapSolarSystemsRow System { get; set; }
-            public ClientData.mapSolarSystemsRow Parent { get; set; }
+            public StaticData.mapSolarSystemRow System { get; set; }
+            public StaticData.mapSolarSystemRow Parent { get; set; }
         }
     }
 }

@@ -27,131 +27,186 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.playerInfoEveShipNamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.playerInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.shipTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.solarsystemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.playerInfoEveMapSolarsystemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.solarsystemTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staticData = new eve_intel_map.Data.StaticData();
+            this.intelPlayerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.intelPlayerTableAdapter = new eve_intel_map.Data.StaticDataTableAdapters.intelPlayerTableAdapter();
+            this.mapSolarSystemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mapSolarSystemTableAdapter = new eve_intel_map.Data.StaticDataTableAdapters.mapSolarSystemTableAdapter();
+            this.eveShipBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eveShipTableAdapter = new eve_intel_map.Data.StaticDataTableAdapters.eveShipTableAdapter();
+            this.characterIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.characterNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.corporationNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allianceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.characterKosDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.corporationKosDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.allianceKosDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.solarsystemIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.shipTypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.shipTypeID = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playerInfoEveShipNamesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playerInfoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playerInfoEveMapSolarsystemsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staticData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intelPlayerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mapSolarSystemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eveShipBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.shipDataGridViewTextBoxColumn,
-            this.shipTimeDataGridViewTextBoxColumn,
-            this.solarsystemDataGridViewTextBoxColumn,
-            this.solarsystemTimeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.playerInfoBindingSource;
+            this.characterIDDataGridViewTextBoxColumn,
+            this.characterNameDataGridViewTextBoxColumn,
+            this.corporationNameDataGridViewTextBoxColumn,
+            this.allianceNameDataGridViewTextBoxColumn,
+            this.characterKosDataGridViewCheckBoxColumn,
+            this.corporationKosDataGridViewCheckBoxColumn,
+            this.allianceKosDataGridViewCheckBoxColumn,
+            this.solarsystemIDDataGridViewTextBoxColumn,
+            this.shipTypeIDDataGridViewTextBoxColumn,
+            this.shipTypeID,
+            this.dataGridViewComboBoxColumn1,
+            this.notesDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.intelPlayerBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(450, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(900, 150);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             // 
-            // idDataGridViewTextBoxColumn
+            // staticData
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 22;
+            this.staticData.DataSetName = "StaticData";
+            this.staticData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // nameDataGridViewTextBoxColumn
+            // intelPlayerBindingSource
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Charcter";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 72;
+            this.intelPlayerBindingSource.DataMember = "intelPlayer";
+            this.intelPlayerBindingSource.DataSource = this.staticData;
             // 
-            // shipDataGridViewTextBoxColumn
+            // intelPlayerTableAdapter
             // 
-            this.shipDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.shipDataGridViewTextBoxColumn.DataPropertyName = "Ship";
-            this.shipDataGridViewTextBoxColumn.DataSource = this.playerInfoEveShipNamesBindingSource;
-            this.shipDataGridViewTextBoxColumn.DisplayMember = "Name";
-            this.shipDataGridViewTextBoxColumn.HeaderText = "Ship";
-            this.shipDataGridViewTextBoxColumn.Name = "shipDataGridViewTextBoxColumn";
-            this.shipDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.shipDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.shipDataGridViewTextBoxColumn.ValueMember = "Id";
+            this.intelPlayerTableAdapter.ClearBeforeFill = true;
             // 
-            // playerInfoEveShipNamesBindingSource
+            // mapSolarSystemBindingSource
             // 
-            this.playerInfoEveShipNamesBindingSource.DataMember = "PlayerInfo_EveShipNames";
-            this.playerInfoEveShipNamesBindingSource.DataSource = this.playerInfoBindingSource;
+            this.mapSolarSystemBindingSource.DataMember = "mapSolarSystem";
+            this.mapSolarSystemBindingSource.DataSource = this.staticData;
             // 
-            // playerInfoBindingSource
+            // mapSolarSystemTableAdapter
             // 
-            this.playerInfoBindingSource.DataMember = "PlayerInfo";
-            
-            
+            this.mapSolarSystemTableAdapter.ClearBeforeFill = true;
             // 
-            // shipTimeDataGridViewTextBoxColumn
+            // eveShipBindingSource
             // 
-            this.shipTimeDataGridViewTextBoxColumn.DataPropertyName = "ShipTime";
-            this.shipTimeDataGridViewTextBoxColumn.HeaderText = "ShipTime";
-            this.shipTimeDataGridViewTextBoxColumn.Name = "shipTimeDataGridViewTextBoxColumn";
-            this.shipTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.shipTimeDataGridViewTextBoxColumn.Width = 76;
+            this.eveShipBindingSource.DataMember = "eveShip";
+            this.eveShipBindingSource.DataSource = this.staticData;
             // 
-            // solarsystemDataGridViewTextBoxColumn
+            // eveShipTableAdapter
             // 
-            this.solarsystemDataGridViewTextBoxColumn.DataPropertyName = "Solarsystem";
-            this.solarsystemDataGridViewTextBoxColumn.DataSource = this.playerInfoEveMapSolarsystemsBindingSource;
-            this.solarsystemDataGridViewTextBoxColumn.DisplayMember = "Name";
-            this.solarsystemDataGridViewTextBoxColumn.HeaderText = "Solarsystem";
-            this.solarsystemDataGridViewTextBoxColumn.Name = "solarsystemDataGridViewTextBoxColumn";
-            this.solarsystemDataGridViewTextBoxColumn.ReadOnly = true;
-            this.solarsystemDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.solarsystemDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.solarsystemDataGridViewTextBoxColumn.ValueMember = "Id";
-            this.solarsystemDataGridViewTextBoxColumn.Width = 88;
+            this.eveShipTableAdapter.ClearBeforeFill = true;
             // 
-            // playerInfoEveMapSolarsystemsBindingSource
+            // characterIDDataGridViewTextBoxColumn
             // 
-            this.playerInfoEveMapSolarsystemsBindingSource.DataMember = "PlayerInfo_EveMapSolarsystems";
-            this.playerInfoEveMapSolarsystemsBindingSource.DataSource = this.playerInfoBindingSource;
+            this.characterIDDataGridViewTextBoxColumn.DataPropertyName = "characterID";
+            this.characterIDDataGridViewTextBoxColumn.HeaderText = "characterID";
+            this.characterIDDataGridViewTextBoxColumn.Name = "characterIDDataGridViewTextBoxColumn";
+            this.characterIDDataGridViewTextBoxColumn.Visible = false;
             // 
-            // solarsystemTimeDataGridViewTextBoxColumn
+            // characterNameDataGridViewTextBoxColumn
             // 
-            this.solarsystemTimeDataGridViewTextBoxColumn.DataPropertyName = "SolarsystemTime";
-            this.solarsystemTimeDataGridViewTextBoxColumn.HeaderText = "SolarsystemTime";
-            this.solarsystemTimeDataGridViewTextBoxColumn.Name = "solarsystemTimeDataGridViewTextBoxColumn";
-            this.solarsystemTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.solarsystemTimeDataGridViewTextBoxColumn.Width = 111;
+            this.characterNameDataGridViewTextBoxColumn.DataPropertyName = "characterName";
+            this.characterNameDataGridViewTextBoxColumn.HeaderText = "Character";
+            this.characterNameDataGridViewTextBoxColumn.Name = "characterNameDataGridViewTextBoxColumn";
             // 
-            // playerInfoTableAdapter
+            // corporationNameDataGridViewTextBoxColumn
             // 
-            
+            this.corporationNameDataGridViewTextBoxColumn.DataPropertyName = "corporationName";
+            this.corporationNameDataGridViewTextBoxColumn.HeaderText = "Corporation";
+            this.corporationNameDataGridViewTextBoxColumn.Name = "corporationNameDataGridViewTextBoxColumn";
             // 
-            // eveMapSolarsystemsTableAdapter
+            // allianceNameDataGridViewTextBoxColumn
             // 
-            
+            this.allianceNameDataGridViewTextBoxColumn.DataPropertyName = "allianceName";
+            this.allianceNameDataGridViewTextBoxColumn.HeaderText = "Alliance";
+            this.allianceNameDataGridViewTextBoxColumn.Name = "allianceNameDataGridViewTextBoxColumn";
             // 
-            // eveShipNamesTableAdapter
+            // characterKosDataGridViewCheckBoxColumn
             // 
-            
+            this.characterKosDataGridViewCheckBoxColumn.DataPropertyName = "characterKos";
+            this.characterKosDataGridViewCheckBoxColumn.HeaderText = "characterKos";
+            this.characterKosDataGridViewCheckBoxColumn.Name = "characterKosDataGridViewCheckBoxColumn";
+            this.characterKosDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // corporationKosDataGridViewCheckBoxColumn
+            // 
+            this.corporationKosDataGridViewCheckBoxColumn.DataPropertyName = "corporationKos";
+            this.corporationKosDataGridViewCheckBoxColumn.HeaderText = "corporationKos";
+            this.corporationKosDataGridViewCheckBoxColumn.Name = "corporationKosDataGridViewCheckBoxColumn";
+            this.corporationKosDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // allianceKosDataGridViewCheckBoxColumn
+            // 
+            this.allianceKosDataGridViewCheckBoxColumn.DataPropertyName = "allianceKos";
+            this.allianceKosDataGridViewCheckBoxColumn.HeaderText = "allianceKos";
+            this.allianceKosDataGridViewCheckBoxColumn.Name = "allianceKosDataGridViewCheckBoxColumn";
+            this.allianceKosDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // solarsystemIDDataGridViewTextBoxColumn
+            // 
+            this.solarsystemIDDataGridViewTextBoxColumn.DataPropertyName = "solarsystemID";
+            this.solarsystemIDDataGridViewTextBoxColumn.DataSource = this.mapSolarSystemBindingSource;
+            this.solarsystemIDDataGridViewTextBoxColumn.DisplayMember = "solarSystemName";
+            this.solarsystemIDDataGridViewTextBoxColumn.HeaderText = "Solar System";
+            this.solarsystemIDDataGridViewTextBoxColumn.Name = "solarsystemIDDataGridViewTextBoxColumn";
+            this.solarsystemIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.solarsystemIDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.solarsystemIDDataGridViewTextBoxColumn.ValueMember = "solarSystemID";
+            // 
+            // shipTypeIDDataGridViewTextBoxColumn
+            // 
+            this.shipTypeIDDataGridViewTextBoxColumn.DataPropertyName = "shipTypeID";
+            this.shipTypeIDDataGridViewTextBoxColumn.DataSource = this.eveShipBindingSource;
+            this.shipTypeIDDataGridViewTextBoxColumn.DisplayMember = "typeName";
+            this.shipTypeIDDataGridViewTextBoxColumn.HeaderText = "Ship";
+            this.shipTypeIDDataGridViewTextBoxColumn.Name = "shipTypeIDDataGridViewTextBoxColumn";
+            this.shipTypeIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.shipTypeIDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.shipTypeIDDataGridViewTextBoxColumn.ValueMember = "typeID";
+            // 
+            // shipTypeID
+            // 
+            this.shipTypeID.DataPropertyName = "shipTypeID";
+            this.shipTypeID.DataSource = this.eveShipBindingSource;
+            this.shipTypeID.DisplayMember = "groupName";
+            this.shipTypeID.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.shipTypeID.HeaderText = "Ship type";
+            this.shipTypeID.Name = "shipTypeID";
+            this.shipTypeID.ReadOnly = true;
+            this.shipTypeID.ValueMember = "typeID";
+            // 
+            // dataGridViewComboBoxColumn1
+            // 
+            this.dataGridViewComboBoxColumn1.DataPropertyName = "shipTypeID";
+            this.dataGridViewComboBoxColumn1.DataSource = this.eveShipBindingSource;
+            this.dataGridViewComboBoxColumn1.DisplayMember = "raceName";
+            this.dataGridViewComboBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.dataGridViewComboBoxColumn1.HeaderText = "Ship race";
+            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
+            this.dataGridViewComboBoxColumn1.ReadOnly = true;
+            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewComboBoxColumn1.ValueMember = "typeID";
+            // 
+            // notesDataGridViewTextBoxColumn
+            // 
+            this.notesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.notesDataGridViewTextBoxColumn.DataPropertyName = "notes";
+            this.notesDataGridViewTextBoxColumn.HeaderText = "notes";
+            this.notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
             // 
             // PlayersGrid
             // 
@@ -159,33 +214,36 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridView1);
             this.Name = "PlayersGrid";
-            this.Size = new System.Drawing.Size(450, 150);
+            this.Size = new System.Drawing.Size(900, 150);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playerInfoEveShipNamesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playerInfoBindingSource)).EndInit();
-            
-            ((System.ComponentModel.ISupportInitialize)(this.playerInfoEveMapSolarsystemsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staticData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intelPlayerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mapSolarSystemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eveShipBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn shipNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shipNameTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn shipNameConfirmedDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn characterIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource intelPlayerBindingSource;
+        private Data.StaticData staticData;
+        private Data.StaticDataTableAdapters.intelPlayerTableAdapter intelPlayerTableAdapter;
+        private System.Windows.Forms.BindingSource mapSolarSystemBindingSource;
+        private System.Windows.Forms.BindingSource eveShipBindingSource;
+        private Data.StaticDataTableAdapters.mapSolarSystemTableAdapter mapSolarSystemTableAdapter;
+        private Data.StaticDataTableAdapters.eveShipTableAdapter eveShipTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn characterIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn characterNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn shipConfirmedDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.BindingSource playerInfoEveShipNamesBindingSource;
-        private System.Windows.Forms.BindingSource playerInfoBindingSource;
-        private System.Windows.Forms.BindingSource playerInfoEveMapSolarsystemsBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn shipDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shipTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn solarsystemDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn solarsystemTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn corporationNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allianceNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn characterKosDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn corporationKosDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn allianceKosDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn solarsystemIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn shipTypeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn shipTypeID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;
     }
 }
