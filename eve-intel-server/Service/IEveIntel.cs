@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Xml;
 using JetBrains.Annotations;
 
 namespace eve_intel_server.Service
 {
     [ServiceContract(CallbackContract = typeof (IEveIntelCallback))]
     [ServiceKnownType(typeof (EveIntelCharacterInfo))]
-    [ServiceKnownType(typeof (EveIntelCorporationInfo))]
-    [ServiceKnownType(typeof (EveIntelAllianceInfo))]
     public interface IEveIntel
     {
         /// <summary>
@@ -17,9 +13,10 @@ namespace eve_intel_server.Service
         /// </summary>
         /// <param name="keyId">EVE key id</param>
         /// <param name="vCode">EVE key verification code</param>
+        /// <param name="solarsystemID">Client local system (kos player will give intel on himself whent trying to connect)</param>
         /// <returns>Client id used by all other requests-or-null if kos character detected.</returns>
         [OperationContract(IsOneWay = false)]
-        Guid? Connect(long keyId, [NotNull] string vCode);
+        Guid? Connect(long keyId, [NotNull] string vCode, long solarsystemID);
 
         /// <summary>
         ///     Client disconnection
@@ -32,10 +29,10 @@ namespace eve_intel_server.Service
         ///     Information about local characters from client
         /// </summary>
         /// <param name="clientId">Client id</param>
-        /// <param name="currentSystem">Client local system</param>
+        /// <param name="solarsystemID">Client local system</param>
         /// <param name="characterNames">List of characters in local</param>
         [OperationContract(IsOneWay = true)]
-        void UpdateLocal(Guid clientId, long currentSystem, [NotNull] string[] characterNames);
+        void UpdateLocal(Guid clientId, long solarsystemID, [NotNull] string[] characterNames);
     }
 
     public interface IEveIntelCallback
@@ -50,8 +47,9 @@ namespace eve_intel_server.Service
         /// <summary>
         ///     Server informs client, that another client was trying to connect with save keyId and vCode
         /// </summary>
+        /// <param name="solarsystemID">ID of system from with second connection was originated</param>
         [OperationContract(IsOneWay = true)]
-        void SecondConnection();
+        void SecondConnection(long solarsystemID);
 
         /// <summary>
         ///     Server informs clients about local characters

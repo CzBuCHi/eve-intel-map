@@ -8,6 +8,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="keyId" type="xs:long" />
         <xs:element minOccurs="0" name="vCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="solarsystemID" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -29,7 +30,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="clientId" type="q3:guid" />
-        <xs:element minOccurs="0" name="currentSystem" type="xs:long" />
+        <xs:element minOccurs="0" name="solarsystemID" type="xs:long" />
         <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="characterNames" nillable="true" type="q4:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
@@ -43,7 +44,9 @@
   </xs:element>
   <xs:element name="SecondConnection">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="solarsystemID" type="xs:long" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ClientLocalUpdate">

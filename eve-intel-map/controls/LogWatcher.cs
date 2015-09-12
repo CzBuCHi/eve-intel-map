@@ -44,11 +44,6 @@ namespace eve_intel_map.controls
                                         where match.Success
                                         select match.Groups[1].Value;
 
-
-                if (!string.IsNullOrEmpty(Settings.Default.intelLogName)) {
-                    q = q.Union(new[] { Settings.Default.intelLogName });
-                }
-
                 return q.Distinct().ToArray();
             } catch{
                 MessageBox.Show(@"Unable to find EVE log files. Please run EVE first.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

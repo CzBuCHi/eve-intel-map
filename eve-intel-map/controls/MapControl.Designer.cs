@@ -27,8 +27,8 @@
         private void InitializeComponent() {
             this.gViewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
             this.staticData = new eve_intel_map.Data.StaticData();
-            this.mapSolarSystemTableAdapter = new eve_intel_map.Data.StaticDataTableAdapters.mapSolarSystemTableAdapter();
-            this.mapSolarSystemJumpTableAdapter = new eve_intel_map.Data.StaticDataTableAdapters.mapSolarSystemJumpTableAdapter();
+            this.mapSolarSystemsTableAdapter = new eve_intel_map.Data.StaticDataTableAdapters.mapSolarSystemsTableAdapter();
+            this.mapSolarSystemJumpsTableAdapter = new eve_intel_map.Data.StaticDataTableAdapters.mapSolarSystemJumpsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.staticData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,13 +77,13 @@
             this.staticData.DataSetName = "ClientData";
             this.staticData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // mapSolarSystemTableAdapter
+            // mapSolarSystemsTableAdapter
             // 
-            this.mapSolarSystemTableAdapter.ClearBeforeFill = true;
+            this.mapSolarSystemsTableAdapter.ClearBeforeFill = true;
             // 
-            // mapSolarSystemJumpTableAdapter
+            // mapSolarSystemJumpsTableAdapter
             // 
-            this.mapSolarSystemJumpTableAdapter.ClearBeforeFill = true;
+            this.mapSolarSystemJumpsTableAdapter.ClearBeforeFill = true;
             // 
             // MapControl
             // 
@@ -100,7 +100,7 @@
 
         private Microsoft.Msagl.GraphViewerGdi.GViewer gViewer;
         private Data.StaticData staticData;
-        private Data.StaticDataTableAdapters.mapSolarSystemTableAdapter mapSolarSystemTableAdapter;
-        private Data.StaticDataTableAdapters.mapSolarSystemJumpTableAdapter mapSolarSystemJumpTableAdapter;
+        private Data.StaticDataTableAdapters.mapSolarSystemsTableAdapter mapSolarSystemsTableAdapter;
+        private Data.StaticDataTableAdapters.mapSolarSystemJumpsTableAdapter mapSolarSystemJumpsTableAdapter;
     }
 }

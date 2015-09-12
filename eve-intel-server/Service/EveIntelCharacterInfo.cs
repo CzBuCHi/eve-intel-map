@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.Serialization;
 
 namespace eve_intel_server.Service
@@ -6,15 +7,41 @@ namespace eve_intel_server.Service
     public class EveIntelCharacterInfo
     {
         [DataMember]
-        public string Label { get; set; }
+        public long CharacterID { get; set; }
 
         [DataMember]
-        public bool Kos { get; set; }
+        public string CharacterName { get; set; }
 
         [DataMember]
-        public long EveId { get; set; }
+        public string CorporationName { get; set; }
 
         [DataMember]
-        public EveIntelCorporationInfo Corp { get; set; }
+        public string AllianceName { get; set; }
+
+        [DataMember]
+        public bool CharacterKos { get; set; }
+
+        [DataMember]
+        public bool CorporationKos { get; set; }
+
+        [DataMember]
+        public bool? AllianceKos { get; set; }
+
+        [DataMember]
+        public long? SolarsystemID { get; set; }
+
+        [DataMember]
+        public DateTime? SolarsystemTime { get; set; }
+
+        [DataMember]
+        public int? ShipTypeID { get; set; }
+
+        [DataMember]
+        public DateTime? ShipTypeTime { get; set; }
+
+        [DataMember]
+        public string Notes { get; set; }
+
+        internal bool Kos => CharacterKos || CorporationKos || (AllianceKos ?? false);
     }
 }

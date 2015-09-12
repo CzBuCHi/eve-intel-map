@@ -24,31 +24,25 @@ namespace eve_intel_map.Data {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class StaticData : global::System.Data.DataSet {
         
-        private mapSolarSystemJumpDataTable tablemapSolarSystemJump;
+        private eveShipsDataTable tableeveShips;
         
-        private mapConstellationDataTable tablemapConstellation;
+        private mapConstellationsDataTable tablemapConstellations;
         
-        private mapRegionDataTable tablemapRegion;
+        private mapRegionsDataTable tablemapRegions;
         
-        private mapSolarSystemDataTable tablemapSolarSystem;
+        private mapSolarSystemJumpsDataTable tablemapSolarSystemJumps;
         
-        private eveShipDataTable tableeveShip;
+        private mapSolarSystemsDataTable tablemapSolarSystems;
         
-        private intelPlayerDataTable tableintelPlayer;
+        private global::System.Data.DataRelation relationmapRegions_mapConstellations;
         
-        private global::System.Data.DataRelation relationFK_mapSolarSystemJump_0_0;
+        private global::System.Data.DataRelation relationmapRegions_mapSolarSystems;
         
-        private global::System.Data.DataRelation relationFK_mapSolarSystemJump_1_0;
+        private global::System.Data.DataRelation relationmapConstellations_mapSolarSystems;
         
-        private global::System.Data.DataRelation relationFK_mapConstellation_0_0;
+        private global::System.Data.DataRelation relationmapSolarSystemJumps_mapSolarSystems;
         
-        private global::System.Data.DataRelation relationFK_mapSolarSystem_0_0;
-        
-        private global::System.Data.DataRelation relationFK_mapSolarSystem_1_0;
-        
-        private global::System.Data.DataRelation relationFK_intelPlayer_0_0;
-        
-        private global::System.Data.DataRelation relationFK_intelPlayer_1_0;
+        private global::System.Data.DataRelation relationmapSolarSystemJumps_mapSolarSystems1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -78,23 +72,20 @@ namespace eve_intel_map.Data {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["mapSolarSystemJump"] != null)) {
-                    base.Tables.Add(new mapSolarSystemJumpDataTable(ds.Tables["mapSolarSystemJump"]));
+                if ((ds.Tables["eveShips"] != null)) {
+                    base.Tables.Add(new eveShipsDataTable(ds.Tables["eveShips"]));
                 }
-                if ((ds.Tables["mapConstellation"] != null)) {
-                    base.Tables.Add(new mapConstellationDataTable(ds.Tables["mapConstellation"]));
+                if ((ds.Tables["mapConstellations"] != null)) {
+                    base.Tables.Add(new mapConstellationsDataTable(ds.Tables["mapConstellations"]));
                 }
-                if ((ds.Tables["mapRegion"] != null)) {
-                    base.Tables.Add(new mapRegionDataTable(ds.Tables["mapRegion"]));
+                if ((ds.Tables["mapRegions"] != null)) {
+                    base.Tables.Add(new mapRegionsDataTable(ds.Tables["mapRegions"]));
                 }
-                if ((ds.Tables["mapSolarSystem"] != null)) {
-                    base.Tables.Add(new mapSolarSystemDataTable(ds.Tables["mapSolarSystem"]));
+                if ((ds.Tables["mapSolarSystemJumps"] != null)) {
+                    base.Tables.Add(new mapSolarSystemJumpsDataTable(ds.Tables["mapSolarSystemJumps"]));
                 }
-                if ((ds.Tables["eveShip"] != null)) {
-                    base.Tables.Add(new eveShipDataTable(ds.Tables["eveShip"]));
-                }
-                if ((ds.Tables["intelPlayer"] != null)) {
-                    base.Tables.Add(new intelPlayerDataTable(ds.Tables["intelPlayer"]));
+                if ((ds.Tables["mapSolarSystems"] != null)) {
+                    base.Tables.Add(new mapSolarSystemsDataTable(ds.Tables["mapSolarSystems"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -118,9 +109,9 @@ namespace eve_intel_map.Data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public mapSolarSystemJumpDataTable mapSolarSystemJump {
+        public eveShipsDataTable eveShips {
             get {
-                return this.tablemapSolarSystemJump;
+                return this.tableeveShips;
             }
         }
         
@@ -128,9 +119,9 @@ namespace eve_intel_map.Data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public mapConstellationDataTable mapConstellation {
+        public mapConstellationsDataTable mapConstellations {
             get {
-                return this.tablemapConstellation;
+                return this.tablemapConstellations;
             }
         }
         
@@ -138,9 +129,9 @@ namespace eve_intel_map.Data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public mapRegionDataTable mapRegion {
+        public mapRegionsDataTable mapRegions {
             get {
-                return this.tablemapRegion;
+                return this.tablemapRegions;
             }
         }
         
@@ -148,9 +139,9 @@ namespace eve_intel_map.Data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public mapSolarSystemDataTable mapSolarSystem {
+        public mapSolarSystemJumpsDataTable mapSolarSystemJumps {
             get {
-                return this.tablemapSolarSystem;
+                return this.tablemapSolarSystemJumps;
             }
         }
         
@@ -158,19 +149,9 @@ namespace eve_intel_map.Data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public eveShipDataTable eveShip {
+        public mapSolarSystemsDataTable mapSolarSystems {
             get {
-                return this.tableeveShip;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public intelPlayerDataTable intelPlayer {
-            get {
-                return this.tableintelPlayer;
+                return this.tablemapSolarSystems;
             }
         }
         
@@ -241,23 +222,20 @@ namespace eve_intel_map.Data {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["mapSolarSystemJump"] != null)) {
-                    base.Tables.Add(new mapSolarSystemJumpDataTable(ds.Tables["mapSolarSystemJump"]));
+                if ((ds.Tables["eveShips"] != null)) {
+                    base.Tables.Add(new eveShipsDataTable(ds.Tables["eveShips"]));
                 }
-                if ((ds.Tables["mapConstellation"] != null)) {
-                    base.Tables.Add(new mapConstellationDataTable(ds.Tables["mapConstellation"]));
+                if ((ds.Tables["mapConstellations"] != null)) {
+                    base.Tables.Add(new mapConstellationsDataTable(ds.Tables["mapConstellations"]));
                 }
-                if ((ds.Tables["mapRegion"] != null)) {
-                    base.Tables.Add(new mapRegionDataTable(ds.Tables["mapRegion"]));
+                if ((ds.Tables["mapRegions"] != null)) {
+                    base.Tables.Add(new mapRegionsDataTable(ds.Tables["mapRegions"]));
                 }
-                if ((ds.Tables["mapSolarSystem"] != null)) {
-                    base.Tables.Add(new mapSolarSystemDataTable(ds.Tables["mapSolarSystem"]));
+                if ((ds.Tables["mapSolarSystemJumps"] != null)) {
+                    base.Tables.Add(new mapSolarSystemJumpsDataTable(ds.Tables["mapSolarSystemJumps"]));
                 }
-                if ((ds.Tables["eveShip"] != null)) {
-                    base.Tables.Add(new eveShipDataTable(ds.Tables["eveShip"]));
-                }
-                if ((ds.Tables["intelPlayer"] != null)) {
-                    base.Tables.Add(new intelPlayerDataTable(ds.Tables["intelPlayer"]));
+                if ((ds.Tables["mapSolarSystems"] != null)) {
+                    base.Tables.Add(new mapSolarSystemsDataTable(ds.Tables["mapSolarSystems"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -292,49 +270,41 @@ namespace eve_intel_map.Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablemapSolarSystemJump = ((mapSolarSystemJumpDataTable)(base.Tables["mapSolarSystemJump"]));
+            this.tableeveShips = ((eveShipsDataTable)(base.Tables["eveShips"]));
             if ((initTable == true)) {
-                if ((this.tablemapSolarSystemJump != null)) {
-                    this.tablemapSolarSystemJump.InitVars();
+                if ((this.tableeveShips != null)) {
+                    this.tableeveShips.InitVars();
                 }
             }
-            this.tablemapConstellation = ((mapConstellationDataTable)(base.Tables["mapConstellation"]));
+            this.tablemapConstellations = ((mapConstellationsDataTable)(base.Tables["mapConstellations"]));
             if ((initTable == true)) {
-                if ((this.tablemapConstellation != null)) {
-                    this.tablemapConstellation.InitVars();
+                if ((this.tablemapConstellations != null)) {
+                    this.tablemapConstellations.InitVars();
                 }
             }
-            this.tablemapRegion = ((mapRegionDataTable)(base.Tables["mapRegion"]));
+            this.tablemapRegions = ((mapRegionsDataTable)(base.Tables["mapRegions"]));
             if ((initTable == true)) {
-                if ((this.tablemapRegion != null)) {
-                    this.tablemapRegion.InitVars();
+                if ((this.tablemapRegions != null)) {
+                    this.tablemapRegions.InitVars();
                 }
             }
-            this.tablemapSolarSystem = ((mapSolarSystemDataTable)(base.Tables["mapSolarSystem"]));
+            this.tablemapSolarSystemJumps = ((mapSolarSystemJumpsDataTable)(base.Tables["mapSolarSystemJumps"]));
             if ((initTable == true)) {
-                if ((this.tablemapSolarSystem != null)) {
-                    this.tablemapSolarSystem.InitVars();
+                if ((this.tablemapSolarSystemJumps != null)) {
+                    this.tablemapSolarSystemJumps.InitVars();
                 }
             }
-            this.tableeveShip = ((eveShipDataTable)(base.Tables["eveShip"]));
+            this.tablemapSolarSystems = ((mapSolarSystemsDataTable)(base.Tables["mapSolarSystems"]));
             if ((initTable == true)) {
-                if ((this.tableeveShip != null)) {
-                    this.tableeveShip.InitVars();
+                if ((this.tablemapSolarSystems != null)) {
+                    this.tablemapSolarSystems.InitVars();
                 }
             }
-            this.tableintelPlayer = ((intelPlayerDataTable)(base.Tables["intelPlayer"]));
-            if ((initTable == true)) {
-                if ((this.tableintelPlayer != null)) {
-                    this.tableintelPlayer.InitVars();
-                }
-            }
-            this.relationFK_mapSolarSystemJump_0_0 = this.Relations["FK_mapSolarSystemJump_0_0"];
-            this.relationFK_mapSolarSystemJump_1_0 = this.Relations["FK_mapSolarSystemJump_1_0"];
-            this.relationFK_mapConstellation_0_0 = this.Relations["FK_mapConstellation_0_0"];
-            this.relationFK_mapSolarSystem_0_0 = this.Relations["FK_mapSolarSystem_0_0"];
-            this.relationFK_mapSolarSystem_1_0 = this.Relations["FK_mapSolarSystem_1_0"];
-            this.relationFK_intelPlayer_0_0 = this.Relations["FK_intelPlayer_0_0"];
-            this.relationFK_intelPlayer_1_0 = this.Relations["FK_intelPlayer_1_0"];
+            this.relationmapRegions_mapConstellations = this.Relations["mapRegions_mapConstellations"];
+            this.relationmapRegions_mapSolarSystems = this.Relations["mapRegions_mapSolarSystems"];
+            this.relationmapConstellations_mapSolarSystems = this.Relations["mapConstellations_mapSolarSystems"];
+            this.relationmapSolarSystemJumps_mapSolarSystems = this.Relations["mapSolarSystemJumps_mapSolarSystems"];
+            this.relationmapSolarSystemJumps_mapSolarSystems1 = this.Relations["mapSolarSystemJumps_mapSolarSystems1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -345,81 +315,65 @@ namespace eve_intel_map.Data {
             this.Namespace = "http://tempuri.org/StaticData.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablemapSolarSystemJump = new mapSolarSystemJumpDataTable();
-            base.Tables.Add(this.tablemapSolarSystemJump);
-            this.tablemapConstellation = new mapConstellationDataTable();
-            base.Tables.Add(this.tablemapConstellation);
-            this.tablemapRegion = new mapRegionDataTable();
-            base.Tables.Add(this.tablemapRegion);
-            this.tablemapSolarSystem = new mapSolarSystemDataTable();
-            base.Tables.Add(this.tablemapSolarSystem);
-            this.tableeveShip = new eveShipDataTable();
-            base.Tables.Add(this.tableeveShip);
-            this.tableintelPlayer = new intelPlayerDataTable();
-            base.Tables.Add(this.tableintelPlayer);
-            this.relationFK_mapSolarSystemJump_0_0 = new global::System.Data.DataRelation("FK_mapSolarSystemJump_0_0", new global::System.Data.DataColumn[] {
-                        this.tablemapSolarSystem.solarSystemIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablemapSolarSystemJump.fromSolarSystemIDColumn}, false);
-            this.Relations.Add(this.relationFK_mapSolarSystemJump_0_0);
-            this.relationFK_mapSolarSystemJump_1_0 = new global::System.Data.DataRelation("FK_mapSolarSystemJump_1_0", new global::System.Data.DataColumn[] {
-                        this.tablemapSolarSystem.solarSystemIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablemapSolarSystemJump.toSolarSystemIDColumn}, false);
-            this.Relations.Add(this.relationFK_mapSolarSystemJump_1_0);
-            this.relationFK_mapConstellation_0_0 = new global::System.Data.DataRelation("FK_mapConstellation_0_0", new global::System.Data.DataColumn[] {
-                        this.tablemapRegion.regionIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablemapConstellation.regionIDColumn}, false);
-            this.Relations.Add(this.relationFK_mapConstellation_0_0);
-            this.relationFK_mapSolarSystem_0_0 = new global::System.Data.DataRelation("FK_mapSolarSystem_0_0", new global::System.Data.DataColumn[] {
-                        this.tablemapConstellation.constellationIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablemapSolarSystem.constellationIDColumn}, false);
-            this.Relations.Add(this.relationFK_mapSolarSystem_0_0);
-            this.relationFK_mapSolarSystem_1_0 = new global::System.Data.DataRelation("FK_mapSolarSystem_1_0", new global::System.Data.DataColumn[] {
-                        this.tablemapRegion.regionIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablemapSolarSystem.regionIDColumn}, false);
-            this.Relations.Add(this.relationFK_mapSolarSystem_1_0);
-            this.relationFK_intelPlayer_0_0 = new global::System.Data.DataRelation("FK_intelPlayer_0_0", new global::System.Data.DataColumn[] {
-                        this.tableeveShip.typeIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableintelPlayer.shipTypeIDColumn}, false);
-            this.Relations.Add(this.relationFK_intelPlayer_0_0);
-            this.relationFK_intelPlayer_1_0 = new global::System.Data.DataRelation("FK_intelPlayer_1_0", new global::System.Data.DataColumn[] {
-                        this.tablemapSolarSystem.solarSystemIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableintelPlayer.solarsystemIDColumn}, false);
-            this.Relations.Add(this.relationFK_intelPlayer_1_0);
+            this.tableeveShips = new eveShipsDataTable();
+            base.Tables.Add(this.tableeveShips);
+            this.tablemapConstellations = new mapConstellationsDataTable();
+            base.Tables.Add(this.tablemapConstellations);
+            this.tablemapRegions = new mapRegionsDataTable();
+            base.Tables.Add(this.tablemapRegions);
+            this.tablemapSolarSystemJumps = new mapSolarSystemJumpsDataTable();
+            base.Tables.Add(this.tablemapSolarSystemJumps);
+            this.tablemapSolarSystems = new mapSolarSystemsDataTable();
+            base.Tables.Add(this.tablemapSolarSystems);
+            this.relationmapRegions_mapConstellations = new global::System.Data.DataRelation("mapRegions_mapConstellations", new global::System.Data.DataColumn[] {
+                        this.tablemapRegions.regionIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablemapConstellations.regionIDColumn}, false);
+            this.Relations.Add(this.relationmapRegions_mapConstellations);
+            this.relationmapRegions_mapSolarSystems = new global::System.Data.DataRelation("mapRegions_mapSolarSystems", new global::System.Data.DataColumn[] {
+                        this.tablemapRegions.regionIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablemapSolarSystems.regionIDColumn}, false);
+            this.Relations.Add(this.relationmapRegions_mapSolarSystems);
+            this.relationmapConstellations_mapSolarSystems = new global::System.Data.DataRelation("mapConstellations_mapSolarSystems", new global::System.Data.DataColumn[] {
+                        this.tablemapConstellations.constellationIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablemapSolarSystems.constellationIDColumn}, false);
+            this.Relations.Add(this.relationmapConstellations_mapSolarSystems);
+            this.relationmapSolarSystemJumps_mapSolarSystems = new global::System.Data.DataRelation("mapSolarSystemJumps_mapSolarSystems", new global::System.Data.DataColumn[] {
+                        this.tablemapSolarSystemJumps.toSolarSystemIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablemapSolarSystems.solarSystemIDColumn}, false);
+            this.Relations.Add(this.relationmapSolarSystemJumps_mapSolarSystems);
+            this.relationmapSolarSystemJumps_mapSolarSystems1 = new global::System.Data.DataRelation("mapSolarSystemJumps_mapSolarSystems1", new global::System.Data.DataColumn[] {
+                        this.tablemapSolarSystemJumps.fromSolarSystemIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablemapSolarSystems.solarSystemIDColumn}, false);
+            this.Relations.Add(this.relationmapSolarSystemJumps_mapSolarSystems1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializemapSolarSystemJump() {
+        private bool ShouldSerializeeveShips() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializemapConstellation() {
+        private bool ShouldSerializemapConstellations() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializemapRegion() {
+        private bool ShouldSerializemapRegions() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializemapSolarSystem() {
+        private bool ShouldSerializemapSolarSystemJumps() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeeveShip() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeintelPlayer() {
+        private bool ShouldSerializemapSolarSystems() {
             return false;
         }
         
@@ -479,1182 +433,26 @@ namespace eve_intel_map.Data {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void mapSolarSystemJumpRowChangeEventHandler(object sender, mapSolarSystemJumpRowChangeEvent e);
+        public delegate void eveShipsRowChangeEventHandler(object sender, eveShipsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void mapConstellationRowChangeEventHandler(object sender, mapConstellationRowChangeEvent e);
+        public delegate void mapConstellationsRowChangeEventHandler(object sender, mapConstellationsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void mapRegionRowChangeEventHandler(object sender, mapRegionRowChangeEvent e);
+        public delegate void mapRegionsRowChangeEventHandler(object sender, mapRegionsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void mapSolarSystemRowChangeEventHandler(object sender, mapSolarSystemRowChangeEvent e);
+        public delegate void mapSolarSystemJumpsRowChangeEventHandler(object sender, mapSolarSystemJumpsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void eveShipRowChangeEventHandler(object sender, eveShipRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void intelPlayerRowChangeEventHandler(object sender, intelPlayerRowChangeEvent e);
+        public delegate void mapSolarSystemsRowChangeEventHandler(object sender, mapSolarSystemsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class mapSolarSystemJumpDataTable : global::System.Data.TypedTableBase<mapSolarSystemJumpRow> {
-            
-            private global::System.Data.DataColumn columntoSolarSystemID;
-            
-            private global::System.Data.DataColumn columnfromSolarSystemID;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemJumpDataTable() {
-                this.TableName = "mapSolarSystemJump";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal mapSolarSystemJumpDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected mapSolarSystemJumpDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn toSolarSystemIDColumn {
-                get {
-                    return this.columntoSolarSystemID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn fromSolarSystemIDColumn {
-                get {
-                    return this.columnfromSolarSystemID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemJumpRow this[int index] {
-                get {
-                    return ((mapSolarSystemJumpRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapSolarSystemJumpRowChangeEventHandler mapSolarSystemJumpRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapSolarSystemJumpRowChangeEventHandler mapSolarSystemJumpRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapSolarSystemJumpRowChangeEventHandler mapSolarSystemJumpRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapSolarSystemJumpRowChangeEventHandler mapSolarSystemJumpRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddmapSolarSystemJumpRow(mapSolarSystemJumpRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemJumpRow AddmapSolarSystemJumpRow(mapSolarSystemRow parentmapSolarSystemRowByFK_mapSolarSystemJump_1_0, mapSolarSystemRow parentmapSolarSystemRowByFK_mapSolarSystemJump_0_0) {
-                mapSolarSystemJumpRow rowmapSolarSystemJumpRow = ((mapSolarSystemJumpRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        null};
-                if ((parentmapSolarSystemRowByFK_mapSolarSystemJump_1_0 != null)) {
-                    columnValuesArray[0] = parentmapSolarSystemRowByFK_mapSolarSystemJump_1_0[1];
-                }
-                if ((parentmapSolarSystemRowByFK_mapSolarSystemJump_0_0 != null)) {
-                    columnValuesArray[1] = parentmapSolarSystemRowByFK_mapSolarSystemJump_0_0[1];
-                }
-                rowmapSolarSystemJumpRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowmapSolarSystemJumpRow);
-                return rowmapSolarSystemJumpRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemJumpRow FindBytoSolarSystemIDfromSolarSystemID(int toSolarSystemID, int fromSolarSystemID) {
-                return ((mapSolarSystemJumpRow)(this.Rows.Find(new object[] {
-                            toSolarSystemID,
-                            fromSolarSystemID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                mapSolarSystemJumpDataTable cln = ((mapSolarSystemJumpDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new mapSolarSystemJumpDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columntoSolarSystemID = base.Columns["toSolarSystemID"];
-                this.columnfromSolarSystemID = base.Columns["fromSolarSystemID"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columntoSolarSystemID = new global::System.Data.DataColumn("toSolarSystemID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntoSolarSystemID);
-                this.columnfromSolarSystemID = new global::System.Data.DataColumn("fromSolarSystemID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfromSolarSystemID);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columntoSolarSystemID,
-                                this.columnfromSolarSystemID}, true));
-                this.columntoSolarSystemID.AllowDBNull = false;
-                this.columnfromSolarSystemID.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemJumpRow NewmapSolarSystemJumpRow() {
-                return ((mapSolarSystemJumpRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new mapSolarSystemJumpRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(mapSolarSystemJumpRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.mapSolarSystemJumpRowChanged != null)) {
-                    this.mapSolarSystemJumpRowChanged(this, new mapSolarSystemJumpRowChangeEvent(((mapSolarSystemJumpRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.mapSolarSystemJumpRowChanging != null)) {
-                    this.mapSolarSystemJumpRowChanging(this, new mapSolarSystemJumpRowChangeEvent(((mapSolarSystemJumpRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.mapSolarSystemJumpRowDeleted != null)) {
-                    this.mapSolarSystemJumpRowDeleted(this, new mapSolarSystemJumpRowChangeEvent(((mapSolarSystemJumpRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.mapSolarSystemJumpRowDeleting != null)) {
-                    this.mapSolarSystemJumpRowDeleting(this, new mapSolarSystemJumpRowChangeEvent(((mapSolarSystemJumpRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovemapSolarSystemJumpRow(mapSolarSystemJumpRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                StaticData ds = new StaticData();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "mapSolarSystemJumpDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class mapConstellationDataTable : global::System.Data.TypedTableBase<mapConstellationRow> {
-            
-            private global::System.Data.DataColumn columnregionID;
-            
-            private global::System.Data.DataColumn columnconstellationID;
-            
-            private global::System.Data.DataColumn columnconstellationName;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapConstellationDataTable() {
-                this.TableName = "mapConstellation";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal mapConstellationDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected mapConstellationDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn regionIDColumn {
-                get {
-                    return this.columnregionID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn constellationIDColumn {
-                get {
-                    return this.columnconstellationID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn constellationNameColumn {
-                get {
-                    return this.columnconstellationName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapConstellationRow this[int index] {
-                get {
-                    return ((mapConstellationRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapConstellationRowChangeEventHandler mapConstellationRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapConstellationRowChangeEventHandler mapConstellationRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapConstellationRowChangeEventHandler mapConstellationRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapConstellationRowChangeEventHandler mapConstellationRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddmapConstellationRow(mapConstellationRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapConstellationRow AddmapConstellationRow(mapRegionRow parentmapRegionRowByFK_mapConstellation_0_0, int constellationID, string constellationName) {
-                mapConstellationRow rowmapConstellationRow = ((mapConstellationRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        constellationID,
-                        constellationName};
-                if ((parentmapRegionRowByFK_mapConstellation_0_0 != null)) {
-                    columnValuesArray[0] = parentmapRegionRowByFK_mapConstellation_0_0[0];
-                }
-                rowmapConstellationRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowmapConstellationRow);
-                return rowmapConstellationRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapConstellationRow FindByconstellationID(int constellationID) {
-                return ((mapConstellationRow)(this.Rows.Find(new object[] {
-                            constellationID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                mapConstellationDataTable cln = ((mapConstellationDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new mapConstellationDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnregionID = base.Columns["regionID"];
-                this.columnconstellationID = base.Columns["constellationID"];
-                this.columnconstellationName = base.Columns["constellationName"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnregionID = new global::System.Data.DataColumn("regionID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnregionID);
-                this.columnconstellationID = new global::System.Data.DataColumn("constellationID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnconstellationID);
-                this.columnconstellationName = new global::System.Data.DataColumn("constellationName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnconstellationName);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnconstellationID}, true));
-                this.columnregionID.AllowDBNull = false;
-                this.columnconstellationID.AllowDBNull = false;
-                this.columnconstellationID.Unique = true;
-                this.columnconstellationName.MaxLength = 2147483647;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapConstellationRow NewmapConstellationRow() {
-                return ((mapConstellationRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new mapConstellationRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(mapConstellationRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.mapConstellationRowChanged != null)) {
-                    this.mapConstellationRowChanged(this, new mapConstellationRowChangeEvent(((mapConstellationRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.mapConstellationRowChanging != null)) {
-                    this.mapConstellationRowChanging(this, new mapConstellationRowChangeEvent(((mapConstellationRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.mapConstellationRowDeleted != null)) {
-                    this.mapConstellationRowDeleted(this, new mapConstellationRowChangeEvent(((mapConstellationRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.mapConstellationRowDeleting != null)) {
-                    this.mapConstellationRowDeleting(this, new mapConstellationRowChangeEvent(((mapConstellationRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovemapConstellationRow(mapConstellationRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                StaticData ds = new StaticData();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "mapConstellationDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class mapRegionDataTable : global::System.Data.TypedTableBase<mapRegionRow> {
-            
-            private global::System.Data.DataColumn columnregionID;
-            
-            private global::System.Data.DataColumn columnregionName;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapRegionDataTable() {
-                this.TableName = "mapRegion";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal mapRegionDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected mapRegionDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn regionIDColumn {
-                get {
-                    return this.columnregionID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn regionNameColumn {
-                get {
-                    return this.columnregionName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapRegionRow this[int index] {
-                get {
-                    return ((mapRegionRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapRegionRowChangeEventHandler mapRegionRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapRegionRowChangeEventHandler mapRegionRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapRegionRowChangeEventHandler mapRegionRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapRegionRowChangeEventHandler mapRegionRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddmapRegionRow(mapRegionRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapRegionRow AddmapRegionRow(int regionID, string regionName) {
-                mapRegionRow rowmapRegionRow = ((mapRegionRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        regionID,
-                        regionName};
-                rowmapRegionRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowmapRegionRow);
-                return rowmapRegionRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapRegionRow FindByregionID(int regionID) {
-                return ((mapRegionRow)(this.Rows.Find(new object[] {
-                            regionID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                mapRegionDataTable cln = ((mapRegionDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new mapRegionDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnregionID = base.Columns["regionID"];
-                this.columnregionName = base.Columns["regionName"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnregionID = new global::System.Data.DataColumn("regionID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnregionID);
-                this.columnregionName = new global::System.Data.DataColumn("regionName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnregionName);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnregionID}, true));
-                this.columnregionID.AllowDBNull = false;
-                this.columnregionID.Unique = true;
-                this.columnregionName.MaxLength = 2147483647;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapRegionRow NewmapRegionRow() {
-                return ((mapRegionRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new mapRegionRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(mapRegionRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.mapRegionRowChanged != null)) {
-                    this.mapRegionRowChanged(this, new mapRegionRowChangeEvent(((mapRegionRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.mapRegionRowChanging != null)) {
-                    this.mapRegionRowChanging(this, new mapRegionRowChangeEvent(((mapRegionRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.mapRegionRowDeleted != null)) {
-                    this.mapRegionRowDeleted(this, new mapRegionRowChangeEvent(((mapRegionRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.mapRegionRowDeleting != null)) {
-                    this.mapRegionRowDeleting(this, new mapRegionRowChangeEvent(((mapRegionRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovemapRegionRow(mapRegionRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                StaticData ds = new StaticData();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "mapRegionDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class mapSolarSystemDataTable : global::System.Data.TypedTableBase<mapSolarSystemRow> {
-            
-            private global::System.Data.DataColumn columnsolarSystemName;
-            
-            private global::System.Data.DataColumn columnsolarSystemID;
-            
-            private global::System.Data.DataColumn columnconstellationID;
-            
-            private global::System.Data.DataColumn columnregionID;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemDataTable() {
-                this.TableName = "mapSolarSystem";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal mapSolarSystemDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected mapSolarSystemDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn solarSystemNameColumn {
-                get {
-                    return this.columnsolarSystemName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn solarSystemIDColumn {
-                get {
-                    return this.columnsolarSystemID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn constellationIDColumn {
-                get {
-                    return this.columnconstellationID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn regionIDColumn {
-                get {
-                    return this.columnregionID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemRow this[int index] {
-                get {
-                    return ((mapSolarSystemRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapSolarSystemRowChangeEventHandler mapSolarSystemRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapSolarSystemRowChangeEventHandler mapSolarSystemRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapSolarSystemRowChangeEventHandler mapSolarSystemRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event mapSolarSystemRowChangeEventHandler mapSolarSystemRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddmapSolarSystemRow(mapSolarSystemRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemRow AddmapSolarSystemRow(string solarSystemName, int solarSystemID, mapConstellationRow parentmapConstellationRowByFK_mapSolarSystem_0_0, mapRegionRow parentmapRegionRowByFK_mapSolarSystem_1_0) {
-                mapSolarSystemRow rowmapSolarSystemRow = ((mapSolarSystemRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        solarSystemName,
-                        solarSystemID,
-                        null,
-                        null};
-                if ((parentmapConstellationRowByFK_mapSolarSystem_0_0 != null)) {
-                    columnValuesArray[2] = parentmapConstellationRowByFK_mapSolarSystem_0_0[1];
-                }
-                if ((parentmapRegionRowByFK_mapSolarSystem_1_0 != null)) {
-                    columnValuesArray[3] = parentmapRegionRowByFK_mapSolarSystem_1_0[0];
-                }
-                rowmapSolarSystemRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowmapSolarSystemRow);
-                return rowmapSolarSystemRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemRow FindBysolarSystemID(int solarSystemID) {
-                return ((mapSolarSystemRow)(this.Rows.Find(new object[] {
-                            solarSystemID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                mapSolarSystemDataTable cln = ((mapSolarSystemDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new mapSolarSystemDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnsolarSystemName = base.Columns["solarSystemName"];
-                this.columnsolarSystemID = base.Columns["solarSystemID"];
-                this.columnconstellationID = base.Columns["constellationID"];
-                this.columnregionID = base.Columns["regionID"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnsolarSystemName = new global::System.Data.DataColumn("solarSystemName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsolarSystemName);
-                this.columnsolarSystemID = new global::System.Data.DataColumn("solarSystemID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsolarSystemID);
-                this.columnconstellationID = new global::System.Data.DataColumn("constellationID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnconstellationID);
-                this.columnregionID = new global::System.Data.DataColumn("regionID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnregionID);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnsolarSystemID}, true));
-                this.columnsolarSystemName.MaxLength = 2147483647;
-                this.columnsolarSystemID.AllowDBNull = false;
-                this.columnsolarSystemID.Unique = true;
-                this.columnconstellationID.AllowDBNull = false;
-                this.columnregionID.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemRow NewmapSolarSystemRow() {
-                return ((mapSolarSystemRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new mapSolarSystemRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(mapSolarSystemRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.mapSolarSystemRowChanged != null)) {
-                    this.mapSolarSystemRowChanged(this, new mapSolarSystemRowChangeEvent(((mapSolarSystemRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.mapSolarSystemRowChanging != null)) {
-                    this.mapSolarSystemRowChanging(this, new mapSolarSystemRowChangeEvent(((mapSolarSystemRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.mapSolarSystemRowDeleted != null)) {
-                    this.mapSolarSystemRowDeleted(this, new mapSolarSystemRowChangeEvent(((mapSolarSystemRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.mapSolarSystemRowDeleting != null)) {
-                    this.mapSolarSystemRowDeleting(this, new mapSolarSystemRowChangeEvent(((mapSolarSystemRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovemapSolarSystemRow(mapSolarSystemRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                StaticData ds = new StaticData();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "mapSolarSystemDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class eveShipDataTable : global::System.Data.TypedTableBase<eveShipRow> {
+        public partial class eveShipsDataTable : global::System.Data.TypedTableBase<eveShipsRow> {
             
             private global::System.Data.DataColumn columntypeID;
             
@@ -1668,8 +466,8 @@ namespace eve_intel_map.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public eveShipDataTable() {
-                this.TableName = "eveShip";
+            public eveShipsDataTable() {
+                this.TableName = "eveShips";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1677,7 +475,7 @@ namespace eve_intel_map.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal eveShipDataTable(global::System.Data.DataTable table) {
+            internal eveShipsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1694,7 +492,7 @@ namespace eve_intel_map.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected eveShipDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected eveShipsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1750,56 +548,56 @@ namespace eve_intel_map.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public eveShipRow this[int index] {
+            public eveShipsRow this[int index] {
                 get {
-                    return ((eveShipRow)(this.Rows[index]));
+                    return ((eveShipsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event eveShipRowChangeEventHandler eveShipRowChanging;
+            public event eveShipsRowChangeEventHandler eveShipsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event eveShipRowChangeEventHandler eveShipRowChanged;
+            public event eveShipsRowChangeEventHandler eveShipsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event eveShipRowChangeEventHandler eveShipRowDeleting;
+            public event eveShipsRowChangeEventHandler eveShipsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event eveShipRowChangeEventHandler eveShipRowDeleted;
+            public event eveShipsRowChangeEventHandler eveShipsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddeveShipRow(eveShipRow row) {
+            public void AddeveShipsRow(eveShipsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public eveShipRow AddeveShipRow(int typeID, string typeName, string raceName, string metaGroupName, string groupName) {
-                eveShipRow roweveShipRow = ((eveShipRow)(this.NewRow()));
+            public eveShipsRow AddeveShipsRow(int typeID, string typeName, string raceName, string metaGroupName, string groupName) {
+                eveShipsRow roweveShipsRow = ((eveShipsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         typeID,
                         typeName,
                         raceName,
                         metaGroupName,
                         groupName};
-                roweveShipRow.ItemArray = columnValuesArray;
-                this.Rows.Add(roweveShipRow);
-                return roweveShipRow;
+                roweveShipsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(roweveShipsRow);
+                return roweveShipsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public eveShipRow FindBytypeID(int typeID) {
-                return ((eveShipRow)(this.Rows.Find(new object[] {
+            public eveShipsRow FindBytypeID(int typeID) {
+                return ((eveShipsRow)(this.Rows.Find(new object[] {
                             typeID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                eveShipDataTable cln = ((eveShipDataTable)(base.Clone()));
+                eveShipsDataTable cln = ((eveShipsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1807,7 +605,7 @@ namespace eve_intel_map.Data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new eveShipDataTable();
+                return new eveShipsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1837,36 +635,36 @@ namespace eve_intel_map.Data {
                                 this.columntypeID}, true));
                 this.columntypeID.AllowDBNull = false;
                 this.columntypeID.Unique = true;
-                this.columntypeName.MaxLength = 100;
-                this.columnraceName.MaxLength = 100;
-                this.columnmetaGroupName.MaxLength = 100;
-                this.columngroupName.MaxLength = 100;
+                this.columntypeName.MaxLength = 2147483647;
+                this.columnraceName.MaxLength = 2147483647;
+                this.columnmetaGroupName.MaxLength = 2147483647;
+                this.columngroupName.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public eveShipRow NeweveShipRow() {
-                return ((eveShipRow)(this.NewRow()));
+            public eveShipsRow NeweveShipsRow() {
+                return ((eveShipsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new eveShipRow(builder);
+                return new eveShipsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(eveShipRow);
+                return typeof(eveShipsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.eveShipRowChanged != null)) {
-                    this.eveShipRowChanged(this, new eveShipRowChangeEvent(((eveShipRow)(e.Row)), e.Action));
+                if ((this.eveShipsRowChanged != null)) {
+                    this.eveShipsRowChanged(this, new eveShipsRowChangeEvent(((eveShipsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1874,8 +672,8 @@ namespace eve_intel_map.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.eveShipRowChanging != null)) {
-                    this.eveShipRowChanging(this, new eveShipRowChangeEvent(((eveShipRow)(e.Row)), e.Action));
+                if ((this.eveShipsRowChanging != null)) {
+                    this.eveShipsRowChanging(this, new eveShipsRowChangeEvent(((eveShipsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1883,8 +681,8 @@ namespace eve_intel_map.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.eveShipRowDeleted != null)) {
-                    this.eveShipRowDeleted(this, new eveShipRowChangeEvent(((eveShipRow)(e.Row)), e.Action));
+                if ((this.eveShipsRowDeleted != null)) {
+                    this.eveShipsRowDeleted(this, new eveShipsRowChangeEvent(((eveShipsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1892,14 +690,14 @@ namespace eve_intel_map.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.eveShipRowDeleting != null)) {
-                    this.eveShipRowDeleting(this, new eveShipRowChangeEvent(((eveShipRow)(e.Row)), e.Action));
+                if ((this.eveShipsRowDeleting != null)) {
+                    this.eveShipsRowDeleting(this, new eveShipsRowChangeEvent(((eveShipsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveeveShipRow(eveShipRow row) {
+            public void RemoveeveShipsRow(eveShipsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1926,7 +724,7 @@ namespace eve_intel_map.Data {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "eveShipDataTable";
+                attribute2.FixedValue = "eveShipsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1972,32 +770,18 @@ namespace eve_intel_map.Data {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class intelPlayerDataTable : global::System.Data.TypedTableBase<intelPlayerRow> {
+        public partial class mapConstellationsDataTable : global::System.Data.TypedTableBase<mapConstellationsRow> {
             
-            private global::System.Data.DataColumn columncharacterID;
+            private global::System.Data.DataColumn columnregionID;
             
-            private global::System.Data.DataColumn columncharacterName;
+            private global::System.Data.DataColumn columnconstellationID;
             
-            private global::System.Data.DataColumn columncorporationName;
-            
-            private global::System.Data.DataColumn columnallianceName;
-            
-            private global::System.Data.DataColumn columncharacterKos;
-            
-            private global::System.Data.DataColumn columncorporationKos;
-            
-            private global::System.Data.DataColumn columnallianceKos;
-            
-            private global::System.Data.DataColumn columnsolarsystemID;
-            
-            private global::System.Data.DataColumn columnshipTypeID;
-            
-            private global::System.Data.DataColumn columnnotes;
+            private global::System.Data.DataColumn columnconstellationName;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public intelPlayerDataTable() {
-                this.TableName = "intelPlayer";
+            public mapConstellationsDataTable() {
+                this.TableName = "mapConstellations";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2005,7 +789,7 @@ namespace eve_intel_map.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal intelPlayerDataTable(global::System.Data.DataTable table) {
+            internal mapConstellationsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2022,88 +806,32 @@ namespace eve_intel_map.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected intelPlayerDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected mapConstellationsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn characterIDColumn {
+            public global::System.Data.DataColumn regionIDColumn {
                 get {
-                    return this.columncharacterID;
+                    return this.columnregionID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn characterNameColumn {
+            public global::System.Data.DataColumn constellationIDColumn {
                 get {
-                    return this.columncharacterName;
+                    return this.columnconstellationID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn corporationNameColumn {
+            public global::System.Data.DataColumn constellationNameColumn {
                 get {
-                    return this.columncorporationName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn allianceNameColumn {
-                get {
-                    return this.columnallianceName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn characterKosColumn {
-                get {
-                    return this.columncharacterKos;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn corporationKosColumn {
-                get {
-                    return this.columncorporationKos;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn allianceKosColumn {
-                get {
-                    return this.columnallianceKos;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn solarsystemIDColumn {
-                get {
-                    return this.columnsolarsystemID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn shipTypeIDColumn {
-                get {
-                    return this.columnshipTypeID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn notesColumn {
-                get {
-                    return this.columnnotes;
+                    return this.columnconstellationName;
                 }
             }
             
@@ -2118,67 +846,57 @@ namespace eve_intel_map.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public intelPlayerRow this[int index] {
+            public mapConstellationsRow this[int index] {
                 get {
-                    return ((intelPlayerRow)(this.Rows[index]));
+                    return ((mapConstellationsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event intelPlayerRowChangeEventHandler intelPlayerRowChanging;
+            public event mapConstellationsRowChangeEventHandler mapConstellationsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event intelPlayerRowChangeEventHandler intelPlayerRowChanged;
+            public event mapConstellationsRowChangeEventHandler mapConstellationsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event intelPlayerRowChangeEventHandler intelPlayerRowDeleting;
+            public event mapConstellationsRowChangeEventHandler mapConstellationsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event intelPlayerRowChangeEventHandler intelPlayerRowDeleted;
+            public event mapConstellationsRowChangeEventHandler mapConstellationsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddintelPlayerRow(intelPlayerRow row) {
+            public void AddmapConstellationsRow(mapConstellationsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public intelPlayerRow AddintelPlayerRow(int characterID, string characterName, string corporationName, string allianceName, bool characterKos, bool corporationKos, bool allianceKos, mapSolarSystemRow parentmapSolarSystemRowByFK_intelPlayer_1_0, eveShipRow parenteveShipRowByFK_intelPlayer_0_0, string notes) {
-                intelPlayerRow rowintelPlayerRow = ((intelPlayerRow)(this.NewRow()));
+            public mapConstellationsRow AddmapConstellationsRow(mapRegionsRow parentmapRegionsRowBymapRegions_mapConstellations, long constellationID, string constellationName) {
+                mapConstellationsRow rowmapConstellationsRow = ((mapConstellationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        characterID,
-                        characterName,
-                        corporationName,
-                        allianceName,
-                        characterKos,
-                        corporationKos,
-                        allianceKos,
                         null,
-                        null,
-                        notes};
-                if ((parentmapSolarSystemRowByFK_intelPlayer_1_0 != null)) {
-                    columnValuesArray[7] = parentmapSolarSystemRowByFK_intelPlayer_1_0[1];
+                        constellationID,
+                        constellationName};
+                if ((parentmapRegionsRowBymapRegions_mapConstellations != null)) {
+                    columnValuesArray[0] = parentmapRegionsRowBymapRegions_mapConstellations[0];
                 }
-                if ((parenteveShipRowByFK_intelPlayer_0_0 != null)) {
-                    columnValuesArray[8] = parenteveShipRowByFK_intelPlayer_0_0[0];
-                }
-                rowintelPlayerRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowintelPlayerRow);
-                return rowintelPlayerRow;
+                rowmapConstellationsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowmapConstellationsRow);
+                return rowmapConstellationsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public intelPlayerRow FindBycharacterID(int characterID) {
-                return ((intelPlayerRow)(this.Rows.Find(new object[] {
-                            characterID})));
+            public mapConstellationsRow FindByconstellationID(long constellationID) {
+                return ((mapConstellationsRow)(this.Rows.Find(new object[] {
+                            constellationID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                intelPlayerDataTable cln = ((intelPlayerDataTable)(base.Clone()));
+                mapConstellationsDataTable cln = ((mapConstellationsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2186,86 +904,58 @@ namespace eve_intel_map.Data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new intelPlayerDataTable();
+                return new mapConstellationsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columncharacterID = base.Columns["characterID"];
-                this.columncharacterName = base.Columns["characterName"];
-                this.columncorporationName = base.Columns["corporationName"];
-                this.columnallianceName = base.Columns["allianceName"];
-                this.columncharacterKos = base.Columns["characterKos"];
-                this.columncorporationKos = base.Columns["corporationKos"];
-                this.columnallianceKos = base.Columns["allianceKos"];
-                this.columnsolarsystemID = base.Columns["solarsystemID"];
-                this.columnshipTypeID = base.Columns["shipTypeID"];
-                this.columnnotes = base.Columns["notes"];
+                this.columnregionID = base.Columns["regionID"];
+                this.columnconstellationID = base.Columns["constellationID"];
+                this.columnconstellationName = base.Columns["constellationName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columncharacterID = new global::System.Data.DataColumn("characterID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncharacterID);
-                this.columncharacterName = new global::System.Data.DataColumn("characterName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncharacterName);
-                this.columncorporationName = new global::System.Data.DataColumn("corporationName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncorporationName);
-                this.columnallianceName = new global::System.Data.DataColumn("allianceName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnallianceName);
-                this.columncharacterKos = new global::System.Data.DataColumn("characterKos", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncharacterKos);
-                this.columncorporationKos = new global::System.Data.DataColumn("corporationKos", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncorporationKos);
-                this.columnallianceKos = new global::System.Data.DataColumn("allianceKos", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnallianceKos);
-                this.columnsolarsystemID = new global::System.Data.DataColumn("solarsystemID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsolarsystemID);
-                this.columnshipTypeID = new global::System.Data.DataColumn("shipTypeID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnshipTypeID);
-                this.columnnotes = new global::System.Data.DataColumn("notes", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnotes);
+                this.columnregionID = new global::System.Data.DataColumn("regionID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnregionID);
+                this.columnconstellationID = new global::System.Data.DataColumn("constellationID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnconstellationID);
+                this.columnconstellationName = new global::System.Data.DataColumn("constellationName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnconstellationName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columncharacterID}, true));
-                this.columncharacterID.AllowDBNull = false;
-                this.columncharacterID.Unique = true;
-                this.columncharacterName.AllowDBNull = false;
-                this.columncharacterName.MaxLength = 2147483647;
-                this.columncorporationName.AllowDBNull = false;
-                this.columncorporationName.MaxLength = 2147483647;
-                this.columnallianceName.MaxLength = 2147483647;
-                this.columncharacterKos.AllowDBNull = false;
-                this.columncorporationKos.AllowDBNull = false;
-                this.columnallianceKos.AllowDBNull = false;
-                this.columnnotes.MaxLength = 2147483647;
+                                this.columnconstellationID}, true));
+                this.columnregionID.AllowDBNull = false;
+                this.columnconstellationID.AllowDBNull = false;
+                this.columnconstellationID.Unique = true;
+                this.columnconstellationName.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public intelPlayerRow NewintelPlayerRow() {
-                return ((intelPlayerRow)(this.NewRow()));
+            public mapConstellationsRow NewmapConstellationsRow() {
+                return ((mapConstellationsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new intelPlayerRow(builder);
+                return new mapConstellationsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(intelPlayerRow);
+                return typeof(mapConstellationsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.intelPlayerRowChanged != null)) {
-                    this.intelPlayerRowChanged(this, new intelPlayerRowChangeEvent(((intelPlayerRow)(e.Row)), e.Action));
+                if ((this.mapConstellationsRowChanged != null)) {
+                    this.mapConstellationsRowChanged(this, new mapConstellationsRowChangeEvent(((mapConstellationsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2273,8 +963,8 @@ namespace eve_intel_map.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.intelPlayerRowChanging != null)) {
-                    this.intelPlayerRowChanging(this, new intelPlayerRowChangeEvent(((intelPlayerRow)(e.Row)), e.Action));
+                if ((this.mapConstellationsRowChanging != null)) {
+                    this.mapConstellationsRowChanging(this, new mapConstellationsRowChangeEvent(((mapConstellationsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2282,8 +972,8 @@ namespace eve_intel_map.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.intelPlayerRowDeleted != null)) {
-                    this.intelPlayerRowDeleted(this, new intelPlayerRowChangeEvent(((intelPlayerRow)(e.Row)), e.Action));
+                if ((this.mapConstellationsRowDeleted != null)) {
+                    this.mapConstellationsRowDeleted(this, new mapConstellationsRowChangeEvent(((mapConstellationsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2291,14 +981,14 @@ namespace eve_intel_map.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.intelPlayerRowDeleting != null)) {
-                    this.intelPlayerRowDeleting(this, new intelPlayerRowChangeEvent(((intelPlayerRow)(e.Row)), e.Action));
+                if ((this.mapConstellationsRowDeleting != null)) {
+                    this.mapConstellationsRowDeleting(this, new mapConstellationsRowChangeEvent(((mapConstellationsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveintelPlayerRow(intelPlayerRow row) {
+            public void RemovemapConstellationsRow(mapConstellationsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2325,7 +1015,866 @@ namespace eve_intel_map.Data {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "intelPlayerDataTable";
+                attribute2.FixedValue = "mapConstellationsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class mapRegionsDataTable : global::System.Data.TypedTableBase<mapRegionsRow> {
+            
+            private global::System.Data.DataColumn columnregionID;
+            
+            private global::System.Data.DataColumn columnregionName;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapRegionsDataTable() {
+                this.TableName = "mapRegions";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal mapRegionsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected mapRegionsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn regionIDColumn {
+                get {
+                    return this.columnregionID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn regionNameColumn {
+                get {
+                    return this.columnregionName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapRegionsRow this[int index] {
+                get {
+                    return ((mapRegionsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event mapRegionsRowChangeEventHandler mapRegionsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event mapRegionsRowChangeEventHandler mapRegionsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event mapRegionsRowChangeEventHandler mapRegionsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event mapRegionsRowChangeEventHandler mapRegionsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddmapRegionsRow(mapRegionsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapRegionsRow AddmapRegionsRow(long regionID, string regionName) {
+                mapRegionsRow rowmapRegionsRow = ((mapRegionsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        regionID,
+                        regionName};
+                rowmapRegionsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowmapRegionsRow);
+                return rowmapRegionsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapRegionsRow FindByregionID(long regionID) {
+                return ((mapRegionsRow)(this.Rows.Find(new object[] {
+                            regionID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                mapRegionsDataTable cln = ((mapRegionsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new mapRegionsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnregionID = base.Columns["regionID"];
+                this.columnregionName = base.Columns["regionName"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnregionID = new global::System.Data.DataColumn("regionID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnregionID);
+                this.columnregionName = new global::System.Data.DataColumn("regionName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnregionName);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnregionID}, true));
+                this.columnregionID.AllowDBNull = false;
+                this.columnregionID.Unique = true;
+                this.columnregionName.MaxLength = 2147483647;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapRegionsRow NewmapRegionsRow() {
+                return ((mapRegionsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new mapRegionsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(mapRegionsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.mapRegionsRowChanged != null)) {
+                    this.mapRegionsRowChanged(this, new mapRegionsRowChangeEvent(((mapRegionsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.mapRegionsRowChanging != null)) {
+                    this.mapRegionsRowChanging(this, new mapRegionsRowChangeEvent(((mapRegionsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.mapRegionsRowDeleted != null)) {
+                    this.mapRegionsRowDeleted(this, new mapRegionsRowChangeEvent(((mapRegionsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.mapRegionsRowDeleting != null)) {
+                    this.mapRegionsRowDeleting(this, new mapRegionsRowChangeEvent(((mapRegionsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovemapRegionsRow(mapRegionsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                StaticData ds = new StaticData();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "mapRegionsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class mapSolarSystemJumpsDataTable : global::System.Data.TypedTableBase<mapSolarSystemJumpsRow> {
+            
+            private global::System.Data.DataColumn columntoSolarSystemID;
+            
+            private global::System.Data.DataColumn columnfromSolarSystemID;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapSolarSystemJumpsDataTable() {
+                this.TableName = "mapSolarSystemJumps";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal mapSolarSystemJumpsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected mapSolarSystemJumpsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn toSolarSystemIDColumn {
+                get {
+                    return this.columntoSolarSystemID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn fromSolarSystemIDColumn {
+                get {
+                    return this.columnfromSolarSystemID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapSolarSystemJumpsRow this[int index] {
+                get {
+                    return ((mapSolarSystemJumpsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event mapSolarSystemJumpsRowChangeEventHandler mapSolarSystemJumpsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event mapSolarSystemJumpsRowChangeEventHandler mapSolarSystemJumpsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event mapSolarSystemJumpsRowChangeEventHandler mapSolarSystemJumpsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event mapSolarSystemJumpsRowChangeEventHandler mapSolarSystemJumpsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddmapSolarSystemJumpsRow(mapSolarSystemJumpsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapSolarSystemJumpsRow AddmapSolarSystemJumpsRow(long toSolarSystemID, long fromSolarSystemID) {
+                mapSolarSystemJumpsRow rowmapSolarSystemJumpsRow = ((mapSolarSystemJumpsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        toSolarSystemID,
+                        fromSolarSystemID};
+                rowmapSolarSystemJumpsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowmapSolarSystemJumpsRow);
+                return rowmapSolarSystemJumpsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapSolarSystemJumpsRow FindBytoSolarSystemIDfromSolarSystemID(long toSolarSystemID, long fromSolarSystemID) {
+                return ((mapSolarSystemJumpsRow)(this.Rows.Find(new object[] {
+                            toSolarSystemID,
+                            fromSolarSystemID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                mapSolarSystemJumpsDataTable cln = ((mapSolarSystemJumpsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new mapSolarSystemJumpsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columntoSolarSystemID = base.Columns["toSolarSystemID"];
+                this.columnfromSolarSystemID = base.Columns["fromSolarSystemID"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columntoSolarSystemID = new global::System.Data.DataColumn("toSolarSystemID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntoSolarSystemID);
+                this.columnfromSolarSystemID = new global::System.Data.DataColumn("fromSolarSystemID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfromSolarSystemID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columntoSolarSystemID,
+                                this.columnfromSolarSystemID}, true));
+                this.columntoSolarSystemID.AllowDBNull = false;
+                this.columnfromSolarSystemID.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapSolarSystemJumpsRow NewmapSolarSystemJumpsRow() {
+                return ((mapSolarSystemJumpsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new mapSolarSystemJumpsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(mapSolarSystemJumpsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.mapSolarSystemJumpsRowChanged != null)) {
+                    this.mapSolarSystemJumpsRowChanged(this, new mapSolarSystemJumpsRowChangeEvent(((mapSolarSystemJumpsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.mapSolarSystemJumpsRowChanging != null)) {
+                    this.mapSolarSystemJumpsRowChanging(this, new mapSolarSystemJumpsRowChangeEvent(((mapSolarSystemJumpsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.mapSolarSystemJumpsRowDeleted != null)) {
+                    this.mapSolarSystemJumpsRowDeleted(this, new mapSolarSystemJumpsRowChangeEvent(((mapSolarSystemJumpsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.mapSolarSystemJumpsRowDeleting != null)) {
+                    this.mapSolarSystemJumpsRowDeleting(this, new mapSolarSystemJumpsRowChangeEvent(((mapSolarSystemJumpsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovemapSolarSystemJumpsRow(mapSolarSystemJumpsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                StaticData ds = new StaticData();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "mapSolarSystemJumpsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class mapSolarSystemsDataTable : global::System.Data.TypedTableBase<mapSolarSystemsRow> {
+            
+            private global::System.Data.DataColumn columnsolarSystemName;
+            
+            private global::System.Data.DataColumn columnsolarSystemID;
+            
+            private global::System.Data.DataColumn columnconstellationID;
+            
+            private global::System.Data.DataColumn columnregionID;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapSolarSystemsDataTable() {
+                this.TableName = "mapSolarSystems";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal mapSolarSystemsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected mapSolarSystemsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn solarSystemNameColumn {
+                get {
+                    return this.columnsolarSystemName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn solarSystemIDColumn {
+                get {
+                    return this.columnsolarSystemID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn constellationIDColumn {
+                get {
+                    return this.columnconstellationID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn regionIDColumn {
+                get {
+                    return this.columnregionID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapSolarSystemsRow this[int index] {
+                get {
+                    return ((mapSolarSystemsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event mapSolarSystemsRowChangeEventHandler mapSolarSystemsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event mapSolarSystemsRowChangeEventHandler mapSolarSystemsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event mapSolarSystemsRowChangeEventHandler mapSolarSystemsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event mapSolarSystemsRowChangeEventHandler mapSolarSystemsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddmapSolarSystemsRow(mapSolarSystemsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapSolarSystemsRow AddmapSolarSystemsRow(string solarSystemName, mapSolarSystemJumpsRow parentmapSolarSystemJumpsRowBymapSolarSystemJumps_mapSolarSystems, mapConstellationsRow parentmapConstellationsRowBymapConstellations_mapSolarSystems, mapRegionsRow parentmapRegionsRowBymapRegions_mapSolarSystems) {
+                mapSolarSystemsRow rowmapSolarSystemsRow = ((mapSolarSystemsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        solarSystemName,
+                        null,
+                        null,
+                        null};
+                if ((parentmapSolarSystemJumpsRowBymapSolarSystemJumps_mapSolarSystems != null)) {
+                    columnValuesArray[1] = parentmapSolarSystemJumpsRowBymapSolarSystemJumps_mapSolarSystems[0];
+                }
+                if ((parentmapConstellationsRowBymapConstellations_mapSolarSystems != null)) {
+                    columnValuesArray[2] = parentmapConstellationsRowBymapConstellations_mapSolarSystems[1];
+                }
+                if ((parentmapRegionsRowBymapRegions_mapSolarSystems != null)) {
+                    columnValuesArray[3] = parentmapRegionsRowBymapRegions_mapSolarSystems[0];
+                }
+                rowmapSolarSystemsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowmapSolarSystemsRow);
+                return rowmapSolarSystemsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapSolarSystemsRow FindBysolarSystemID(long solarSystemID) {
+                return ((mapSolarSystemsRow)(this.Rows.Find(new object[] {
+                            solarSystemID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                mapSolarSystemsDataTable cln = ((mapSolarSystemsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new mapSolarSystemsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnsolarSystemName = base.Columns["solarSystemName"];
+                this.columnsolarSystemID = base.Columns["solarSystemID"];
+                this.columnconstellationID = base.Columns["constellationID"];
+                this.columnregionID = base.Columns["regionID"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnsolarSystemName = new global::System.Data.DataColumn("solarSystemName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsolarSystemName);
+                this.columnsolarSystemID = new global::System.Data.DataColumn("solarSystemID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsolarSystemID);
+                this.columnconstellationID = new global::System.Data.DataColumn("constellationID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnconstellationID);
+                this.columnregionID = new global::System.Data.DataColumn("regionID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnregionID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnsolarSystemID}, true));
+                this.columnsolarSystemName.MaxLength = 2147483647;
+                this.columnsolarSystemID.AllowDBNull = false;
+                this.columnsolarSystemID.Unique = true;
+                this.columnconstellationID.AllowDBNull = false;
+                this.columnregionID.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapSolarSystemsRow NewmapSolarSystemsRow() {
+                return ((mapSolarSystemsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new mapSolarSystemsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(mapSolarSystemsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.mapSolarSystemsRowChanged != null)) {
+                    this.mapSolarSystemsRowChanged(this, new mapSolarSystemsRowChangeEvent(((mapSolarSystemsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.mapSolarSystemsRowChanging != null)) {
+                    this.mapSolarSystemsRowChanging(this, new mapSolarSystemsRowChangeEvent(((mapSolarSystemsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.mapSolarSystemsRowDeleted != null)) {
+                    this.mapSolarSystemsRowDeleted(this, new mapSolarSystemsRowChangeEvent(((mapSolarSystemsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.mapSolarSystemsRowDeleting != null)) {
+                    this.mapSolarSystemsRowDeleting(this, new mapSolarSystemsRowChangeEvent(((mapSolarSystemsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovemapSolarSystemsRow(mapSolarSystemsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                StaticData ds = new StaticData();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "mapSolarSystemsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2369,378 +1918,25 @@ namespace eve_intel_map.Data {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class mapSolarSystemJumpRow : global::System.Data.DataRow {
+        public partial class eveShipsRow : global::System.Data.DataRow {
             
-            private mapSolarSystemJumpDataTable tablemapSolarSystemJump;
+            private eveShipsDataTable tableeveShips;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal mapSolarSystemJumpRow(global::System.Data.DataRowBuilder rb) : 
+            internal eveShipsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablemapSolarSystemJump = ((mapSolarSystemJumpDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int toSolarSystemID {
-                get {
-                    return ((int)(this[this.tablemapSolarSystemJump.toSolarSystemIDColumn]));
-                }
-                set {
-                    this[this.tablemapSolarSystemJump.toSolarSystemIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int fromSolarSystemID {
-                get {
-                    return ((int)(this[this.tablemapSolarSystemJump.fromSolarSystemIDColumn]));
-                }
-                set {
-                    this[this.tablemapSolarSystemJump.fromSolarSystemIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemRow mapSolarSystemRowByFK_mapSolarSystemJump_0_0 {
-                get {
-                    return ((mapSolarSystemRow)(this.GetParentRow(this.Table.ParentRelations["FK_mapSolarSystemJump_0_0"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_mapSolarSystemJump_0_0"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemRow mapSolarSystemRowByFK_mapSolarSystemJump_1_0 {
-                get {
-                    return ((mapSolarSystemRow)(this.GetParentRow(this.Table.ParentRelations["FK_mapSolarSystemJump_1_0"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_mapSolarSystemJump_1_0"]);
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class mapConstellationRow : global::System.Data.DataRow {
-            
-            private mapConstellationDataTable tablemapConstellation;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal mapConstellationRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablemapConstellation = ((mapConstellationDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int regionID {
-                get {
-                    return ((int)(this[this.tablemapConstellation.regionIDColumn]));
-                }
-                set {
-                    this[this.tablemapConstellation.regionIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int constellationID {
-                get {
-                    return ((int)(this[this.tablemapConstellation.constellationIDColumn]));
-                }
-                set {
-                    this[this.tablemapConstellation.constellationIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string constellationName {
-                get {
-                    try {
-                        return ((string)(this[this.tablemapConstellation.constellationNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'constellationName\' in table \'mapConstellation\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablemapConstellation.constellationNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapRegionRow mapRegionRow {
-                get {
-                    return ((mapRegionRow)(this.GetParentRow(this.Table.ParentRelations["FK_mapConstellation_0_0"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_mapConstellation_0_0"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsconstellationNameNull() {
-                return this.IsNull(this.tablemapConstellation.constellationNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetconstellationNameNull() {
-                this[this.tablemapConstellation.constellationNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemRow[] GetmapSolarSystemRows() {
-                if ((this.Table.ChildRelations["FK_mapSolarSystem_0_0"] == null)) {
-                    return new mapSolarSystemRow[0];
-                }
-                else {
-                    return ((mapSolarSystemRow[])(base.GetChildRows(this.Table.ChildRelations["FK_mapSolarSystem_0_0"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class mapRegionRow : global::System.Data.DataRow {
-            
-            private mapRegionDataTable tablemapRegion;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal mapRegionRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablemapRegion = ((mapRegionDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int regionID {
-                get {
-                    return ((int)(this[this.tablemapRegion.regionIDColumn]));
-                }
-                set {
-                    this[this.tablemapRegion.regionIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string regionName {
-                get {
-                    try {
-                        return ((string)(this[this.tablemapRegion.regionNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'regionName\' in table \'mapRegion\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablemapRegion.regionNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsregionNameNull() {
-                return this.IsNull(this.tablemapRegion.regionNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetregionNameNull() {
-                this[this.tablemapRegion.regionNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapConstellationRow[] GetmapConstellationRows() {
-                if ((this.Table.ChildRelations["FK_mapConstellation_0_0"] == null)) {
-                    return new mapConstellationRow[0];
-                }
-                else {
-                    return ((mapConstellationRow[])(base.GetChildRows(this.Table.ChildRelations["FK_mapConstellation_0_0"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemRow[] GetmapSolarSystemRows() {
-                if ((this.Table.ChildRelations["FK_mapSolarSystem_1_0"] == null)) {
-                    return new mapSolarSystemRow[0];
-                }
-                else {
-                    return ((mapSolarSystemRow[])(base.GetChildRows(this.Table.ChildRelations["FK_mapSolarSystem_1_0"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class mapSolarSystemRow : global::System.Data.DataRow {
-            
-            private mapSolarSystemDataTable tablemapSolarSystem;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal mapSolarSystemRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablemapSolarSystem = ((mapSolarSystemDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string solarSystemName {
-                get {
-                    try {
-                        return ((string)(this[this.tablemapSolarSystem.solarSystemNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'solarSystemName\' in table \'mapSolarSystem\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablemapSolarSystem.solarSystemNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int solarSystemID {
-                get {
-                    return ((int)(this[this.tablemapSolarSystem.solarSystemIDColumn]));
-                }
-                set {
-                    this[this.tablemapSolarSystem.solarSystemIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int constellationID {
-                get {
-                    return ((int)(this[this.tablemapSolarSystem.constellationIDColumn]));
-                }
-                set {
-                    this[this.tablemapSolarSystem.constellationIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int regionID {
-                get {
-                    return ((int)(this[this.tablemapSolarSystem.regionIDColumn]));
-                }
-                set {
-                    this[this.tablemapSolarSystem.regionIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapConstellationRow mapConstellationRow {
-                get {
-                    return ((mapConstellationRow)(this.GetParentRow(this.Table.ParentRelations["FK_mapSolarSystem_0_0"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_mapSolarSystem_0_0"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapRegionRow mapRegionRow {
-                get {
-                    return ((mapRegionRow)(this.GetParentRow(this.Table.ParentRelations["FK_mapSolarSystem_1_0"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_mapSolarSystem_1_0"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IssolarSystemNameNull() {
-                return this.IsNull(this.tablemapSolarSystem.solarSystemNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetsolarSystemNameNull() {
-                this[this.tablemapSolarSystem.solarSystemNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemJumpRow[] GetmapSolarSystemJumpRowsByFK_mapSolarSystemJump_0_0() {
-                if ((this.Table.ChildRelations["FK_mapSolarSystemJump_0_0"] == null)) {
-                    return new mapSolarSystemJumpRow[0];
-                }
-                else {
-                    return ((mapSolarSystemJumpRow[])(base.GetChildRows(this.Table.ChildRelations["FK_mapSolarSystemJump_0_0"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemJumpRow[] GetmapSolarSystemJumpRowsByFK_mapSolarSystemJump_1_0() {
-                if ((this.Table.ChildRelations["FK_mapSolarSystemJump_1_0"] == null)) {
-                    return new mapSolarSystemJumpRow[0];
-                }
-                else {
-                    return ((mapSolarSystemJumpRow[])(base.GetChildRows(this.Table.ChildRelations["FK_mapSolarSystemJump_1_0"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public intelPlayerRow[] GetintelPlayerRows() {
-                if ((this.Table.ChildRelations["FK_intelPlayer_1_0"] == null)) {
-                    return new intelPlayerRow[0];
-                }
-                else {
-                    return ((intelPlayerRow[])(base.GetChildRows(this.Table.ChildRelations["FK_intelPlayer_1_0"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class eveShipRow : global::System.Data.DataRow {
-            
-            private eveShipDataTable tableeveShip;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal eveShipRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableeveShip = ((eveShipDataTable)(this.Table));
+                this.tableeveShips = ((eveShipsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int typeID {
                 get {
-                    return ((int)(this[this.tableeveShip.typeIDColumn]));
+                    return ((int)(this[this.tableeveShips.typeIDColumn]));
                 }
                 set {
-                    this[this.tableeveShip.typeIDColumn] = value;
+                    this[this.tableeveShips.typeIDColumn] = value;
                 }
             }
             
@@ -2749,14 +1945,14 @@ namespace eve_intel_map.Data {
             public string typeName {
                 get {
                     try {
-                        return ((string)(this[this.tableeveShip.typeNameColumn]));
+                        return ((string)(this[this.tableeveShips.typeNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'typeName\' in table \'eveShip\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'typeName\' in table \'eveShips\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableeveShip.typeNameColumn] = value;
+                    this[this.tableeveShips.typeNameColumn] = value;
                 }
             }
             
@@ -2765,14 +1961,14 @@ namespace eve_intel_map.Data {
             public string raceName {
                 get {
                     try {
-                        return ((string)(this[this.tableeveShip.raceNameColumn]));
+                        return ((string)(this[this.tableeveShips.raceNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'raceName\' in table \'eveShip\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'raceName\' in table \'eveShips\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableeveShip.raceNameColumn] = value;
+                    this[this.tableeveShips.raceNameColumn] = value;
                 }
             }
             
@@ -2781,14 +1977,14 @@ namespace eve_intel_map.Data {
             public string metaGroupName {
                 get {
                     try {
-                        return ((string)(this[this.tableeveShip.metaGroupNameColumn]));
+                        return ((string)(this[this.tableeveShips.metaGroupNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'metaGroupName\' in table \'eveShip\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'metaGroupName\' in table \'eveShips\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableeveShip.metaGroupNameColumn] = value;
+                    this[this.tableeveShips.metaGroupNameColumn] = value;
                 }
             }
             
@@ -2797,73 +1993,149 @@ namespace eve_intel_map.Data {
             public string groupName {
                 get {
                     try {
-                        return ((string)(this[this.tableeveShip.groupNameColumn]));
+                        return ((string)(this[this.tableeveShips.groupNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'groupName\' in table \'eveShip\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'groupName\' in table \'eveShips\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableeveShip.groupNameColumn] = value;
+                    this[this.tableeveShips.groupNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IstypeNameNull() {
-                return this.IsNull(this.tableeveShip.typeNameColumn);
+                return this.IsNull(this.tableeveShips.typeNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SettypeNameNull() {
-                this[this.tableeveShip.typeNameColumn] = global::System.Convert.DBNull;
+                this[this.tableeveShips.typeNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsraceNameNull() {
-                return this.IsNull(this.tableeveShip.raceNameColumn);
+                return this.IsNull(this.tableeveShips.raceNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetraceNameNull() {
-                this[this.tableeveShip.raceNameColumn] = global::System.Convert.DBNull;
+                this[this.tableeveShips.raceNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsmetaGroupNameNull() {
-                return this.IsNull(this.tableeveShip.metaGroupNameColumn);
+                return this.IsNull(this.tableeveShips.metaGroupNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetmetaGroupNameNull() {
-                this[this.tableeveShip.metaGroupNameColumn] = global::System.Convert.DBNull;
+                this[this.tableeveShips.metaGroupNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsgroupNameNull() {
-                return this.IsNull(this.tableeveShip.groupNameColumn);
+                return this.IsNull(this.tableeveShips.groupNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetgroupNameNull() {
-                this[this.tableeveShip.groupNameColumn] = global::System.Convert.DBNull;
+                this[this.tableeveShips.groupNameColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class mapConstellationsRow : global::System.Data.DataRow {
+            
+            private mapConstellationsDataTable tablemapConstellations;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal mapConstellationsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablemapConstellations = ((mapConstellationsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public intelPlayerRow[] GetintelPlayerRows() {
-                if ((this.Table.ChildRelations["FK_intelPlayer_0_0"] == null)) {
-                    return new intelPlayerRow[0];
+            public long regionID {
+                get {
+                    return ((long)(this[this.tablemapConstellations.regionIDColumn]));
+                }
+                set {
+                    this[this.tablemapConstellations.regionIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long constellationID {
+                get {
+                    return ((long)(this[this.tablemapConstellations.constellationIDColumn]));
+                }
+                set {
+                    this[this.tablemapConstellations.constellationIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string constellationName {
+                get {
+                    try {
+                        return ((string)(this[this.tablemapConstellations.constellationNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'constellationName\' in table \'mapConstellations\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablemapConstellations.constellationNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapRegionsRow mapRegionsRow {
+                get {
+                    return ((mapRegionsRow)(this.GetParentRow(this.Table.ParentRelations["mapRegions_mapConstellations"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["mapRegions_mapConstellations"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsconstellationNameNull() {
+                return this.IsNull(this.tablemapConstellations.constellationNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetconstellationNameNull() {
+                this[this.tablemapConstellations.constellationNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapSolarSystemsRow[] GetmapSolarSystemsRows() {
+                if ((this.Table.ChildRelations["mapConstellations_mapSolarSystems"] == null)) {
+                    return new mapSolarSystemsRow[0];
                 }
                 else {
-                    return ((intelPlayerRow[])(base.GetChildRows(this.Table.ChildRelations["FK_intelPlayer_0_0"])));
+                    return ((mapSolarSystemsRow[])(base.GetChildRows(this.Table.ChildRelations["mapConstellations_mapSolarSystems"])));
                 }
             }
         }
@@ -2871,215 +2143,255 @@ namespace eve_intel_map.Data {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class intelPlayerRow : global::System.Data.DataRow {
+        public partial class mapRegionsRow : global::System.Data.DataRow {
             
-            private intelPlayerDataTable tableintelPlayer;
+            private mapRegionsDataTable tablemapRegions;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal intelPlayerRow(global::System.Data.DataRowBuilder rb) : 
+            internal mapRegionsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableintelPlayer = ((intelPlayerDataTable)(this.Table));
+                this.tablemapRegions = ((mapRegionsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int characterID {
+            public long regionID {
                 get {
-                    return ((int)(this[this.tableintelPlayer.characterIDColumn]));
+                    return ((long)(this[this.tablemapRegions.regionIDColumn]));
                 }
                 set {
-                    this[this.tableintelPlayer.characterIDColumn] = value;
+                    this[this.tablemapRegions.regionIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string characterName {
-                get {
-                    return ((string)(this[this.tableintelPlayer.characterNameColumn]));
-                }
-                set {
-                    this[this.tableintelPlayer.characterNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string corporationName {
-                get {
-                    return ((string)(this[this.tableintelPlayer.corporationNameColumn]));
-                }
-                set {
-                    this[this.tableintelPlayer.corporationNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string allianceName {
+            public string regionName {
                 get {
                     try {
-                        return ((string)(this[this.tableintelPlayer.allianceNameColumn]));
+                        return ((string)(this[this.tablemapRegions.regionNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'allianceName\' in table \'intelPlayer\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'regionName\' in table \'mapRegions\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableintelPlayer.allianceNameColumn] = value;
+                    this[this.tablemapRegions.regionNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool characterKos {
+            public bool IsregionNameNull() {
+                return this.IsNull(this.tablemapRegions.regionNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetregionNameNull() {
+                this[this.tablemapRegions.regionNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapConstellationsRow[] GetmapConstellationsRows() {
+                if ((this.Table.ChildRelations["mapRegions_mapConstellations"] == null)) {
+                    return new mapConstellationsRow[0];
+                }
+                else {
+                    return ((mapConstellationsRow[])(base.GetChildRows(this.Table.ChildRelations["mapRegions_mapConstellations"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public mapSolarSystemsRow[] GetmapSolarSystemsRows() {
+                if ((this.Table.ChildRelations["mapRegions_mapSolarSystems"] == null)) {
+                    return new mapSolarSystemsRow[0];
+                }
+                else {
+                    return ((mapSolarSystemsRow[])(base.GetChildRows(this.Table.ChildRelations["mapRegions_mapSolarSystems"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class mapSolarSystemJumpsRow : global::System.Data.DataRow {
+            
+            private mapSolarSystemJumpsDataTable tablemapSolarSystemJumps;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal mapSolarSystemJumpsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablemapSolarSystemJumps = ((mapSolarSystemJumpsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long toSolarSystemID {
                 get {
-                    return ((bool)(this[this.tableintelPlayer.characterKosColumn]));
+                    return ((long)(this[this.tablemapSolarSystemJumps.toSolarSystemIDColumn]));
                 }
                 set {
-                    this[this.tableintelPlayer.characterKosColumn] = value;
+                    this[this.tablemapSolarSystemJumps.toSolarSystemIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool corporationKos {
+            public long fromSolarSystemID {
                 get {
-                    return ((bool)(this[this.tableintelPlayer.corporationKosColumn]));
+                    return ((long)(this[this.tablemapSolarSystemJumps.fromSolarSystemIDColumn]));
                 }
                 set {
-                    this[this.tableintelPlayer.corporationKosColumn] = value;
+                    this[this.tablemapSolarSystemJumps.fromSolarSystemIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool allianceKos {
-                get {
-                    return ((bool)(this[this.tableintelPlayer.allianceKosColumn]));
+            public mapSolarSystemsRow[] GetmapSolarSystemsRowsBymapSolarSystemJumps_mapSolarSystems() {
+                if ((this.Table.ChildRelations["mapSolarSystemJumps_mapSolarSystems"] == null)) {
+                    return new mapSolarSystemsRow[0];
                 }
-                set {
-                    this[this.tableintelPlayer.allianceKosColumn] = value;
+                else {
+                    return ((mapSolarSystemsRow[])(base.GetChildRows(this.Table.ChildRelations["mapSolarSystemJumps_mapSolarSystems"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int solarsystemID {
+            public mapSolarSystemsRow[] GetmapSolarSystemsRowsBymapSolarSystemJumps_mapSolarSystems1() {
+                if ((this.Table.ChildRelations["mapSolarSystemJumps_mapSolarSystems1"] == null)) {
+                    return new mapSolarSystemsRow[0];
+                }
+                else {
+                    return ((mapSolarSystemsRow[])(base.GetChildRows(this.Table.ChildRelations["mapSolarSystemJumps_mapSolarSystems1"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class mapSolarSystemsRow : global::System.Data.DataRow {
+            
+            private mapSolarSystemsDataTable tablemapSolarSystems;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal mapSolarSystemsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablemapSolarSystems = ((mapSolarSystemsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string solarSystemName {
                 get {
                     try {
-                        return ((int)(this[this.tableintelPlayer.solarsystemIDColumn]));
+                        return ((string)(this[this.tablemapSolarSystems.solarSystemNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'solarsystemID\' in table \'intelPlayer\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'solarSystemName\' in table \'mapSolarSystems\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableintelPlayer.solarsystemIDColumn] = value;
+                    this[this.tablemapSolarSystems.solarSystemNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int shipTypeID {
+            public long solarSystemID {
                 get {
-                    try {
-                        return ((int)(this[this.tableintelPlayer.shipTypeIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'shipTypeID\' in table \'intelPlayer\' is DBNull.", e);
-                    }
+                    return ((long)(this[this.tablemapSolarSystems.solarSystemIDColumn]));
                 }
                 set {
-                    this[this.tableintelPlayer.shipTypeIDColumn] = value;
+                    this[this.tablemapSolarSystems.solarSystemIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string notes {
+            public long constellationID {
                 get {
-                    try {
-                        return ((string)(this[this.tableintelPlayer.notesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'notes\' in table \'intelPlayer\' is DBNull.", e);
-                    }
+                    return ((long)(this[this.tablemapSolarSystems.constellationIDColumn]));
                 }
                 set {
-                    this[this.tableintelPlayer.notesColumn] = value;
+                    this[this.tablemapSolarSystems.constellationIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public eveShipRow eveShipRow {
+            public long regionID {
                 get {
-                    return ((eveShipRow)(this.GetParentRow(this.Table.ParentRelations["FK_intelPlayer_0_0"])));
+                    return ((long)(this[this.tablemapSolarSystems.regionIDColumn]));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_intelPlayer_0_0"]);
+                    this[this.tablemapSolarSystems.regionIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemRow mapSolarSystemRow {
+            public mapRegionsRow mapRegionsRow {
                 get {
-                    return ((mapSolarSystemRow)(this.GetParentRow(this.Table.ParentRelations["FK_intelPlayer_1_0"])));
+                    return ((mapRegionsRow)(this.GetParentRow(this.Table.ParentRelations["mapRegions_mapSolarSystems"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_intelPlayer_1_0"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["mapRegions_mapSolarSystems"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsallianceNameNull() {
-                return this.IsNull(this.tableintelPlayer.allianceNameColumn);
+            public mapConstellationsRow mapConstellationsRow {
+                get {
+                    return ((mapConstellationsRow)(this.GetParentRow(this.Table.ParentRelations["mapConstellations_mapSolarSystems"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["mapConstellations_mapSolarSystems"]);
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetallianceNameNull() {
-                this[this.tableintelPlayer.allianceNameColumn] = global::System.Convert.DBNull;
+            public mapSolarSystemJumpsRow mapSolarSystemJumpsRowBymapSolarSystemJumps_mapSolarSystems {
+                get {
+                    return ((mapSolarSystemJumpsRow)(this.GetParentRow(this.Table.ParentRelations["mapSolarSystemJumps_mapSolarSystems"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["mapSolarSystemJumps_mapSolarSystems"]);
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IssolarsystemIDNull() {
-                return this.IsNull(this.tableintelPlayer.solarsystemIDColumn);
+            public mapSolarSystemJumpsRow mapSolarSystemJumpsRowBymapSolarSystemJumps_mapSolarSystems1 {
+                get {
+                    return ((mapSolarSystemJumpsRow)(this.GetParentRow(this.Table.ParentRelations["mapSolarSystemJumps_mapSolarSystems1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["mapSolarSystemJumps_mapSolarSystems1"]);
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetsolarsystemIDNull() {
-                this[this.tableintelPlayer.solarsystemIDColumn] = global::System.Convert.DBNull;
+            public bool IssolarSystemNameNull() {
+                return this.IsNull(this.tablemapSolarSystems.solarSystemNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsshipTypeIDNull() {
-                return this.IsNull(this.tableintelPlayer.shipTypeIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetshipTypeIDNull() {
-                this[this.tableintelPlayer.shipTypeIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnotesNull() {
-                return this.IsNull(this.tableintelPlayer.notesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnotesNull() {
-                this[this.tableintelPlayer.notesColumn] = global::System.Convert.DBNull;
+            public void SetsolarSystemNameNull() {
+                this[this.tablemapSolarSystems.solarSystemNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3087,22 +2399,22 @@ namespace eve_intel_map.Data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class mapSolarSystemJumpRowChangeEvent : global::System.EventArgs {
+        public class eveShipsRowChangeEvent : global::System.EventArgs {
             
-            private mapSolarSystemJumpRow eventRow;
+            private eveShipsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemJumpRowChangeEvent(mapSolarSystemJumpRow row, global::System.Data.DataRowAction action) {
+            public eveShipsRowChangeEvent(eveShipsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemJumpRow Row {
+            public eveShipsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3121,22 +2433,22 @@ namespace eve_intel_map.Data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class mapConstellationRowChangeEvent : global::System.EventArgs {
+        public class mapConstellationsRowChangeEvent : global::System.EventArgs {
             
-            private mapConstellationRow eventRow;
+            private mapConstellationsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapConstellationRowChangeEvent(mapConstellationRow row, global::System.Data.DataRowAction action) {
+            public mapConstellationsRowChangeEvent(mapConstellationsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapConstellationRow Row {
+            public mapConstellationsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3155,22 +2467,22 @@ namespace eve_intel_map.Data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class mapRegionRowChangeEvent : global::System.EventArgs {
+        public class mapRegionsRowChangeEvent : global::System.EventArgs {
             
-            private mapRegionRow eventRow;
+            private mapRegionsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapRegionRowChangeEvent(mapRegionRow row, global::System.Data.DataRowAction action) {
+            public mapRegionsRowChangeEvent(mapRegionsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapRegionRow Row {
+            public mapRegionsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3189,22 +2501,22 @@ namespace eve_intel_map.Data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class mapSolarSystemRowChangeEvent : global::System.EventArgs {
+        public class mapSolarSystemJumpsRowChangeEvent : global::System.EventArgs {
             
-            private mapSolarSystemRow eventRow;
+            private mapSolarSystemJumpsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemRowChangeEvent(mapSolarSystemRow row, global::System.Data.DataRowAction action) {
+            public mapSolarSystemJumpsRowChangeEvent(mapSolarSystemJumpsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public mapSolarSystemRow Row {
+            public mapSolarSystemJumpsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3223,56 +2535,22 @@ namespace eve_intel_map.Data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class eveShipRowChangeEvent : global::System.EventArgs {
+        public class mapSolarSystemsRowChangeEvent : global::System.EventArgs {
             
-            private eveShipRow eventRow;
+            private mapSolarSystemsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public eveShipRowChangeEvent(eveShipRow row, global::System.Data.DataRowAction action) {
+            public mapSolarSystemsRowChangeEvent(mapSolarSystemsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public eveShipRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class intelPlayerRowChangeEvent : global::System.EventArgs {
-            
-            private intelPlayerRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public intelPlayerRowChangeEvent(intelPlayerRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public intelPlayerRow Row {
+            public mapSolarSystemsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3300,7 +2578,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class mapSolarSystemJumpTableAdapter : global::System.ComponentModel.Component {
+    public partial class eveShipsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
         
@@ -3314,7 +2592,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public mapSolarSystemJumpTableAdapter() {
+        public eveShipsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -3411,1586 +2689,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
             this._adapter = new global::System.Data.SQLite.SQLiteDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "mapSolarSystemJump";
-            tableMapping.ColumnMappings.Add("toSolarSystemID", "toSolarSystemID");
-            tableMapping.ColumnMappings.Add("fromSolarSystemID", "fromSolarSystemID");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [main].[sqlite_default_schema].[mapSolarSystemJump] WHERE (([toSolarS" +
-                "ystemID] = @Original_toSolarSystemID) AND ([fromSolarSystemID] = @Original_fromS" +
-                "olarSystemID))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_toSolarSystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "toSolarSystemID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fromSolarSystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "fromSolarSystemID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[mapSolarSystemJump] ([toSolarSystemID" +
-                "], [fromSolarSystemID]) VALUES (@toSolarSystemID, @fromSolarSystemID)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@toSolarSystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "toSolarSystemID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fromSolarSystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "fromSolarSystemID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[mapSolarSystemJump] SET [toSolarSystemID] " +
-                "= @toSolarSystemID, [fromSolarSystemID] = @fromSolarSystemID WHERE (([toSolarSys" +
-                "temID] = @Original_toSolarSystemID) AND ([fromSolarSystemID] = @Original_fromSol" +
-                "arSystemID))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@toSolarSystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "toSolarSystemID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@fromSolarSystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "fromSolarSystemID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_toSolarSystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "toSolarSystemID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_fromSolarSystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "fromSolarSystemID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::eve_intel_map.Properties.Settings.Default.eve_intelConnectionString1;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
-            this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [toSolarSystemID], [fromSolarSystemID] FROM [mapSolarSystemJump]";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(StaticData.mapSolarSystemJumpDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual StaticData.mapSolarSystemJumpDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            StaticData.mapSolarSystemJumpDataTable dataTable = new StaticData.mapSolarSystemJumpDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StaticData.mapSolarSystemJumpDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StaticData dataSet) {
-            return this.Adapter.Update(dataSet, "mapSolarSystemJump");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_toSolarSystemID, int Original_fromSolarSystemID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_toSolarSystemID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_fromSolarSystemID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int toSolarSystemID, int fromSolarSystemID) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(toSolarSystemID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(fromSolarSystemID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int toSolarSystemID, int fromSolarSystemID, int Original_toSolarSystemID, int Original_fromSolarSystemID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(toSolarSystemID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(fromSolarSystemID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_toSolarSystemID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_fromSolarSystemID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Original_toSolarSystemID, int Original_fromSolarSystemID) {
-            return this.Update(Original_toSolarSystemID, Original_fromSolarSystemID, Original_toSolarSystemID, Original_fromSolarSystemID);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class mapConstellationTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
-        
-        private global::System.Data.SQLite.SQLiteConnection _connection;
-        
-        private global::System.Data.SQLite.SQLiteTransaction _transaction;
-        
-        private global::System.Data.SQLite.SQLiteCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public mapConstellationTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SQLite.SQLiteDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SQLite.SQLiteConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SQLite.SQLiteCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SQLite.SQLiteTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SQLite.SQLiteCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SQLite.SQLiteDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "mapConstellation";
-            tableMapping.ColumnMappings.Add("regionID", "regionID");
-            tableMapping.ColumnMappings.Add("constellationID", "constellationID");
-            tableMapping.ColumnMappings.Add("constellationName", "constellationName");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[mapConstellation] WHERE (([regionID] = @Original_regionID) AND ([constellationID] = @Original_constellationID) AND ((@IsNull_constellationName = 1 AND [constellationName] IS NULL) OR ([constellationName] = @Original_constellationName)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_regionID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_constellationID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "constellationID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_constellationName";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "constellationName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_constellationName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "constellationName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[mapConstellation] ([regionID], [const" +
-                "ellationID], [constellationName]) VALUES (@regionID, @constellationID, @constell" +
-                "ationName)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@regionID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@constellationID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "constellationID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@constellationName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "constellationName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[mapConstellation] SET [regionID] = @regionID, [constellationID] = @constellationID, [constellationName] = @constellationName WHERE (([regionID] = @Original_regionID) AND ([constellationID] = @Original_constellationID) AND ((@IsNull_constellationName = 1 AND [constellationName] IS NULL) OR ([constellationName] = @Original_constellationName)))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@regionID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@constellationID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "constellationID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@constellationName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "constellationName";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_regionID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_constellationID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "constellationID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_constellationName";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "constellationName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_constellationName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "constellationName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::eve_intel_map.Properties.Settings.Default.eve_intelConnectionString1;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
-            this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [regionID], [constellationID], [constellationName] FROM [mapConstellation]" +
-                "";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(StaticData.mapConstellationDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual StaticData.mapConstellationDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            StaticData.mapConstellationDataTable dataTable = new StaticData.mapConstellationDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StaticData.mapConstellationDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StaticData dataSet) {
-            return this.Adapter.Update(dataSet, "mapConstellation");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_regionID, int Original_constellationID, string Original_constellationName) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_regionID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_constellationID));
-            if ((Original_constellationName == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_constellationName));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int regionID, int constellationID, string constellationName) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(regionID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(constellationID));
-            if ((constellationName == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(constellationName));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int regionID, int constellationID, string constellationName, int Original_regionID, int Original_constellationID, string Original_constellationName) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(regionID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(constellationID));
-            if ((constellationName == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(constellationName));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_regionID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_constellationID));
-            if ((Original_constellationName == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_constellationName));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int regionID, string constellationName, int Original_regionID, int Original_constellationID, string Original_constellationName) {
-            return this.Update(regionID, Original_constellationID, constellationName, Original_regionID, Original_constellationID, Original_constellationName);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class mapRegionTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
-        
-        private global::System.Data.SQLite.SQLiteConnection _connection;
-        
-        private global::System.Data.SQLite.SQLiteTransaction _transaction;
-        
-        private global::System.Data.SQLite.SQLiteCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public mapRegionTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SQLite.SQLiteDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SQLite.SQLiteConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SQLite.SQLiteCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SQLite.SQLiteTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SQLite.SQLiteCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SQLite.SQLiteDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "mapRegion";
-            tableMapping.ColumnMappings.Add("regionID", "regionID");
-            tableMapping.ColumnMappings.Add("regionName", "regionName");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [main].[sqlite_default_schema].[mapRegion] WHERE (([regionID] = @Orig" +
-                "inal_regionID) AND ((@IsNull_regionName = 1 AND [regionName] IS NULL) OR ([regio" +
-                "nName] = @Original_regionName)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_regionID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_regionName";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_regionName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "regionName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[mapRegion] ([regionID], [regionName])" +
-                " VALUES (@regionID, @regionName)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@regionID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@regionName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "regionName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[mapRegion] SET [regionID] = @regionID, [re" +
-                "gionName] = @regionName WHERE (([regionID] = @Original_regionID) AND ((@IsNull_r" +
-                "egionName = 1 AND [regionName] IS NULL) OR ([regionName] = @Original_regionName)" +
-                "))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@regionID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@regionName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "regionName";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_regionID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_regionName";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_regionName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "regionName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::eve_intel_map.Properties.Settings.Default.eve_intelConnectionString1;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
-            this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [regionID], [regionName] FROM [mapRegion]";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(StaticData.mapRegionDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual StaticData.mapRegionDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            StaticData.mapRegionDataTable dataTable = new StaticData.mapRegionDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StaticData.mapRegionDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StaticData dataSet) {
-            return this.Adapter.Update(dataSet, "mapRegion");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_regionID, string Original_regionName) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_regionID));
-            if ((Original_regionName == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_regionName));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int regionID, string regionName) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(regionID));
-            if ((regionName == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(regionName));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int regionID, string regionName, int Original_regionID, string Original_regionName) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(regionID));
-            if ((regionName == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(regionName));
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_regionID));
-            if ((Original_regionName == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_regionName));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string regionName, int Original_regionID, string Original_regionName) {
-            return this.Update(Original_regionID, regionName, Original_regionID, Original_regionName);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class mapSolarSystemTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
-        
-        private global::System.Data.SQLite.SQLiteConnection _connection;
-        
-        private global::System.Data.SQLite.SQLiteTransaction _transaction;
-        
-        private global::System.Data.SQLite.SQLiteCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public mapSolarSystemTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SQLite.SQLiteDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SQLite.SQLiteConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SQLite.SQLiteCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SQLite.SQLiteTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SQLite.SQLiteCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SQLite.SQLiteDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "mapSolarSystem";
-            tableMapping.ColumnMappings.Add("solarSystemName", "solarSystemName");
-            tableMapping.ColumnMappings.Add("solarSystemID", "solarSystemID");
-            tableMapping.ColumnMappings.Add("constellationID", "constellationID");
-            tableMapping.ColumnMappings.Add("regionID", "regionID");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[mapSolarSystem] WHERE (((@IsNull_solarSystemName = 1 AND [solarSystemName] IS NULL) OR ([solarSystemName] = @Original_solarSystemName)) AND ([solarSystemID] = @Original_solarSystemID) AND ([constellationID] = @Original_constellationID) AND ([regionID] = @Original_regionID))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_solarSystemName";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "solarSystemName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_solarSystemName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "solarSystemName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_solarSystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "solarSystemID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_constellationID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "constellationID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_regionID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[mapSolarSystem] ([solarSystemName], [" +
-                "solarSystemID], [constellationID], [regionID]) VALUES (@solarSystemName, @solarS" +
-                "ystemID, @constellationID, @regionID)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@solarSystemName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "solarSystemName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@solarSystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "solarSystemID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@constellationID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "constellationID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@regionID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[mapSolarSystem] SET [solarSystemName] = @solarSystemName, [solarSystemID] = @solarSystemID, [constellationID] = @constellationID, [regionID] = @regionID WHERE (((@IsNull_solarSystemName = 1 AND [solarSystemName] IS NULL) OR ([solarSystemName] = @Original_solarSystemName)) AND ([solarSystemID] = @Original_solarSystemID) AND ([constellationID] = @Original_constellationID) AND ([regionID] = @Original_regionID))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@solarSystemName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "solarSystemName";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@solarSystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "solarSystemID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@constellationID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "constellationID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@regionID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_solarSystemName";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "solarSystemName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_solarSystemName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "solarSystemName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_solarSystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "solarSystemID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_constellationID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "constellationID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_regionID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "regionID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::eve_intel_map.Properties.Settings.Default.eve_intelConnectionString1;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
-            this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [solarSystemName], [solarSystemID], [constellationID], [regionID] FROM [ma" +
-                "pSolarSystem]";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(StaticData.mapSolarSystemDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual StaticData.mapSolarSystemDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            StaticData.mapSolarSystemDataTable dataTable = new StaticData.mapSolarSystemDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StaticData.mapSolarSystemDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StaticData dataSet) {
-            return this.Adapter.Update(dataSet, "mapSolarSystem");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_solarSystemName, int Original_solarSystemID, int Original_constellationID, int Original_regionID) {
-            if ((Original_solarSystemName == null)) {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_solarSystemName));
-            }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_solarSystemID));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_constellationID));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_regionID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string solarSystemName, int solarSystemID, int constellationID, int regionID) {
-            if ((solarSystemName == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(solarSystemName));
-            }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(solarSystemID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(constellationID));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(regionID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string solarSystemName, int solarSystemID, int constellationID, int regionID, string Original_solarSystemName, int Original_solarSystemID, int Original_constellationID, int Original_regionID) {
-            if ((solarSystemName == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(solarSystemName));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(solarSystemID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(constellationID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(regionID));
-            if ((Original_solarSystemName == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_solarSystemName));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_solarSystemID));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_constellationID));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_regionID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string solarSystemName, int constellationID, int regionID, string Original_solarSystemName, int Original_solarSystemID, int Original_constellationID, int Original_regionID) {
-            return this.Update(solarSystemName, Original_solarSystemID, constellationID, regionID, Original_solarSystemName, Original_solarSystemID, Original_constellationID, Original_regionID);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class eveShipTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
-        
-        private global::System.Data.SQLite.SQLiteConnection _connection;
-        
-        private global::System.Data.SQLite.SQLiteTransaction _transaction;
-        
-        private global::System.Data.SQLite.SQLiteCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public eveShipTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SQLite.SQLiteDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SQLite.SQLiteConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SQLite.SQLiteCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SQLite.SQLiteTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SQLite.SQLiteCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SQLite.SQLiteDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "eveShip";
+            tableMapping.DataSetTable = "eveShips";
             tableMapping.ColumnMappings.Add("typeID", "typeID");
             tableMapping.ColumnMappings.Add("typeName", "typeName");
             tableMapping.ColumnMappings.Add("raceName", "raceName");
@@ -4999,7 +2698,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[eveShip] WHERE (([typeID] = @Original_typeID) AND ((@IsNull_typeName = 1 AND [typeName] IS NULL) OR ([typeName] = @Original_typeName)) AND ((@IsNull_raceName = 1 AND [raceName] IS NULL) OR ([raceName] = @Original_raceName)) AND ((@IsNull_metaGroupName = 1 AND [metaGroupName] IS NULL) OR ([metaGroupName] = @Original_metaGroupName)) AND ((@IsNull_groupName = 1 AND [groupName] IS NULL) OR ([groupName] = @Original_groupName)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[eveShips] WHERE (([typeID] = @Original_typeID) AND ((@IsNull_typeName = 1 AND [typeName] IS NULL) OR ([typeName] = @Original_typeName)) AND ((@IsNull_raceName = 1 AND [raceName] IS NULL) OR ([raceName] = @Original_raceName)) AND ((@IsNull_metaGroupName = 1 AND [metaGroupName] IS NULL) OR ([metaGroupName] = @Original_metaGroupName)) AND ((@IsNull_groupName = 1 AND [groupName] IS NULL) OR ([groupName] = @Original_groupName)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_typeID";
@@ -5067,9 +2766,9 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[eveShip] ([typeID], [typeName], [race" +
-                "Name], [metaGroupName], [groupName]) VALUES (@typeID, @typeName, @raceName, @met" +
-                "aGroupName, @groupName)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[eveShips] ([typeID], [typeName], [rac" +
+                "eName], [metaGroupName], [groupName]) VALUES (@typeID, @typeName, @raceName, @me" +
+                "taGroupName, @groupName)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@typeID";
@@ -5100,7 +2799,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[eveShip] SET [typeID] = @typeID, [typeName] = @typeName, [raceName] = @raceName, [metaGroupName] = @metaGroupName, [groupName] = @groupName WHERE (([typeID] = @Original_typeID) AND ((@IsNull_typeName = 1 AND [typeName] IS NULL) OR ([typeName] = @Original_typeName)) AND ((@IsNull_raceName = 1 AND [raceName] IS NULL) OR ([raceName] = @Original_raceName)) AND ((@IsNull_metaGroupName = 1 AND [metaGroupName] IS NULL) OR ([metaGroupName] = @Original_metaGroupName)) AND ((@IsNull_groupName = 1 AND [groupName] IS NULL) OR ([groupName] = @Original_groupName)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[eveShips] SET [typeID] = @typeID, [typeName] = @typeName, [raceName] = @raceName, [metaGroupName] = @metaGroupName, [groupName] = @groupName WHERE (([typeID] = @Original_typeID) AND ((@IsNull_typeName = 1 AND [typeName] IS NULL) OR ([typeName] = @Original_typeName)) AND ((@IsNull_raceName = 1 AND [raceName] IS NULL) OR ([raceName] = @Original_raceName)) AND ((@IsNull_metaGroupName = 1 AND [metaGroupName] IS NULL) OR ([metaGroupName] = @Original_metaGroupName)) AND ((@IsNull_groupName = 1 AND [groupName] IS NULL) OR ([groupName] = @Original_groupName)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@typeID";
@@ -5199,7 +2898,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::eve_intel_map.Properties.Settings.Default.eve_intelConnectionString1;
+            this._connection.ConnectionString = global::eve_intel_map.Properties.Settings.Default.eve_intel;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5209,7 +2908,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [typeID], [typeName], [raceName], [metaGroupName], [groupName] FROM [eveSh" +
-                "ip]";
+                "ips]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5217,7 +2916,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(StaticData.eveShipDataTable dataTable) {
+        public virtual int Fill(StaticData.eveShipsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5230,9 +2929,9 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual StaticData.eveShipDataTable GetData() {
+        public virtual StaticData.eveShipsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            StaticData.eveShipDataTable dataTable = new StaticData.eveShipDataTable();
+            StaticData.eveShipsDataTable dataTable = new StaticData.eveShipsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5240,7 +2939,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StaticData.eveShipDataTable dataTable) {
+        public virtual int Update(StaticData.eveShipsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -5248,7 +2947,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(StaticData dataSet) {
-            return this.Adapter.Update(dataSet, "eveShip");
+            return this.Adapter.Update(dataSet, "eveShips");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5463,7 +3162,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class intelPlayerTableAdapter : global::System.ComponentModel.Component {
+    public partial class mapConstellationsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
         
@@ -5477,7 +3176,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public intelPlayerTableAdapter() {
+        public mapConstellationsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -5574,336 +3273,113 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
             this._adapter = new global::System.Data.SQLite.SQLiteDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "intelPlayer";
-            tableMapping.ColumnMappings.Add("characterID", "characterID");
-            tableMapping.ColumnMappings.Add("characterName", "characterName");
-            tableMapping.ColumnMappings.Add("corporationName", "corporationName");
-            tableMapping.ColumnMappings.Add("allianceName", "allianceName");
-            tableMapping.ColumnMappings.Add("characterKos", "characterKos");
-            tableMapping.ColumnMappings.Add("corporationKos", "corporationKos");
-            tableMapping.ColumnMappings.Add("allianceKos", "allianceKos");
-            tableMapping.ColumnMappings.Add("solarsystemID", "solarsystemID");
-            tableMapping.ColumnMappings.Add("shipTypeID", "shipTypeID");
-            tableMapping.ColumnMappings.Add("notes", "notes");
+            tableMapping.DataSetTable = "mapConstellations";
+            tableMapping.ColumnMappings.Add("regionID", "regionID");
+            tableMapping.ColumnMappings.Add("constellationID", "constellationID");
+            tableMapping.ColumnMappings.Add("constellationName", "constellationName");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[intelPlayer] WHERE (([characterID] = @Original_characterID) AND ([characterName] = @Original_characterName) AND ([corporationName] = @Original_corporationName) AND ((@IsNull_allianceName = 1 AND [allianceName] IS NULL) OR ([allianceName] = @Original_allianceName)) AND ([characterKos] = @Original_characterKos) AND ([corporationKos] = @Original_corporationKos) AND ([allianceKos] = @Original_allianceKos) AND ((@IsNull_solarsystemID = 1 AND [solarsystemID] IS NULL) OR ([solarsystemID] = @Original_solarsystemID)) AND ((@IsNull_shipTypeID = 1 AND [shipTypeID] IS NULL) OR ([shipTypeID] = @Original_shipTypeID)) AND ((@IsNull_notes = 1 AND [notes] IS NULL) OR ([notes] = @Original_notes)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[mapConstellations] WHERE (([regionID] = @Original_regionID) AND ([constellationID] = @Original_constellationID) AND ((@IsNull_constellationName = 1 AND [constellationName] IS NULL) OR ([constellationName] = @Original_constellationName)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_characterID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "characterID";
+            param.ParameterName = "@Original_regionID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "regionID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_characterName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "characterName";
+            param.ParameterName = "@Original_constellationID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "constellationID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_corporationName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "corporationName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_allianceName";
+            param.ParameterName = "@IsNull_constellationName";
             param.DbType = global::System.Data.DbType.Int32;
             param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "allianceName";
+            param.SourceColumn = "constellationName";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_allianceName";
+            param.ParameterName = "@Original_constellationName";
             param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "allianceName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_characterKos";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "characterKos";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_corporationKos";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "corporationKos";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_allianceKos";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "allianceKos";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_solarsystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "solarsystemID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_solarsystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "solarsystemID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_shipTypeID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "shipTypeID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_shipTypeID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "shipTypeID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_notes";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "notes";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_notes";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "notes";
+            param.SourceColumn = "constellationName";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [main].[sqlite_default_schema].[intelPlayer] ([characterID], [characterName], [corporationName], [allianceName], [characterKos], [corporationKos], [allianceKos], [solarsystemID], [shipTypeID], [notes]) VALUES (@characterID, @characterName, @corporationName, @allianceName, @characterKos, @corporationKos, @allianceKos, @solarsystemID, @shipTypeID, @notes)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[mapConstellations] ([regionID], [cons" +
+                "tellationID], [constellationName]) VALUES (@regionID, @constellationID, @constel" +
+                "lationName)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@characterID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "characterID";
+            param.ParameterName = "@regionID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "regionID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@characterName";
+            param.ParameterName = "@constellationID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "constellationID";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@constellationName";
             param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "characterName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@corporationName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "corporationName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@allianceName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "allianceName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@characterKos";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "characterKos";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@corporationKos";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "corporationKos";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@allianceKos";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "allianceKos";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@solarsystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "solarsystemID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@shipTypeID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "shipTypeID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@notes";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "notes";
+            param.SourceColumn = "constellationName";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[intelPlayer] SET [characterID] = @characterID, [characterName] = @characterName, [corporationName] = @corporationName, [allianceName] = @allianceName, [characterKos] = @characterKos, [corporationKos] = @corporationKos, [allianceKos] = @allianceKos, [solarsystemID] = @solarsystemID, [shipTypeID] = @shipTypeID, [notes] = @notes WHERE (([characterID] = @Original_characterID) AND ([characterName] = @Original_characterName) AND ([corporationName] = @Original_corporationName) AND ((@IsNull_allianceName = 1 AND [allianceName] IS NULL) OR ([allianceName] = @Original_allianceName)) AND ([characterKos] = @Original_characterKos) AND ([corporationKos] = @Original_corporationKos) AND ([allianceKos] = @Original_allianceKos) AND ((@IsNull_solarsystemID = 1 AND [solarsystemID] IS NULL) OR ([solarsystemID] = @Original_solarsystemID)) AND ((@IsNull_shipTypeID = 1 AND [shipTypeID] IS NULL) OR ([shipTypeID] = @Original_shipTypeID)) AND ((@IsNull_notes = 1 AND [notes] IS NULL) OR ([notes] = @Original_notes)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[mapConstellations] SET [regionID] = @regionID, [constellationID] = @constellationID, [constellationName] = @constellationName WHERE (([regionID] = @Original_regionID) AND ([constellationID] = @Original_constellationID) AND ((@IsNull_constellationName = 1 AND [constellationName] IS NULL) OR ([constellationName] = @Original_constellationName)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@characterID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "characterID";
+            param.ParameterName = "@regionID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "regionID";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@characterName";
+            param.ParameterName = "@constellationID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "constellationID";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@constellationName";
             param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "characterName";
+            param.SourceColumn = "constellationName";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@corporationName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "corporationName";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@allianceName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "allianceName";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@characterKos";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "characterKos";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@corporationKos";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "corporationKos";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@allianceKos";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "allianceKos";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@solarsystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "solarsystemID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@shipTypeID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "shipTypeID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@notes";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "notes";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_characterID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "characterID";
+            param.ParameterName = "@Original_regionID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "regionID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_characterName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "characterName";
+            param.ParameterName = "@Original_constellationID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "constellationID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_corporationName";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "corporationName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_allianceName";
+            param.ParameterName = "@IsNull_constellationName";
             param.DbType = global::System.Data.DbType.Int32;
             param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "allianceName";
+            param.SourceColumn = "constellationName";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_allianceName";
+            param.ParameterName = "@Original_constellationName";
             param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "allianceName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_characterKos";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "characterKos";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_corporationKos";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "corporationKos";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_allianceKos";
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.DbType = global::System.Data.DbType.Boolean;
-            param.SourceColumn = "allianceKos";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_solarsystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "solarsystemID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_solarsystemID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "solarsystemID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_shipTypeID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "shipTypeID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_shipTypeID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "shipTypeID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_notes";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "notes";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_notes";
-            param.DbType = global::System.Data.DbType.String;
-            param.SourceColumn = "notes";
+            param.SourceColumn = "constellationName";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -5912,7 +3388,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::eve_intel_map.Properties.Settings.Default.eve_intelConnectionString1;
+            this._connection.ConnectionString = global::eve_intel_map.Properties.Settings.Default.eve_intel;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5921,9 +3397,8 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
             this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [characterID], [characterName], [corporationName], [allianceName], [charac" +
-                "terKos], [corporationKos], [allianceKos], [solarsystemID], [shipTypeID], [notes]" +
-                " FROM [intelPlayer]";
+            this._commandCollection[0].CommandText = "SELECT [regionID], [constellationID], [constellationName] FROM [mapConstellations" +
+                "]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5931,7 +3406,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(StaticData.intelPlayerDataTable dataTable) {
+        public virtual int Fill(StaticData.mapConstellationsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5944,9 +3419,9 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual StaticData.intelPlayerDataTable GetData() {
+        public virtual StaticData.mapConstellationsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            StaticData.intelPlayerDataTable dataTable = new StaticData.intelPlayerDataTable();
+            StaticData.mapConstellationsDataTable dataTable = new StaticData.mapConstellationsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5954,7 +3429,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StaticData.intelPlayerDataTable dataTable) {
+        public virtual int Update(StaticData.mapConstellationsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -5962,7 +3437,7 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(StaticData dataSet) {
-            return this.Adapter.Update(dataSet, "intelPlayer");
+            return this.Adapter.Update(dataSet, "mapConstellations");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5984,54 +3459,16 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_characterID, string Original_characterName, string Original_corporationName, string Original_allianceName, bool Original_characterKos, bool Original_corporationKos, bool Original_allianceKos, global::System.Nullable<int> Original_solarsystemID, global::System.Nullable<int> Original_shipTypeID, string Original_notes) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_characterID));
-            if ((Original_characterName == null)) {
-                throw new global::System.ArgumentNullException("Original_characterName");
+        public virtual int Delete(long Original_regionID, long Original_constellationID, string Original_constellationName) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_regionID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((long)(Original_constellationID));
+            if ((Original_constellationName == null)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_characterName));
-            }
-            if ((Original_corporationName == null)) {
-                throw new global::System.ArgumentNullException("Original_corporationName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_corporationName));
-            }
-            if ((Original_allianceName == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_allianceName));
-            }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((bool)(Original_characterKos));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((bool)(Original_corporationKos));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((bool)(Original_allianceKos));
-            if ((Original_solarsystemID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_solarsystemID.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((Original_shipTypeID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(Original_shipTypeID.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((Original_notes == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_notes));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_constellationName));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6053,46 +3490,14 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int characterID, string characterName, string corporationName, string allianceName, bool characterKos, bool corporationKos, bool allianceKos, global::System.Nullable<int> solarsystemID, global::System.Nullable<int> shipTypeID, string notes) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(characterID));
-            if ((characterName == null)) {
-                throw new global::System.ArgumentNullException("characterName");
+        public virtual int Insert(long regionID, long constellationID, string constellationName) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(regionID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((long)(constellationID));
+            if ((constellationName == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(characterName));
-            }
-            if ((corporationName == null)) {
-                throw new global::System.ArgumentNullException("corporationName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(corporationName));
-            }
-            if ((allianceName == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(allianceName));
-            }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(characterKos));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(corporationKos));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(allianceKos));
-            if ((solarsystemID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(solarsystemID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((shipTypeID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(shipTypeID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((notes == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(notes));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(constellationName));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6114,114 +3519,24 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int characterID, 
-                    string characterName, 
-                    string corporationName, 
-                    string allianceName, 
-                    bool characterKos, 
-                    bool corporationKos, 
-                    bool allianceKos, 
-                    global::System.Nullable<int> solarsystemID, 
-                    global::System.Nullable<int> shipTypeID, 
-                    string notes, 
-                    int Original_characterID, 
-                    string Original_characterName, 
-                    string Original_corporationName, 
-                    string Original_allianceName, 
-                    bool Original_characterKos, 
-                    bool Original_corporationKos, 
-                    bool Original_allianceKos, 
-                    global::System.Nullable<int> Original_solarsystemID, 
-                    global::System.Nullable<int> Original_shipTypeID, 
-                    string Original_notes) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(characterID));
-            if ((characterName == null)) {
-                throw new global::System.ArgumentNullException("characterName");
+        public virtual int Update(long regionID, long constellationID, string constellationName, long Original_regionID, long Original_constellationID, string Original_constellationName) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(regionID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(constellationID));
+            if ((constellationName == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(characterName));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(constellationName));
             }
-            if ((corporationName == null)) {
-                throw new global::System.ArgumentNullException("corporationName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(corporationName));
-            }
-            if ((allianceName == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(Original_regionID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(Original_constellationID));
+            if ((Original_constellationName == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(allianceName));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((bool)(characterKos));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(corporationKos));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(allianceKos));
-            if ((solarsystemID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(solarsystemID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((shipTypeID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(shipTypeID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((notes == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(notes));
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_characterID));
-            if ((Original_characterName == null)) {
-                throw new global::System.ArgumentNullException("Original_characterName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_characterName));
-            }
-            if ((Original_corporationName == null)) {
-                throw new global::System.ArgumentNullException("Original_corporationName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_corporationName));
-            }
-            if ((Original_allianceName == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_allianceName));
-            }
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((bool)(Original_characterKos));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((bool)(Original_corporationKos));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((bool)(Original_allianceKos));
-            if ((Original_solarsystemID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_solarsystemID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((Original_shipTypeID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_shipTypeID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            if ((Original_notes == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_notes));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_constellationName));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6243,27 +3558,1177 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string characterName, 
-                    string corporationName, 
-                    string allianceName, 
-                    bool characterKos, 
-                    bool corporationKos, 
-                    bool allianceKos, 
-                    global::System.Nullable<int> solarsystemID, 
-                    global::System.Nullable<int> shipTypeID, 
-                    string notes, 
-                    int Original_characterID, 
-                    string Original_characterName, 
-                    string Original_corporationName, 
-                    string Original_allianceName, 
-                    bool Original_characterKos, 
-                    bool Original_corporationKos, 
-                    bool Original_allianceKos, 
-                    global::System.Nullable<int> Original_solarsystemID, 
-                    global::System.Nullable<int> Original_shipTypeID, 
-                    string Original_notes) {
-            return this.Update(Original_characterID, characterName, corporationName, allianceName, characterKos, corporationKos, allianceKos, solarsystemID, shipTypeID, notes, Original_characterID, Original_characterName, Original_corporationName, Original_allianceName, Original_characterKos, Original_corporationKos, Original_allianceKos, Original_solarsystemID, Original_shipTypeID, Original_notes);
+        public virtual int Update(long regionID, string constellationName, long Original_regionID, long Original_constellationID, string Original_constellationName) {
+            return this.Update(regionID, Original_constellationID, constellationName, Original_regionID, Original_constellationID, Original_constellationName);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class mapRegionsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
+        
+        private global::System.Data.SQLite.SQLiteConnection _connection;
+        
+        private global::System.Data.SQLite.SQLiteTransaction _transaction;
+        
+        private global::System.Data.SQLite.SQLiteCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public mapRegionsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SQLite.SQLiteDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SQLite.SQLiteConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SQLite.SQLiteCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SQLite.SQLiteTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SQLite.SQLiteCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SQLite.SQLiteDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "mapRegions";
+            tableMapping.ColumnMappings.Add("regionID", "regionID");
+            tableMapping.ColumnMappings.Add("regionName", "regionName");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [main].[sqlite_default_schema].[mapRegions] WHERE (([regionID] = @Ori" +
+                "ginal_regionID) AND ((@IsNull_regionName = 1 AND [regionName] IS NULL) OR ([regi" +
+                "onName] = @Original_regionName)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_regionID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "regionID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_regionName";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "regionName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_regionName";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "regionName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[mapRegions] ([regionID], [regionName]" +
+                ") VALUES (@regionID, @regionName)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@regionID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "regionID";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@regionName";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "regionName";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[mapRegions] SET [regionID] = @regionID, [r" +
+                "egionName] = @regionName WHERE (([regionID] = @Original_regionID) AND ((@IsNull_" +
+                "regionName = 1 AND [regionName] IS NULL) OR ([regionName] = @Original_regionName" +
+                ")))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@regionID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "regionID";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@regionName";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "regionName";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_regionID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "regionID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_regionName";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "regionName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_regionName";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "regionName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SQLite.SQLiteConnection();
+            this._connection.ConnectionString = global::eve_intel_map.Properties.Settings.Default.eve_intel;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
+            this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT [regionID], [regionName] FROM [mapRegions]";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(StaticData.mapRegionsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual StaticData.mapRegionsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            StaticData.mapRegionsDataTable dataTable = new StaticData.mapRegionsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(StaticData.mapRegionsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(StaticData dataSet) {
+            return this.Adapter.Update(dataSet, "mapRegions");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(long Original_regionID, string Original_regionName) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_regionID));
+            if ((Original_regionName == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_regionName));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(long regionID, string regionName) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(regionID));
+            if ((regionName == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(regionName));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(long regionID, string regionName, long Original_regionID, string Original_regionName) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(regionID));
+            if ((regionName == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(regionName));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(Original_regionID));
+            if ((Original_regionName == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_regionName));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string regionName, long Original_regionID, string Original_regionName) {
+            return this.Update(Original_regionID, regionName, Original_regionID, Original_regionName);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class mapSolarSystemJumpsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
+        
+        private global::System.Data.SQLite.SQLiteConnection _connection;
+        
+        private global::System.Data.SQLite.SQLiteTransaction _transaction;
+        
+        private global::System.Data.SQLite.SQLiteCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public mapSolarSystemJumpsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SQLite.SQLiteDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SQLite.SQLiteConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SQLite.SQLiteCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SQLite.SQLiteTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SQLite.SQLiteCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SQLite.SQLiteDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "mapSolarSystemJumps";
+            tableMapping.ColumnMappings.Add("toSolarSystemID", "toSolarSystemID");
+            tableMapping.ColumnMappings.Add("fromSolarSystemID", "fromSolarSystemID");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [main].[sqlite_default_schema].[mapSolarSystemJumps] WHERE (([toSolar" +
+                "SystemID] = @Original_toSolarSystemID) AND ([fromSolarSystemID] = @Original_from" +
+                "SolarSystemID))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_toSolarSystemID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "toSolarSystemID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_fromSolarSystemID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fromSolarSystemID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[mapSolarSystemJumps] ([toSolarSystemI" +
+                "D], [fromSolarSystemID]) VALUES (@toSolarSystemID, @fromSolarSystemID)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@toSolarSystemID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "toSolarSystemID";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@fromSolarSystemID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fromSolarSystemID";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[mapSolarSystemJumps] SET [toSolarSystemID]" +
+                " = @toSolarSystemID, [fromSolarSystemID] = @fromSolarSystemID WHERE (([toSolarSy" +
+                "stemID] = @Original_toSolarSystemID) AND ([fromSolarSystemID] = @Original_fromSo" +
+                "larSystemID))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@toSolarSystemID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "toSolarSystemID";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@fromSolarSystemID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fromSolarSystemID";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_toSolarSystemID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "toSolarSystemID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_fromSolarSystemID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "fromSolarSystemID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SQLite.SQLiteConnection();
+            this._connection.ConnectionString = global::eve_intel_map.Properties.Settings.Default.eve_intel;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
+            this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT [toSolarSystemID], [fromSolarSystemID] FROM [mapSolarSystemJumps]";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(StaticData.mapSolarSystemJumpsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual StaticData.mapSolarSystemJumpsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            StaticData.mapSolarSystemJumpsDataTable dataTable = new StaticData.mapSolarSystemJumpsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(StaticData.mapSolarSystemJumpsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(StaticData dataSet) {
+            return this.Adapter.Update(dataSet, "mapSolarSystemJumps");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(long Original_toSolarSystemID, long Original_fromSolarSystemID) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_toSolarSystemID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((long)(Original_fromSolarSystemID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(long toSolarSystemID, long fromSolarSystemID) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(toSolarSystemID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((long)(fromSolarSystemID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(long toSolarSystemID, long fromSolarSystemID, long Original_toSolarSystemID, long Original_fromSolarSystemID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(toSolarSystemID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(fromSolarSystemID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(Original_toSolarSystemID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(Original_fromSolarSystemID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(long Original_toSolarSystemID, long Original_fromSolarSystemID) {
+            return this.Update(Original_toSolarSystemID, Original_fromSolarSystemID, Original_toSolarSystemID, Original_fromSolarSystemID);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class mapSolarSystemsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
+        
+        private global::System.Data.SQLite.SQLiteConnection _connection;
+        
+        private global::System.Data.SQLite.SQLiteTransaction _transaction;
+        
+        private global::System.Data.SQLite.SQLiteCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public mapSolarSystemsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SQLite.SQLiteDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SQLite.SQLiteConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SQLite.SQLiteCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SQLite.SQLiteTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SQLite.SQLiteCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SQLite.SQLiteDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "mapSolarSystems";
+            tableMapping.ColumnMappings.Add("solarSystemName", "solarSystemName");
+            tableMapping.ColumnMappings.Add("solarSystemID", "solarSystemID");
+            tableMapping.ColumnMappings.Add("constellationID", "constellationID");
+            tableMapping.ColumnMappings.Add("regionID", "regionID");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[mapSolarSystems] WHERE (((@IsNull_solarSystemName = 1 AND [solarSystemName] IS NULL) OR ([solarSystemName] = @Original_solarSystemName)) AND ([solarSystemID] = @Original_solarSystemID) AND ([constellationID] = @Original_constellationID) AND ([regionID] = @Original_regionID))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_solarSystemName";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "solarSystemName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_solarSystemName";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "solarSystemName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_solarSystemID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "solarSystemID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_constellationID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "constellationID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_regionID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "regionID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[mapSolarSystems] ([solarSystemName], " +
+                "[solarSystemID], [constellationID], [regionID]) VALUES (@solarSystemName, @solar" +
+                "SystemID, @constellationID, @regionID)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@solarSystemName";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "solarSystemName";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@solarSystemID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "solarSystemID";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@constellationID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "constellationID";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@regionID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "regionID";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[mapSolarSystems] SET [solarSystemName] = @solarSystemName, [solarSystemID] = @solarSystemID, [constellationID] = @constellationID, [regionID] = @regionID WHERE (((@IsNull_solarSystemName = 1 AND [solarSystemName] IS NULL) OR ([solarSystemName] = @Original_solarSystemName)) AND ([solarSystemID] = @Original_solarSystemID) AND ([constellationID] = @Original_constellationID) AND ([regionID] = @Original_regionID))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@solarSystemName";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "solarSystemName";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@solarSystemID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "solarSystemID";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@constellationID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "constellationID";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@regionID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "regionID";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_solarSystemName";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "solarSystemName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_solarSystemName";
+            param.DbType = global::System.Data.DbType.String;
+            param.SourceColumn = "solarSystemName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_solarSystemID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "solarSystemID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_constellationID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "constellationID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_regionID";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "regionID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SQLite.SQLiteConnection();
+            this._connection.ConnectionString = global::eve_intel_map.Properties.Settings.Default.eve_intel;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
+            this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT [solarSystemName], [solarSystemID], [constellationID], [regionID] FROM [ma" +
+                "pSolarSystems]";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(StaticData.mapSolarSystemsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual StaticData.mapSolarSystemsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            StaticData.mapSolarSystemsDataTable dataTable = new StaticData.mapSolarSystemsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(StaticData.mapSolarSystemsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(StaticData dataSet) {
+            return this.Adapter.Update(dataSet, "mapSolarSystems");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_solarSystemName, long Original_solarSystemID, long Original_constellationID, long Original_regionID) {
+            if ((Original_solarSystemName == null)) {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_solarSystemName));
+            }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((long)(Original_solarSystemID));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((long)(Original_constellationID));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((long)(Original_regionID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string solarSystemName, long solarSystemID, long constellationID, long regionID) {
+            if ((solarSystemName == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(solarSystemName));
+            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((long)(solarSystemID));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((long)(constellationID));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((long)(regionID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string solarSystemName, long solarSystemID, long constellationID, long regionID, string Original_solarSystemName, long Original_solarSystemID, long Original_constellationID, long Original_regionID) {
+            if ((solarSystemName == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(solarSystemName));
+            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(solarSystemID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(constellationID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(regionID));
+            if ((Original_solarSystemName == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_solarSystemName));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(Original_solarSystemID));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((long)(Original_constellationID));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((long)(Original_regionID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string solarSystemName, long constellationID, long regionID, string Original_solarSystemName, long Original_solarSystemID, long Original_constellationID, long Original_regionID) {
+            return this.Update(solarSystemName, Original_solarSystemID, constellationID, regionID, Original_solarSystemName, Original_solarSystemID, Original_constellationID, Original_regionID);
         }
     }
     
@@ -6279,17 +4744,15 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private mapSolarSystemJumpTableAdapter _mapSolarSystemJumpTableAdapter;
+        private eveShipsTableAdapter _eveShipsTableAdapter;
         
-        private mapConstellationTableAdapter _mapConstellationTableAdapter;
+        private mapConstellationsTableAdapter _mapConstellationsTableAdapter;
         
-        private mapRegionTableAdapter _mapRegionTableAdapter;
+        private mapRegionsTableAdapter _mapRegionsTableAdapter;
         
-        private mapSolarSystemTableAdapter _mapSolarSystemTableAdapter;
+        private mapSolarSystemJumpsTableAdapter _mapSolarSystemJumpsTableAdapter;
         
-        private eveShipTableAdapter _eveShipTableAdapter;
-        
-        private intelPlayerTableAdapter _intelPlayerTableAdapter;
+        private mapSolarSystemsTableAdapter _mapSolarSystemsTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -6311,12 +4774,12 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public mapSolarSystemJumpTableAdapter mapSolarSystemJumpTableAdapter {
+        public eveShipsTableAdapter eveShipsTableAdapter {
             get {
-                return this._mapSolarSystemJumpTableAdapter;
+                return this._eveShipsTableAdapter;
             }
             set {
-                this._mapSolarSystemJumpTableAdapter = value;
+                this._eveShipsTableAdapter = value;
             }
         }
         
@@ -6325,12 +4788,12 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public mapConstellationTableAdapter mapConstellationTableAdapter {
+        public mapConstellationsTableAdapter mapConstellationsTableAdapter {
             get {
-                return this._mapConstellationTableAdapter;
+                return this._mapConstellationsTableAdapter;
             }
             set {
-                this._mapConstellationTableAdapter = value;
+                this._mapConstellationsTableAdapter = value;
             }
         }
         
@@ -6339,12 +4802,12 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public mapRegionTableAdapter mapRegionTableAdapter {
+        public mapRegionsTableAdapter mapRegionsTableAdapter {
             get {
-                return this._mapRegionTableAdapter;
+                return this._mapRegionsTableAdapter;
             }
             set {
-                this._mapRegionTableAdapter = value;
+                this._mapRegionsTableAdapter = value;
             }
         }
         
@@ -6353,12 +4816,12 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public mapSolarSystemTableAdapter mapSolarSystemTableAdapter {
+        public mapSolarSystemJumpsTableAdapter mapSolarSystemJumpsTableAdapter {
             get {
-                return this._mapSolarSystemTableAdapter;
+                return this._mapSolarSystemJumpsTableAdapter;
             }
             set {
-                this._mapSolarSystemTableAdapter = value;
+                this._mapSolarSystemJumpsTableAdapter = value;
             }
         }
         
@@ -6367,26 +4830,12 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public eveShipTableAdapter eveShipTableAdapter {
+        public mapSolarSystemsTableAdapter mapSolarSystemsTableAdapter {
             get {
-                return this._eveShipTableAdapter;
+                return this._mapSolarSystemsTableAdapter;
             }
             set {
-                this._eveShipTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public intelPlayerTableAdapter intelPlayerTableAdapter {
-            get {
-                return this._intelPlayerTableAdapter;
-            }
-            set {
-                this._intelPlayerTableAdapter = value;
+                this._mapSolarSystemsTableAdapter = value;
             }
         }
         
@@ -6409,29 +4858,25 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._mapSolarSystemJumpTableAdapter != null) 
-                            && (this._mapSolarSystemJumpTableAdapter.Connection != null))) {
-                    return this._mapSolarSystemJumpTableAdapter.Connection;
+                if (((this._eveShipsTableAdapter != null) 
+                            && (this._eveShipsTableAdapter.Connection != null))) {
+                    return this._eveShipsTableAdapter.Connection;
                 }
-                if (((this._mapConstellationTableAdapter != null) 
-                            && (this._mapConstellationTableAdapter.Connection != null))) {
-                    return this._mapConstellationTableAdapter.Connection;
+                if (((this._mapConstellationsTableAdapter != null) 
+                            && (this._mapConstellationsTableAdapter.Connection != null))) {
+                    return this._mapConstellationsTableAdapter.Connection;
                 }
-                if (((this._mapRegionTableAdapter != null) 
-                            && (this._mapRegionTableAdapter.Connection != null))) {
-                    return this._mapRegionTableAdapter.Connection;
+                if (((this._mapRegionsTableAdapter != null) 
+                            && (this._mapRegionsTableAdapter.Connection != null))) {
+                    return this._mapRegionsTableAdapter.Connection;
                 }
-                if (((this._mapSolarSystemTableAdapter != null) 
-                            && (this._mapSolarSystemTableAdapter.Connection != null))) {
-                    return this._mapSolarSystemTableAdapter.Connection;
+                if (((this._mapSolarSystemJumpsTableAdapter != null) 
+                            && (this._mapSolarSystemJumpsTableAdapter.Connection != null))) {
+                    return this._mapSolarSystemJumpsTableAdapter.Connection;
                 }
-                if (((this._eveShipTableAdapter != null) 
-                            && (this._eveShipTableAdapter.Connection != null))) {
-                    return this._eveShipTableAdapter.Connection;
-                }
-                if (((this._intelPlayerTableAdapter != null) 
-                            && (this._intelPlayerTableAdapter.Connection != null))) {
-                    return this._intelPlayerTableAdapter.Connection;
+                if (((this._mapSolarSystemsTableAdapter != null) 
+                            && (this._mapSolarSystemsTableAdapter.Connection != null))) {
+                    return this._mapSolarSystemsTableAdapter.Connection;
                 }
                 return null;
             }
@@ -6446,22 +4891,19 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._mapSolarSystemJumpTableAdapter != null)) {
+                if ((this._eveShipsTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._mapConstellationTableAdapter != null)) {
+                if ((this._mapConstellationsTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._mapRegionTableAdapter != null)) {
+                if ((this._mapRegionsTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._mapSolarSystemTableAdapter != null)) {
+                if ((this._mapSolarSystemJumpsTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._eveShipTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._intelPlayerTableAdapter != null)) {
+                if ((this._mapSolarSystemsTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -6475,57 +4917,48 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(StaticData dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._mapRegionTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.mapRegion.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._mapRegionsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.mapRegions.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._mapRegionTableAdapter.Update(updatedRows));
+                    result = (result + this._mapRegionsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._mapConstellationTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.mapConstellation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._mapConstellationsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.mapConstellations.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._mapConstellationTableAdapter.Update(updatedRows));
+                    result = (result + this._mapConstellationsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._mapSolarSystemTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.mapSolarSystem.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._mapSolarSystemJumpsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.mapSolarSystemJumps.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._mapSolarSystemTableAdapter.Update(updatedRows));
+                    result = (result + this._mapSolarSystemJumpsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._eveShipTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.eveShip.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._eveShipsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.eveShips.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._eveShipTableAdapter.Update(updatedRows));
+                    result = (result + this._eveShipsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._mapSolarSystemJumpTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.mapSolarSystemJump.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._mapSolarSystemsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.mapSolarSystems.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._mapSolarSystemJumpTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._intelPlayerTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.intelPlayer.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._intelPlayerTableAdapter.Update(updatedRows));
+                    result = (result + this._mapSolarSystemsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6539,51 +4972,43 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(StaticData dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._mapRegionTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.mapRegion.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._mapRegionsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.mapRegions.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._mapRegionTableAdapter.Update(addedRows));
+                    result = (result + this._mapRegionsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._mapConstellationTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.mapConstellation.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._mapConstellationsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.mapConstellations.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._mapConstellationTableAdapter.Update(addedRows));
+                    result = (result + this._mapConstellationsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._mapSolarSystemTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.mapSolarSystem.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._mapSolarSystemJumpsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.mapSolarSystemJumps.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._mapSolarSystemTableAdapter.Update(addedRows));
+                    result = (result + this._mapSolarSystemJumpsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._eveShipTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.eveShip.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._eveShipsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.eveShips.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._eveShipTableAdapter.Update(addedRows));
+                    result = (result + this._eveShipsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._mapSolarSystemJumpTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.mapSolarSystemJump.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._mapSolarSystemsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.mapSolarSystems.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._mapSolarSystemJumpTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._intelPlayerTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.intelPlayer.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._intelPlayerTableAdapter.Update(addedRows));
+                    result = (result + this._mapSolarSystemsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6597,51 +5022,43 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(StaticData dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._intelPlayerTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.intelPlayer.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._mapSolarSystemsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.mapSolarSystems.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._intelPlayerTableAdapter.Update(deletedRows));
+                    result = (result + this._mapSolarSystemsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._mapSolarSystemJumpTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.mapSolarSystemJump.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._eveShipsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.eveShips.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._mapSolarSystemJumpTableAdapter.Update(deletedRows));
+                    result = (result + this._eveShipsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._eveShipTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.eveShip.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._mapSolarSystemJumpsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.mapSolarSystemJumps.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._eveShipTableAdapter.Update(deletedRows));
+                    result = (result + this._mapSolarSystemJumpsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._mapSolarSystemTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.mapSolarSystem.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._mapConstellationsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.mapConstellations.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._mapSolarSystemTableAdapter.Update(deletedRows));
+                    result = (result + this._mapConstellationsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._mapConstellationTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.mapConstellation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._mapRegionsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.mapRegions.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._mapConstellationTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._mapRegionTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.mapRegion.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._mapRegionTableAdapter.Update(deletedRows));
+                    result = (result + this._mapRegionsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6684,33 +5101,28 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._mapSolarSystemJumpTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._mapSolarSystemJumpTableAdapter.Connection) == false))) {
+            if (((this._eveShipsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._eveShipsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._mapConstellationTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._mapConstellationTableAdapter.Connection) == false))) {
+            if (((this._mapConstellationsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._mapConstellationsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._mapRegionTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._mapRegionTableAdapter.Connection) == false))) {
+            if (((this._mapRegionsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._mapRegionsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._mapSolarSystemTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._mapSolarSystemTableAdapter.Connection) == false))) {
+            if (((this._mapSolarSystemJumpsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._mapSolarSystemJumpsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._eveShipTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._eveShipTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._intelPlayerTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._intelPlayerTableAdapter.Connection) == false))) {
+            if (((this._mapSolarSystemsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._mapSolarSystemsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -6746,58 +5158,49 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._mapSolarSystemJumpTableAdapter != null)) {
-                    revertConnections.Add(this._mapSolarSystemJumpTableAdapter, this._mapSolarSystemJumpTableAdapter.Connection);
-                    this._mapSolarSystemJumpTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
-                    this._mapSolarSystemJumpTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
-                    if (this._mapSolarSystemJumpTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._mapSolarSystemJumpTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._mapSolarSystemJumpTableAdapter.Adapter);
+                if ((this._eveShipsTableAdapter != null)) {
+                    revertConnections.Add(this._eveShipsTableAdapter, this._eveShipsTableAdapter.Connection);
+                    this._eveShipsTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
+                    this._eveShipsTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
+                    if (this._eveShipsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._eveShipsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._eveShipsTableAdapter.Adapter);
                     }
                 }
-                if ((this._mapConstellationTableAdapter != null)) {
-                    revertConnections.Add(this._mapConstellationTableAdapter, this._mapConstellationTableAdapter.Connection);
-                    this._mapConstellationTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
-                    this._mapConstellationTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
-                    if (this._mapConstellationTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._mapConstellationTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._mapConstellationTableAdapter.Adapter);
+                if ((this._mapConstellationsTableAdapter != null)) {
+                    revertConnections.Add(this._mapConstellationsTableAdapter, this._mapConstellationsTableAdapter.Connection);
+                    this._mapConstellationsTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
+                    this._mapConstellationsTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
+                    if (this._mapConstellationsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._mapConstellationsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._mapConstellationsTableAdapter.Adapter);
                     }
                 }
-                if ((this._mapRegionTableAdapter != null)) {
-                    revertConnections.Add(this._mapRegionTableAdapter, this._mapRegionTableAdapter.Connection);
-                    this._mapRegionTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
-                    this._mapRegionTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
-                    if (this._mapRegionTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._mapRegionTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._mapRegionTableAdapter.Adapter);
+                if ((this._mapRegionsTableAdapter != null)) {
+                    revertConnections.Add(this._mapRegionsTableAdapter, this._mapRegionsTableAdapter.Connection);
+                    this._mapRegionsTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
+                    this._mapRegionsTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
+                    if (this._mapRegionsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._mapRegionsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._mapRegionsTableAdapter.Adapter);
                     }
                 }
-                if ((this._mapSolarSystemTableAdapter != null)) {
-                    revertConnections.Add(this._mapSolarSystemTableAdapter, this._mapSolarSystemTableAdapter.Connection);
-                    this._mapSolarSystemTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
-                    this._mapSolarSystemTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
-                    if (this._mapSolarSystemTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._mapSolarSystemTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._mapSolarSystemTableAdapter.Adapter);
+                if ((this._mapSolarSystemJumpsTableAdapter != null)) {
+                    revertConnections.Add(this._mapSolarSystemJumpsTableAdapter, this._mapSolarSystemJumpsTableAdapter.Connection);
+                    this._mapSolarSystemJumpsTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
+                    this._mapSolarSystemJumpsTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
+                    if (this._mapSolarSystemJumpsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._mapSolarSystemJumpsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._mapSolarSystemJumpsTableAdapter.Adapter);
                     }
                 }
-                if ((this._eveShipTableAdapter != null)) {
-                    revertConnections.Add(this._eveShipTableAdapter, this._eveShipTableAdapter.Connection);
-                    this._eveShipTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
-                    this._eveShipTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
-                    if (this._eveShipTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._eveShipTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._eveShipTableAdapter.Adapter);
-                    }
-                }
-                if ((this._intelPlayerTableAdapter != null)) {
-                    revertConnections.Add(this._intelPlayerTableAdapter, this._intelPlayerTableAdapter.Connection);
-                    this._intelPlayerTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
-                    this._intelPlayerTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
-                    if (this._intelPlayerTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._intelPlayerTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._intelPlayerTableAdapter.Adapter);
+                if ((this._mapSolarSystemsTableAdapter != null)) {
+                    revertConnections.Add(this._mapSolarSystemsTableAdapter, this._mapSolarSystemsTableAdapter.Connection);
+                    this._mapSolarSystemsTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
+                    this._mapSolarSystemsTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
+                    if (this._mapSolarSystemsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._mapSolarSystemsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._mapSolarSystemsTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -6858,29 +5261,25 @@ namespace eve_intel_map.Data.StaticDataTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._mapSolarSystemJumpTableAdapter != null)) {
-                    this._mapSolarSystemJumpTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._mapSolarSystemJumpTableAdapter]));
-                    this._mapSolarSystemJumpTableAdapter.Transaction = null;
+                if ((this._eveShipsTableAdapter != null)) {
+                    this._eveShipsTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._eveShipsTableAdapter]));
+                    this._eveShipsTableAdapter.Transaction = null;
                 }
-                if ((this._mapConstellationTableAdapter != null)) {
-                    this._mapConstellationTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._mapConstellationTableAdapter]));
-                    this._mapConstellationTableAdapter.Transaction = null;
+                if ((this._mapConstellationsTableAdapter != null)) {
+                    this._mapConstellationsTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._mapConstellationsTableAdapter]));
+                    this._mapConstellationsTableAdapter.Transaction = null;
                 }
-                if ((this._mapRegionTableAdapter != null)) {
-                    this._mapRegionTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._mapRegionTableAdapter]));
-                    this._mapRegionTableAdapter.Transaction = null;
+                if ((this._mapRegionsTableAdapter != null)) {
+                    this._mapRegionsTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._mapRegionsTableAdapter]));
+                    this._mapRegionsTableAdapter.Transaction = null;
                 }
-                if ((this._mapSolarSystemTableAdapter != null)) {
-                    this._mapSolarSystemTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._mapSolarSystemTableAdapter]));
-                    this._mapSolarSystemTableAdapter.Transaction = null;
+                if ((this._mapSolarSystemJumpsTableAdapter != null)) {
+                    this._mapSolarSystemJumpsTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._mapSolarSystemJumpsTableAdapter]));
+                    this._mapSolarSystemJumpsTableAdapter.Transaction = null;
                 }
-                if ((this._eveShipTableAdapter != null)) {
-                    this._eveShipTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._eveShipTableAdapter]));
-                    this._eveShipTableAdapter.Transaction = null;
-                }
-                if ((this._intelPlayerTableAdapter != null)) {
-                    this._intelPlayerTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._intelPlayerTableAdapter]));
-                    this._intelPlayerTableAdapter.Transaction = null;
+                if ((this._mapSolarSystemsTableAdapter != null)) {
+                    this._mapSolarSystemsTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._mapSolarSystemsTableAdapter]));
+                    this._mapSolarSystemsTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

@@ -23,16 +23,40 @@ namespace eve_intel_map.EveIntel {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private eve_intel_map.EveIntel.EveIntelCorporationInfo CorpField;
+        private System.Nullable<bool> AllianceKosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long EveIdField;
+        private string AllianceNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool KosField;
+        private long CharacterIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LabelField;
+        private bool CharacterKosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CharacterNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool CorporationKosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorporationNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ShipTypeIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> ShipTypeTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> SolarsystemIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> SolarsystemTimeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -45,239 +69,157 @@ namespace eve_intel_map.EveIntel {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public eve_intel_map.EveIntel.EveIntelCorporationInfo Corp {
+        public System.Nullable<bool> AllianceKos {
             get {
-                return this.CorpField;
+                return this.AllianceKosField;
             }
             set {
-                if ((object.ReferenceEquals(this.CorpField, value) != true)) {
-                    this.CorpField = value;
-                    this.RaisePropertyChanged("Corp");
+                if ((this.AllianceKosField.Equals(value) != true)) {
+                    this.AllianceKosField = value;
+                    this.RaisePropertyChanged("AllianceKos");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long EveId {
+        public string AllianceName {
             get {
-                return this.EveIdField;
+                return this.AllianceNameField;
             }
             set {
-                if ((this.EveIdField.Equals(value) != true)) {
-                    this.EveIdField = value;
-                    this.RaisePropertyChanged("EveId");
+                if ((object.ReferenceEquals(this.AllianceNameField, value) != true)) {
+                    this.AllianceNameField = value;
+                    this.RaisePropertyChanged("AllianceName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Kos {
+        public long CharacterID {
             get {
-                return this.KosField;
+                return this.CharacterIDField;
             }
             set {
-                if ((this.KosField.Equals(value) != true)) {
-                    this.KosField = value;
-                    this.RaisePropertyChanged("Kos");
+                if ((this.CharacterIDField.Equals(value) != true)) {
+                    this.CharacterIDField = value;
+                    this.RaisePropertyChanged("CharacterID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Label {
+        public bool CharacterKos {
             get {
-                return this.LabelField;
+                return this.CharacterKosField;
             }
             set {
-                if ((object.ReferenceEquals(this.LabelField, value) != true)) {
-                    this.LabelField = value;
-                    this.RaisePropertyChanged("Label");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EveIntelCorporationInfo", Namespace="http://schemas.datacontract.org/2004/07/eve_intel_server.Service")]
-    [System.SerializableAttribute()]
-    public partial class EveIntelCorporationInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private eve_intel_map.EveIntel.EveIntelAllianceInfo AllianceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long EveIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool KosField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LabelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool NpcField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public eve_intel_map.EveIntel.EveIntelAllianceInfo Alliance {
-            get {
-                return this.AllianceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AllianceField, value) != true)) {
-                    this.AllianceField = value;
-                    this.RaisePropertyChanged("Alliance");
+                if ((this.CharacterKosField.Equals(value) != true)) {
+                    this.CharacterKosField = value;
+                    this.RaisePropertyChanged("CharacterKos");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long EveId {
+        public string CharacterName {
             get {
-                return this.EveIdField;
+                return this.CharacterNameField;
             }
             set {
-                if ((this.EveIdField.Equals(value) != true)) {
-                    this.EveIdField = value;
-                    this.RaisePropertyChanged("EveId");
+                if ((object.ReferenceEquals(this.CharacterNameField, value) != true)) {
+                    this.CharacterNameField = value;
+                    this.RaisePropertyChanged("CharacterName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Kos {
+        public bool CorporationKos {
             get {
-                return this.KosField;
+                return this.CorporationKosField;
             }
             set {
-                if ((this.KosField.Equals(value) != true)) {
-                    this.KosField = value;
-                    this.RaisePropertyChanged("Kos");
+                if ((this.CorporationKosField.Equals(value) != true)) {
+                    this.CorporationKosField = value;
+                    this.RaisePropertyChanged("CorporationKos");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Label {
+        public string CorporationName {
             get {
-                return this.LabelField;
+                return this.CorporationNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.LabelField, value) != true)) {
-                    this.LabelField = value;
-                    this.RaisePropertyChanged("Label");
+                if ((object.ReferenceEquals(this.CorporationNameField, value) != true)) {
+                    this.CorporationNameField = value;
+                    this.RaisePropertyChanged("CorporationName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Npc {
+        public string Notes {
             get {
-                return this.NpcField;
+                return this.NotesField;
             }
             set {
-                if ((this.NpcField.Equals(value) != true)) {
-                    this.NpcField = value;
-                    this.RaisePropertyChanged("Npc");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EveIntelAllianceInfo", Namespace="http://schemas.datacontract.org/2004/07/eve_intel_server.Service")]
-    [System.SerializableAttribute()]
-    public partial class EveIntelAllianceInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long EveIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool KosField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LabelField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long EveId {
-            get {
-                return this.EveIdField;
-            }
-            set {
-                if ((this.EveIdField.Equals(value) != true)) {
-                    this.EveIdField = value;
-                    this.RaisePropertyChanged("EveId");
+                if ((object.ReferenceEquals(this.NotesField, value) != true)) {
+                    this.NotesField = value;
+                    this.RaisePropertyChanged("Notes");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Kos {
+        public System.Nullable<int> ShipTypeID {
             get {
-                return this.KosField;
+                return this.ShipTypeIDField;
             }
             set {
-                if ((this.KosField.Equals(value) != true)) {
-                    this.KosField = value;
-                    this.RaisePropertyChanged("Kos");
+                if ((this.ShipTypeIDField.Equals(value) != true)) {
+                    this.ShipTypeIDField = value;
+                    this.RaisePropertyChanged("ShipTypeID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Label {
+        public System.Nullable<System.DateTime> ShipTypeTime {
             get {
-                return this.LabelField;
+                return this.ShipTypeTimeField;
             }
             set {
-                if ((object.ReferenceEquals(this.LabelField, value) != true)) {
-                    this.LabelField = value;
-                    this.RaisePropertyChanged("Label");
+                if ((this.ShipTypeTimeField.Equals(value) != true)) {
+                    this.ShipTypeTimeField = value;
+                    this.RaisePropertyChanged("ShipTypeTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> SolarsystemID {
+            get {
+                return this.SolarsystemIDField;
+            }
+            set {
+                if ((this.SolarsystemIDField.Equals(value) != true)) {
+                    this.SolarsystemIDField = value;
+                    this.RaisePropertyChanged("SolarsystemID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> SolarsystemTime {
+            get {
+                return this.SolarsystemTimeField;
+            }
+            set {
+                if ((this.SolarsystemTimeField.Equals(value) != true)) {
+                    this.SolarsystemTimeField = value;
+                    this.RaisePropertyChanged("SolarsystemTime");
                 }
             }
         }
@@ -297,10 +239,10 @@ namespace eve_intel_map.EveIntel {
     public interface IEveIntel {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEveIntel/Connect", ReplyAction="http://tempuri.org/IEveIntel/ConnectResponse")]
-        System.Nullable<System.Guid> Connect(long keyId, string vCode);
+        System.Nullable<System.Guid> Connect(long keyId, string vCode, long solarsystemID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEveIntel/Connect", ReplyAction="http://tempuri.org/IEveIntel/ConnectResponse")]
-        System.Threading.Tasks.Task<System.Nullable<System.Guid>> ConnectAsync(long keyId, string vCode);
+        System.Threading.Tasks.Task<System.Nullable<System.Guid>> ConnectAsync(long keyId, string vCode, long solarsystemID);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEveIntel/Disconnect")]
         void Disconnect(System.Guid clientId);
@@ -309,10 +251,10 @@ namespace eve_intel_map.EveIntel {
         System.Threading.Tasks.Task DisconnectAsync(System.Guid clientId);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEveIntel/UpdateLocal")]
-        void UpdateLocal(System.Guid clientId, long currentSystem, System.Collections.Generic.List<string> characterNames);
+        void UpdateLocal(System.Guid clientId, long solarsystemID, System.Collections.Generic.List<string> characterNames);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEveIntel/UpdateLocal")]
-        System.Threading.Tasks.Task UpdateLocalAsync(System.Guid clientId, long currentSystem, System.Collections.Generic.List<string> characterNames);
+        System.Threading.Tasks.Task UpdateLocalAsync(System.Guid clientId, long solarsystemID, System.Collections.Generic.List<string> characterNames);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -322,7 +264,7 @@ namespace eve_intel_map.EveIntel {
         void ClientCountUpdate(int clientCount);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEveIntel/SecondConnection")]
-        void SecondConnection();
+        void SecondConnection(long solarsystemID);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEveIntel/ClientLocalUpdate")]
         void ClientLocalUpdate(long solarsystemId, System.Collections.Generic.List<eve_intel_map.EveIntel.EveIntelCharacterInfo> characters);
@@ -356,12 +298,12 @@ namespace eve_intel_map.EveIntel {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public System.Nullable<System.Guid> Connect(long keyId, string vCode) {
-            return base.Channel.Connect(keyId, vCode);
+        public System.Nullable<System.Guid> Connect(long keyId, string vCode, long solarsystemID) {
+            return base.Channel.Connect(keyId, vCode, solarsystemID);
         }
         
-        public System.Threading.Tasks.Task<System.Nullable<System.Guid>> ConnectAsync(long keyId, string vCode) {
-            return base.Channel.ConnectAsync(keyId, vCode);
+        public System.Threading.Tasks.Task<System.Nullable<System.Guid>> ConnectAsync(long keyId, string vCode, long solarsystemID) {
+            return base.Channel.ConnectAsync(keyId, vCode, solarsystemID);
         }
         
         public void Disconnect(System.Guid clientId) {
@@ -372,12 +314,12 @@ namespace eve_intel_map.EveIntel {
             return base.Channel.DisconnectAsync(clientId);
         }
         
-        public void UpdateLocal(System.Guid clientId, long currentSystem, System.Collections.Generic.List<string> characterNames) {
-            base.Channel.UpdateLocal(clientId, currentSystem, characterNames);
+        public void UpdateLocal(System.Guid clientId, long solarsystemID, System.Collections.Generic.List<string> characterNames) {
+            base.Channel.UpdateLocal(clientId, solarsystemID, characterNames);
         }
         
-        public System.Threading.Tasks.Task UpdateLocalAsync(System.Guid clientId, long currentSystem, System.Collections.Generic.List<string> characterNames) {
-            return base.Channel.UpdateLocalAsync(clientId, currentSystem, characterNames);
+        public System.Threading.Tasks.Task UpdateLocalAsync(System.Guid clientId, long solarsystemID, System.Collections.Generic.List<string> characterNames) {
+            return base.Channel.UpdateLocalAsync(clientId, solarsystemID, characterNames);
         }
     }
 }

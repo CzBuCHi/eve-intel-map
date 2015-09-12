@@ -108,18 +108,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Convert.cs" />
+    <Compile Include="DataHelper.cs" />
     <Compile Include="CvaKos\CvaClient.cs" />
     <Compile Include="CvaKos\CvaAllianceInfo.cs" />
     <Compile Include="CvaKos\CvaCharacterInfo.cs" />
     <Compile Include="CvaKos\CvaCorporationInfo.cs" />
-    <Compile Include="Data\DataManager.cs" />
+    <Compile Include="Data\IntelData.cs" />
     <Compile Include="Properties\JetBrains.Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EveIntel.cs" />
-    <Compile Include="Service\EveIntelAllianceInfo.cs" />
     <Compile Include="Service\EveIntelCharacterInfo.cs" />
-    <Compile Include="Service\EveIntelCorporationInfo.cs" />
     <Compile Include="Service\IEveIntel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -109,18 +109,6 @@ namespace eve_intel_map.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string intelLogName {
-            get {
-                return ((string)(this["intelLogName"]));
-            }
-            set {
-                this["intelLogName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public long currentSystemId {
             get {
@@ -134,30 +122,23 @@ namespace eve_intel_map.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=D:\\github\\eve-intel\\eve-intel-map\\eve-intel-map.db3")]
-        public string eve_intel_mapConnectionString {
-            get {
-                return ((string)(this["eve_intel_mapConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=D:\\github\\eve-intel\\eve-intel-web\\eve-intel.sqlite")]
-        public string eve_intelConnectionString {
-            get {
-                return ((string)(this["eve_intelConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("data source=D:\\github\\eve-intel\\eve-intel-map\\eve-intel.sqlite")]
-        public string eve_intelConnectionString1 {
+        public string eve_intel {
             get {
-                return ((string)(this["eve_intelConnectionString1"]));
+                return ((string)(this["eve_intel"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("characterName,corporationName,allianceName,solarsystemID,solarsystemTime,shipID,s" +
+            "hipTypeTime,shipInfo,notes")]
+        public string intel_grid_columns {
+            get {
+                return ((string)(this["intel_grid_columns"]));
+            }
+            set {
+                this["intel_grid_columns"] = value;
             }
         }
     }

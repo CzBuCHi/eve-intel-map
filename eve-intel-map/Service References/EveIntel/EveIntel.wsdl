@@ -124,11 +124,11 @@
   </wsdl:binding>
   <wsdl:service name="EveIntel">
     <wsdl:port name="NetTcpBinding_IEveIntel" binding="tns:NetTcpBinding_IEveIntel">
-      <soap12:address location="net.tcp://desktop-g7g4kjf/EveIntel.svc" />
+      <soap12:address location="net.tcp://pc-marek/EveIntel.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://desktop-g7g4kjf/EveIntel.svc</wsa10:Address>
+        <wsa10:Address>net.tcp://pc-marek/EveIntel.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Spn>host/DESKTOP-G7G4KJF</Spn>
+          <Spn>host/PC-MAREK</Spn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

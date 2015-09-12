@@ -96,6 +96,12 @@
     <Compile Include="controls\HotkeyControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="controls\IntelGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\IntelGrid.Designer.cs">
+      <DependentUpon>IntelGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="controls\LogWatcher.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -105,11 +111,9 @@
     <Compile Include="controls\MapControl.Designer.cs">
       <DependentUpon>MapControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\PlayersGrid.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="controls\PlayersGrid.Designer.cs">
-      <DependentUpon>PlayersGrid.cs</DependentUpon>
+    <Compile Include="Data\IntelData.cs" />
+    <Compile Include="Data\StaticData.cs">
+      <DependentUpon>StaticData.xsd</DependentUpon>
     </Compile>
     <Compile Include="Data\StaticData.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -142,11 +146,11 @@
     <EmbeddedResource Include="controls\ColorsConfig.resx">
       <DependentUpon>ColorsConfig.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="controls\IntelGrid.resx">
+      <DependentUpon>IntelGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="controls\MapControl.resx">
       <DependentUpon>MapControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="controls\PlayersGrid.resx">
-      <DependentUpon>PlayersGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormConfig.resx">
       <DependentUpon>FormConfig.cs</DependentUpon>

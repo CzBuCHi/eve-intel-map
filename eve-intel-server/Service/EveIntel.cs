@@ -5,7 +5,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading;
 using eve_intel_server.CvaKos;
-
+using eve_intel_server.Data;
 using EveAI.Live;
 using JetBrains.Annotations;
 using log4net;
@@ -27,47 +27,44 @@ namespace eve_intel_server.Service
         #region Helpers
 
         [NotNull]
-        private static EveIntelCharacterInfo[] GetEveIntelCharacterInfos([NotNull] Dictionary<long, string> characters) {
+        private static EveIntelCharacterInfo[] GetEveIntelCharacterInfos(long solarsystemID, [NotNull] Dictionary<long, string> characters) {
             _Logger.Debug("GetEveIntelCharacterInfos: '" + string.Join("', '", characters.Values) + "'");
-            return null;
-            //long[] characterIds = characters.Keys.ToArray();
-            //Dictionary<long, CvaCharacterInfo> result = new Dictionary<long, CvaCharacterInfo>();
-            //using (ISession session = DataContext.OpenSession()) {
-            //    // try read info from local db
-            //    IQueryable<CvaCharacterInfo> q = from o in session.Query<CvaCharacterInfo>()
-            //                                     where characterIds.Contains(o.EveId)
-            //                                     select o;
-            //    int cached = 0;
-            //    foreach (CvaCharacterInfo item in q) {
-            //        result[item.EveId] = item;
-            //        ++cached;
-            //    }
 
-            //    if (cached == characters.Count) {
-            //        return result.Values.Select(Convert.GetEveIntelCharacterInfo).ToArray();
-            //    }
+            long[] characterIds = characters.Keys.ToArray();
+            Dictionary<long, IntelData.intelDataRow> result = new Dictionary<long, IntelData.intelDataRow>();
 
-            //    // download infos not stored in local db and save them
-            //    using (ITransaction trans = session.BeginTransaction()) {
-            //        foreach (KeyValuePair<long, string> pair in characters) {
-            //            if (result.ContainsKey(pair.Key)) {
-            //                continue;
-            //            }
+            // try read info from local db
+            IQueryable<IntelData.intelDataRow> q = from o in DataHelper.IntelData.AsQueryable()
+                                                     where characterIds.Contains(o.characterID)
+                                                     select o;
+            int cached = 0;
+            foreach (IntelData.intelDataRow row in q) {
+                result[row.characterID] = row;
+                ++cached;
+            }
 
-            //            CvaCharacterInfo character = CvaClient.GetCharacterInfo(pair.Key, pair.Value);
-            //            if (character != null) {
-            //                if (character.Corp.Alliance != null) {
-            //                    session.SaveOrUpdate(character.Corp.Alliance);
-            //                }
-            //                session.SaveOrUpdate(character.Corp);
-            //                session.Save(character);
-            //                result.Add(character.EveId, character);
-            //            }
-            //        }
-            //        trans.Commit();
-            //    }
-            //}
-            //return result.Values.Select(Convert.GetEveIntelCharacterInfo).ToArray();
+            if (cached == characters.Count) {
+                return result.Values.Select(DataHelper.GetEveIntelCharacterInfo).ToArray();
+            }
+
+            // download infos not stored in local db and save them
+            foreach (KeyValuePair<long, string> pair in characters) {
+                if (result.ContainsKey(pair.Key)) {
+                    continue;
+                }
+
+                CvaCharacterInfo cvaCharacterInfo = CvaClient.GetCharacterInfo(pair.Key, pair.Value);
+                if (cvaCharacterInfo != null) {
+                    IntelData.intelDataRow intelDataRow = DataHelper.IntelData.NewintelDataRow();
+                    DataHelper.FillintelDataRow(intelDataRow, cvaCharacterInfo);
+                    intelDataRow.solarsystemID = solarsystemID;
+                    intelDataRow.solarsystemTime = DateTime.Now;
+                    DataHelper.IntelData.AddintelDataRow(intelDataRow);
+                    result.Add(intelDataRow.characterID, intelDataRow);
+                }
+            }
+            DataHelper.IntelData.AcceptChanges();
+            return result.Values.Select(DataHelper.GetEveIntelCharacterInfo).ToArray();
         }
 
         #endregion
@@ -82,7 +79,7 @@ namespace eve_intel_server.Service
             public int HashCode { get; set; }
         }
 
-        #region Broadcasting
+        #region Message broadcasting
 
         private static readonly Queue<BroadcastMessage> _BroadcastMessages = new Queue<BroadcastMessage>();
         private static Timer _BroadcastDelayTimer;
@@ -168,31 +165,31 @@ namespace eve_intel_server.Service
 
         #region Implementation of IEveIntel
 
-        public Guid? Connect(long keyId, string vCode) {
+        public Guid? Connect(long keyId, string vCode, long solarsystemID) {
             // check for connection with same keyId & vCode
             int hashCode = new {keyId, vCode}.GetHashCode();
-            //lock (_ClientsLock) {
-            //    Guid clientId;
-            //    if (_ClientHashes.TryGetValue(hashCode, out clientId)) {
-            //        // inform first client and disconnect him 
-            //        DelayedBroadcast(new BroadcastMessage {
-            //            Action = client => {
-            //                client.SecondConnection();
-            //                lock (_ClientsLock) {
-            //                    _Clients.Remove(clientId);
-            //                }
-            //            },
-            //            DebugInfo = "SecondConnection",
-            //            Clients = new[] { clientId }
-            //        });
-            //        DelayedBroadcast(new BroadcastMessage {
-            //            Action = client => { client.ClientCountUpdate(_Clients.Count); },
-            //            DebugInfo = "ClientCountUpdate"
-            //        });
-            //        _Logger.Info("Dupliacate connection: " + keyId);
-            //        return null;
-            //    }
-            //}
+            lock (_ClientsLock) {
+                Guid clientId;
+                if (_ClientHashes.TryGetValue(hashCode, out clientId)) {
+                    // inform first client and disconnect him 
+                    DelayedBroadcast(new BroadcastMessage {
+                        Action = client => {
+                            client.SecondConnection(solarsystemID);
+                            lock (_ClientsLock) {
+                                _Clients.Remove(clientId);
+                            }
+                        },
+                        DebugInfo = "SecondConnection",
+                        Clients = new[] { clientId }
+                    });
+                    DelayedBroadcast(new BroadcastMessage {
+                        Action = client => { client.ClientCountUpdate(_Clients.Count); },
+                        DebugInfo = "ClientCountUpdate"
+                    });
+                    _Logger.Info("Dupliacate connection: " + keyId);
+                    return null;
+                }
+            }
 
             // get client callback
             IEveIntelCallback callback;
@@ -221,10 +218,10 @@ namespace eve_intel_server.Service
             }
 
             // kos check against all player characters
-            EveIntelCharacterInfo[] characterInfos = GetEveIntelCharacterInfos(characters);
+            EveIntelCharacterInfo[] characterInfos = GetEveIntelCharacterInfos(solarsystemID, characters);
             EveIntelCharacterInfo[] kosInfos = characterInfos.Where(o => o.Kos).ToArray();
             if (kosInfos.Length > 0) {
-                _Logger.Warn("Connect: kos characters: '" + string.Join("', '", kosInfos.Select(o => o.Label)));
+                _Logger.Warn("Connect: kos characters: '" + string.Join("', '", kosInfos.Select(o => o.CharacterName)));
                 return null;
             }
 
@@ -249,7 +246,7 @@ namespace eve_intel_server.Service
                 DebugInfo = "ClientCountUpdate"
             });
 
-            _Logger.Info("Connect: " + result + " (" + characterInfos[0].Label + ")");
+            _Logger.Info("Connect: " + result + " (" + string.Join(", ", characterInfos.Select(o => o.CharacterName)) + ")");
             return result;
         }
 
@@ -269,7 +266,7 @@ namespace eve_intel_server.Service
             });
         }
 
-        public void UpdateLocal(Guid clientId, long currentSystem, string[] characterNames) {
+        public void UpdateLocal(Guid clientId, long solarsystemID, string[] characterNames) {
             _Logger.Info("UpdateLocal: " + clientId);
             ClientInfo clientInfo;
             lock (_ClientsLock) {
@@ -280,10 +277,10 @@ namespace eve_intel_server.Service
 
             EveApi eveApi = new EveApi(clientInfo.KeyId, clientInfo.VCode);
             Dictionary<long, string> characters = eveApi.GetCharacterIDLookup(characterNames.ToList()).ToDictionary(o => o.Value, o => o.Key);
-            EveIntelCharacterInfo[] characterInfos = GetEveIntelCharacterInfos(characters);
+            EveIntelCharacterInfo[] characterInfos = GetEveIntelCharacterInfos(solarsystemID, characters);
 
             DelayedBroadcast(new BroadcastMessage {
-                Action = client => { client.ClientLocalUpdate(currentSystem, characterInfos); },
+                Action = client => { client.ClientLocalUpdate(solarsystemID, characterInfos); },
                 DebugInfo = "ClientLocalUpdate"
             });
         }

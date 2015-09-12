@@ -23,35 +23,19 @@
     <Setting Name="colorKos20plus" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Maroon</Value>
     </Setting>
-    <Setting Name="intelLogName" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="currentSystemId" Type="System.Int64" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="eve_intel_mapConnectionString" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;data source=D:\github\eve-intel\eve-intel-map\eve-intel-map.db3&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SQLite.EF6&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">data source=D:\github\eve-intel\eve-intel-map\eve-intel-map.db3</Value>
-    </Setting>
-    <Setting Name="eve_intelConnectionString" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;data source=D:\github\eve-intel\eve-intel-web\eve-intel.sqlite&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SQLite.EF6&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">data source=D:\github\eve-intel\eve-intel-web\eve-intel.sqlite</Value>
-    </Setting>
-    <Setting Name="eve_intelConnectionString1" Type="(Connection string)" Scope="Application">
+    <Setting Name="eve_intel" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;ConnectionString&gt;data source=D:\github\eve-intel\eve-intel-map\eve-intel.sqlite&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SQLite.EF6&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">data source=D:\github\eve-intel\eve-intel-map\eve-intel.sqlite</Value>
+    </Setting>
+    <Setting Name="intel_grid_columns" Type="System.String" Scope="User">
+      <Value Profile="(Default)">characterName,corporationName,allianceName,solarsystemID,solarsystemTime,shipID,shipTypeTime,shipInfo,notes</Value>
     </Setting>
   </Settings>
 </SettingsFile>

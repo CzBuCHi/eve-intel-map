@@ -29,18 +29,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.eveMapRegionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.eveMapSolarsystemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mapControl1 = new eve_intel_map.controls.MapControl();
-            this.playersGrid1 = new eve_intel_map.controls.PlayersGrid();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.eveMapRegionsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eveMapSolarsystemsBindingSource)).BeginInit();
+            this.mapControl1 = new eve_intel_map.controls.MapControl();
+            this.intelGrid1 = new eve_intel_map.controls.IntelGrid();
+            this.staticData = new eve_intel_map.Data.StaticData();
+            this.mapSolarSystemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mapSolarSystemsTableAdapter = new eve_intel_map.Data.StaticDataTableAdapters.mapSolarSystemsTableAdapter();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.staticData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mapSolarSystemBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -72,93 +71,32 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.DataSource = this.eveMapRegionsBindingSource;
-            this.comboBox1.DisplayMember = "Name";
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(589, 8);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 7;
-            this.comboBox1.ValueMember = "Id";
-            // 
-            // eveMapRegionsBindingSource
-            // 
-            this.eveMapRegionsBindingSource.DataMember = "EveMapRegions";
-            
-            // 
-            // dataSet
-            // 
-            // 
             // comboBox2
             // 
             this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox2.DataSource = this.eveMapSolarsystemsBindingSource;
-            this.comboBox2.DisplayMember = "Name";
+            this.comboBox2.DataSource = this.mapSolarSystemBindingSource;
+            this.comboBox2.DisplayMember = "solarSystemName";
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(716, 8);
+            this.comboBox2.Location = new System.Drawing.Point(1166, 8);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 8;
-            this.comboBox2.ValueMember = "Id";
-            // 
-            // eveMapSolarsystemsBindingSource
-            // 
-            this.eveMapSolarsystemsBindingSource.DataMember = "EveMapSolarsystems";
-            
-            // 
-            // mapControl1
-            // 
-            this.mapControl1.CurrentSystem = ((long)(0));
-            this.mapControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mapControl1.Location = new System.Drawing.Point(0, 40);
-            this.mapControl1.MaxVisibleSystems = 20;
-            this.mapControl1.Name = "mapControl1";
-            this.mapControl1.RegionId = null;
-            this.mapControl1.Size = new System.Drawing.Size(843, 620);
-            this.mapControl1.TabIndex = 9;
-            // 
-            // playersGrid1
-            // 
-            this.playersGrid1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.playersGrid1.Location = new System.Drawing.Point(843, 0);
-            this.playersGrid1.Name = "playersGrid1";
-            this.playersGrid1.Size = new System.Drawing.Size(450, 660);
-            this.playersGrid1.TabIndex = 10;
+            this.comboBox2.ValueMember = "solarSystemID";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(843, 40);
+            this.panel1.Size = new System.Drawing.Size(1293, 40);
             this.panel1.TabIndex = 11;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(495, 12);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(88, 17);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Show region:";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // button1
             // 
@@ -170,13 +108,38 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // eveMapRegionsTableAdapter
+            // mapControl1
             // 
-            
+            this.mapControl1.CurrentSystem = ((long)(0));
+            this.mapControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mapControl1.Location = new System.Drawing.Point(0, 40);
+            this.mapControl1.MaxVisibleSystems = 20;
+            this.mapControl1.Name = "mapControl1";
+            this.mapControl1.RegionId = null;
+            this.mapControl1.Size = new System.Drawing.Size(1293, 470);
+            this.mapControl1.TabIndex = 9;
             // 
-            // eveMapSolarsystemsTableAdapter
+            // intelGrid1
             // 
-            
+            this.intelGrid1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.intelGrid1.Location = new System.Drawing.Point(0, 510);
+            this.intelGrid1.Name = "intelGrid1";
+            this.intelGrid1.Size = new System.Drawing.Size(1293, 150);
+            this.intelGrid1.TabIndex = 12;
+            // 
+            // staticData
+            // 
+            this.staticData.DataSetName = "StaticData";
+            this.staticData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // mapSolarSystemBindingSource
+            // 
+            this.mapSolarSystemBindingSource.DataMember = "mapSolarSystems";
+            this.mapSolarSystemBindingSource.DataSource = this.staticData;
+            // 
+            // mapSolarSystemsTableAdapter
+            // 
+            this.mapSolarSystemsTableAdapter.ClearBeforeFill = true;
             // 
             // FormMain
             // 
@@ -184,15 +147,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1293, 660);
             this.Controls.Add(this.mapControl1);
+            this.Controls.Add(this.intelGrid1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.playersGrid1);
             this.Name = "FormMain";
             this.Text = "FormMain";
-            ((System.ComponentModel.ISupportInitialize)(this.eveMapRegionsBindingSource)).EndInit();
-            
-            ((System.ComponentModel.ISupportInitialize)(this.eveMapSolarsystemsBindingSource)).EndInit();
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.staticData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mapSolarSystemBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -201,16 +164,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private controls.MapControl mapControl1;
-        private controls.PlayersGrid playersGrid1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
-        
-        private System.Windows.Forms.BindingSource eveMapRegionsBindingSource;
-        private System.Windows.Forms.BindingSource eveMapSolarsystemsBindingSource;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private controls.IntelGrid intelGrid1;
+        private Data.StaticData staticData;
+        private System.Windows.Forms.BindingSource mapSolarSystemBindingSource;
+        private Data.StaticDataTableAdapters.mapSolarSystemsTableAdapter mapSolarSystemsTableAdapter;
     }
 }
 
