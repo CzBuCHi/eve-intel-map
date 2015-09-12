@@ -49,14 +49,20 @@
   <wsdl:message name="IEveIntel_UpdateLocal_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateLocal" />
   </wsdl:message>
+  <wsdl:message name="IEveIntel_ClientGlobalUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientGlobalUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IEveIntel_ClientGlobalUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientGlobalUpdateResponse" />
+  </wsdl:message>
   <wsdl:message name="IEveIntel_ClientCountUpdate_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ClientCountUpdate" />
   </wsdl:message>
   <wsdl:message name="IEveIntel_SecondConnection_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:SecondConnection" />
   </wsdl:message>
-  <wsdl:message name="IEveIntel_ClientLocalUpdate_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:ClientLocalUpdate" />
+  <wsdl:message name="IEveIntel_ClientIntelUpdate_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ClientIntelUpdate" />
   </wsdl:message>
   <wsdl:portType name="IEveIntel">
     <wsdl:operation name="Connect">
@@ -69,14 +75,18 @@
     <wsdl:operation name="UpdateLocal">
       <wsdl:input wsaw:Action="http://tempuri.org/IEveIntel/UpdateLocal" message="tns:IEveIntel_UpdateLocal_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ClientGlobalUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEveIntel/ClientGlobalUpdate" message="tns:IEveIntel_ClientGlobalUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEveIntel/ClientGlobalUpdateResponse" message="tns:IEveIntel_ClientGlobalUpdate_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ClientCountUpdate">
       <wsdl:output wsaw:Action="http://tempuri.org/IEveIntel/ClientCountUpdate" message="tns:IEveIntel_ClientCountUpdate_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="SecondConnection">
       <wsdl:output wsaw:Action="http://tempuri.org/IEveIntel/SecondConnection" message="tns:IEveIntel_SecondConnection_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ClientLocalUpdate">
-      <wsdl:output wsaw:Action="http://tempuri.org/IEveIntel/ClientLocalUpdate" message="tns:IEveIntel_ClientLocalUpdate_OutputCallbackMessage" />
+    <wsdl:operation name="ClientIntelUpdate">
+      <wsdl:output wsaw:Action="http://tempuri.org/IEveIntel/ClientIntelUpdate" message="tns:IEveIntel_ClientIntelUpdate_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IEveIntel" type="tns:IEveIntel">
@@ -103,6 +113,15 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="ClientGlobalUpdate">
+      <soap12:operation soapAction="http://tempuri.org/IEveIntel/ClientGlobalUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ClientCountUpdate">
       <soap12:operation soapAction="http://tempuri.org/IEveIntel/ClientCountUpdate" style="document" />
       <wsdl:output>
@@ -115,8 +134,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ClientLocalUpdate">
-      <soap12:operation soapAction="http://tempuri.org/IEveIntel/ClientLocalUpdate" style="document" />
+    <wsdl:operation name="ClientIntelUpdate">
+      <soap12:operation soapAction="http://tempuri.org/IEveIntel/ClientIntelUpdate" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

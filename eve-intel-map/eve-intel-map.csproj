@@ -112,14 +112,7 @@
       <DependentUpon>MapControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\IntelData.cs" />
-    <Compile Include="Data\StaticData.cs">
-      <DependentUpon>StaticData.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Data\StaticData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StaticData.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="Data\StaticData.cs" />
     <Compile Include="FormConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,18 +160,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Data\StaticData.xsc">
-      <DependentUpon>StaticData.xsd</DependentUpon>
-    </None>
-    <None Include="Data\StaticData.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>StaticData.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Data\StaticData.xss">
-      <DependentUpon>StaticData.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\eve_intel_map.Data.IntelData+IntelGridRow.datasource" />
+    <None Include="Properties\DataSources\eve_intel_map.Data.StaticData+EveShipsRow.datasource" />
+    <None Include="Properties\DataSources\eve_intel_map.Data.StaticData+MapSolarSystemJumpRow.datasource" />
+    <None Include="Properties\DataSources\eve_intel_map.Data.StaticData+MapSolarSystemRow.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -220,6 +206,9 @@
     </None>
     <None Include="Service References\EveIntel\EveIntel21.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EveIntel\eve_intel_map.EveIntel.EveIntelCharacterInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\EveIntel\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>

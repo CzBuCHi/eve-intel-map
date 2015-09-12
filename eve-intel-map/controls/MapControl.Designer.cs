@@ -26,10 +26,6 @@
         /// </summary>
         private void InitializeComponent() {
             this.gViewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
-            this.staticData = new eve_intel_map.Data.StaticData();
-            this.mapSolarSystemsTableAdapter = new eve_intel_map.Data.StaticDataTableAdapters.mapSolarSystemsTableAdapter();
-            this.mapSolarSystemJumpsTableAdapter = new eve_intel_map.Data.StaticDataTableAdapters.mapSolarSystemJumpsTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.staticData)).BeginInit();
             this.SuspendLayout();
             // 
             // gViewer
@@ -72,26 +68,12 @@
             this.gViewer.ZoomWhenMouseWheelScroll = false;
             this.gViewer.ZoomWindowThreshold = 0.05D;
             // 
-            // staticData
-            // 
-            this.staticData.DataSetName = "ClientData";
-            this.staticData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // mapSolarSystemsTableAdapter
-            // 
-            this.mapSolarSystemsTableAdapter.ClearBeforeFill = true;
-            // 
-            // mapSolarSystemJumpsTableAdapter
-            // 
-            this.mapSolarSystemJumpsTableAdapter.ClearBeforeFill = true;
-            // 
             // MapControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gViewer);
             this.Name = "MapControl";
-            ((System.ComponentModel.ISupportInitialize)(this.staticData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -99,8 +81,5 @@
         #endregion
 
         private Microsoft.Msagl.GraphViewerGdi.GViewer gViewer;
-        private Data.StaticData staticData;
-        private Data.StaticDataTableAdapters.mapSolarSystemsTableAdapter mapSolarSystemsTableAdapter;
-        private Data.StaticDataTableAdapters.mapSolarSystemJumpsTableAdapter mapSolarSystemJumpsTableAdapter;
     }
 }

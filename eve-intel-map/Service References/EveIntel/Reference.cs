@@ -255,6 +255,12 @@ namespace eve_intel_map.EveIntel {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEveIntel/UpdateLocal")]
         System.Threading.Tasks.Task UpdateLocalAsync(System.Guid clientId, long solarsystemID, System.Collections.Generic.List<string> characterNames);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEveIntel/ClientGlobalUpdate", ReplyAction="http://tempuri.org/IEveIntel/ClientGlobalUpdateResponse")]
+        System.Collections.Generic.List<eve_intel_map.EveIntel.EveIntelCharacterInfo> ClientGlobalUpdate(System.Guid clientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEveIntel/ClientGlobalUpdate", ReplyAction="http://tempuri.org/IEveIntel/ClientGlobalUpdateResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<eve_intel_map.EveIntel.EveIntelCharacterInfo>> ClientGlobalUpdateAsync(System.Guid clientId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -266,8 +272,8 @@ namespace eve_intel_map.EveIntel {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEveIntel/SecondConnection")]
         void SecondConnection(long solarsystemID);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEveIntel/ClientLocalUpdate")]
-        void ClientLocalUpdate(long solarsystemId, System.Collections.Generic.List<eve_intel_map.EveIntel.EveIntelCharacterInfo> characters);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEveIntel/ClientIntelUpdate")]
+        void ClientIntelUpdate(System.Collections.Generic.List<eve_intel_map.EveIntel.EveIntelCharacterInfo> characters);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -320,6 +326,14 @@ namespace eve_intel_map.EveIntel {
         
         public System.Threading.Tasks.Task UpdateLocalAsync(System.Guid clientId, long solarsystemID, System.Collections.Generic.List<string> characterNames) {
             return base.Channel.UpdateLocalAsync(clientId, solarsystemID, characterNames);
+        }
+        
+        public System.Collections.Generic.List<eve_intel_map.EveIntel.EveIntelCharacterInfo> ClientGlobalUpdate(System.Guid clientId) {
+            return base.Channel.ClientGlobalUpdate(clientId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<eve_intel_map.EveIntel.EveIntelCharacterInfo>> ClientGlobalUpdateAsync(System.Guid clientId) {
+            return base.Channel.ClientGlobalUpdateAsync(clientId);
         }
     }
 }

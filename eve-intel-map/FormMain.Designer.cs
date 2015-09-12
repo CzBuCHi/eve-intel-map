@@ -27,19 +27,16 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.btnDisconnect = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCheck = new System.Windows.Forms.Button();
             this.mapControl1 = new eve_intel_map.controls.MapControl();
             this.intelGrid1 = new eve_intel_map.controls.IntelGrid();
-            this.staticData = new eve_intel_map.Data.StaticData();
-            this.mapSolarSystemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mapSolarSystemsTableAdapter = new eve_intel_map.Data.StaticDataTableAdapters.mapSolarSystemsTableAdapter();
+            this.mapSolarSystemRowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.staticData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mapSolarSystemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mapSolarSystemRowBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -51,32 +48,32 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "clients:";
             // 
-            // button2
+            // btnConnect
             // 
-            this.button2.Location = new System.Drawing.Point(12, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "connect";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnConnect.Location = new System.Drawing.Point(12, 6);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.TabIndex = 4;
+            this.btnConnect.Text = "connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // button3
+            // btnDisconnect
             // 
-            this.button3.Location = new System.Drawing.Point(93, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "disconnect";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnDisconnect.Location = new System.Drawing.Point(93, 6);
+            this.btnDisconnect.Name = "btnDisconnect";
+            this.btnDisconnect.Size = new System.Drawing.Size(75, 23);
+            this.btnDisconnect.TabIndex = 5;
+            this.btnDisconnect.Text = "disconnect";
+            this.btnDisconnect.UseVisualStyleBackColor = true;
+            this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
             // comboBox2
             // 
             this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox2.DataSource = this.mapSolarSystemBindingSource;
+            this.comboBox2.DataSource = this.mapSolarSystemRowBindingSource;
             this.comboBox2.DisplayMember = "solarSystemName";
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(1166, 8);
@@ -87,9 +84,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.btnCheck);
+            this.panel1.Controls.Add(this.btnConnect);
+            this.panel1.Controls.Add(this.btnDisconnect);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -98,15 +95,15 @@
             this.panel1.Size = new System.Drawing.Size(1293, 40);
             this.panel1.TabIndex = 11;
             // 
-            // button1
+            // btnCheck
             // 
-            this.button1.Location = new System.Drawing.Point(336, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "dummy data";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCheck.Location = new System.Drawing.Point(336, 6);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(75, 23);
+            this.btnCheck.TabIndex = 9;
+            this.btnCheck.Text = "dummy data";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // mapControl1
             // 
@@ -127,19 +124,9 @@
             this.intelGrid1.Size = new System.Drawing.Size(1293, 150);
             this.intelGrid1.TabIndex = 12;
             // 
-            // staticData
+            // mapSolarSystemRowBindingSource
             // 
-            this.staticData.DataSetName = "StaticData";
-            this.staticData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // mapSolarSystemBindingSource
-            // 
-            this.mapSolarSystemBindingSource.DataMember = "mapSolarSystems";
-            this.mapSolarSystemBindingSource.DataSource = this.staticData;
-            // 
-            // mapSolarSystemsTableAdapter
-            // 
-            this.mapSolarSystemsTableAdapter.ClearBeforeFill = true;
+            this.mapSolarSystemRowBindingSource.DataSource = typeof(eve_intel_map.Data.StaticData.MapSolarSystemRow);
             // 
             // FormMain
             // 
@@ -151,27 +138,24 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormMain";
             this.Text = "FormMain";
-            this.Load += new System.EventHandler(this.FormMain_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.staticData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mapSolarSystemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mapSolarSystemRowBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Button btnDisconnect;
         private System.Windows.Forms.ComboBox comboBox2;
         private controls.MapControl mapControl1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCheck;
         private controls.IntelGrid intelGrid1;
         private Data.StaticData staticData;
-        private System.Windows.Forms.BindingSource mapSolarSystemBindingSource;
-        private Data.StaticDataTableAdapters.mapSolarSystemsTableAdapter mapSolarSystemsTableAdapter;
+        private System.Windows.Forms.BindingSource mapSolarSystemRowBindingSource;
     }
 }
 

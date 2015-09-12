@@ -15,31 +15,37 @@ namespace eve_intel_server.Service
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class EveIntel : IEveIntel
     {
+        private static readonly ILog _Logger = LogManager.GetLogger(typeof (EveIntel));
         private static readonly Dictionary<Guid, ClientInfo> _Clients = new Dictionary<Guid, ClientInfo>();
         private static readonly Dictionary<int, Guid> _ClientHashes = new Dictionary<int, Guid>();
         private static readonly object _ClientsLock = new object();
-        private static readonly ILog _Logger;
 
-        static EveIntel() {
-            _Logger = LogManager.GetLogger(typeof (EveIntel));
+        private struct ClientInfo
+        {
+            [NotNull]
+            public IEveIntelCallback Callback { get; set; }
+
+            public long KeyId { get; set; }
+            public string VCode { get; set; }
+            public int HashCode { get; set; }
         }
 
-        #region Helpers
+        #region Database access
+
+        private static readonly IntelData _IntelData = new IntelData();
 
         [NotNull]
         private static EveIntelCharacterInfo[] GetEveIntelCharacterInfos(long solarsystemID, [NotNull] Dictionary<long, string> characters) {
-            _Logger.Debug("GetEveIntelCharacterInfos: '" + string.Join("', '", characters.Values) + "'");
-
             long[] characterIds = characters.Keys.ToArray();
-            Dictionary<long, IntelData.intelDataRow> result = new Dictionary<long, IntelData.intelDataRow>();
+            Dictionary<long, IntelData.IntelDataRow> result = new Dictionary<long, IntelData.IntelDataRow>();
 
             // try read info from local db
-            IQueryable<IntelData.intelDataRow> q = from o in DataHelper.IntelData.AsQueryable()
-                                                     where characterIds.Contains(o.characterID)
-                                                     select o;
+            IQueryable<IntelData.IntelDataRow> q = from o in _IntelData.IntelDataTable
+                                                   where characterIds.Contains(o.CharacterID)
+                                                   select o;
             int cached = 0;
-            foreach (IntelData.intelDataRow row in q) {
-                result[row.characterID] = row;
+            foreach (IntelData.IntelDataRow row in q) {
+                result[row.CharacterID] = row;
                 ++cached;
             }
 
@@ -55,29 +61,27 @@ namespace eve_intel_server.Service
 
                 CvaCharacterInfo cvaCharacterInfo = CvaClient.GetCharacterInfo(pair.Key, pair.Value);
                 if (cvaCharacterInfo != null) {
-                    IntelData.intelDataRow intelDataRow = DataHelper.IntelData.NewintelDataRow();
+                    IntelData.IntelDataRow intelDataRow = new IntelData.IntelDataRow();
                     DataHelper.FillintelDataRow(intelDataRow, cvaCharacterInfo);
-                    intelDataRow.solarsystemID = solarsystemID;
-                    intelDataRow.solarsystemTime = DateTime.Now;
-                    DataHelper.IntelData.AddintelDataRow(intelDataRow);
-                    result.Add(intelDataRow.characterID, intelDataRow);
+                    intelDataRow.SolarsystemID = solarsystemID;
+                    intelDataRow.SolarsystemTime = DateTime.Now;
+                    _IntelData.IntelDataTable.Add(intelDataRow);
+                    result.Add(intelDataRow.CharacterID, intelDataRow);
                 }
             }
-            DataHelper.IntelData.AcceptChanges();
+            return result.Values.Select(DataHelper.GetEveIntelCharacterInfo).ToArray();
+        }
+
+        [NotNull]
+        private static EveIntelCharacterInfo[] GetAllEveIntelCharacterInfos() {
+            Dictionary<long, IntelData.IntelDataRow> result = new Dictionary<long, IntelData.IntelDataRow>();
+            foreach (IntelData.IntelDataRow row in _IntelData.IntelDataTable) {
+                result[row.CharacterID] = row;
+            }
             return result.Values.Select(DataHelper.GetEveIntelCharacterInfo).ToArray();
         }
 
         #endregion
-
-        private struct ClientInfo
-        {
-            [NotNull]
-            public IEveIntelCallback Callback { get; set; }
-
-            public long KeyId { get; set; }
-            public string VCode { get; set; }
-            public int HashCode { get; set; }
-        }
 
         #region Message broadcasting
 
@@ -180,7 +184,7 @@ namespace eve_intel_server.Service
                             }
                         },
                         DebugInfo = "SecondConnection",
-                        Clients = new[] { clientId }
+                        Clients = new[] {clientId}
                     });
                     DelayedBroadcast(new BroadcastMessage {
                         Action = client => { client.ClientCountUpdate(_Clients.Count); },
@@ -280,9 +284,20 @@ namespace eve_intel_server.Service
             EveIntelCharacterInfo[] characterInfos = GetEveIntelCharacterInfos(solarsystemID, characters);
 
             DelayedBroadcast(new BroadcastMessage {
-                Action = client => { client.ClientLocalUpdate(solarsystemID, characterInfos); },
+                Action = client => { client.ClientIntelUpdate(characterInfos); },
                 DebugInfo = "ClientLocalUpdate"
             });
+        }
+
+        public EveIntelCharacterInfo[] ClientGlobalUpdate(Guid clientId) {
+            _Logger.Info("ClientGlobalUpdate: " + clientId);
+            lock (_ClientsLock) {
+                if (!_Clients.ContainsKey(clientId)) {
+                    return new EveIntelCharacterInfo[0];
+                }
+            }
+
+            return GetAllEveIntelCharacterInfos();
         }
 
         #endregion

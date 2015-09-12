@@ -35,6 +35,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ClientGlobalUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="clientId" type="q5:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGlobalUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/eve_intel_server.Service" minOccurs="0" name="ClientGlobalUpdateResult" nillable="true" type="q6:ArrayOfEveIntelCharacterInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ClientCountUpdate">
     <xs:complexType>
       <xs:sequence>
@@ -49,11 +63,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ClientLocalUpdate">
+  <xs:element name="ClientIntelUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="solarsystemId" type="xs:long" />
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/eve_intel_server.Service" minOccurs="0" name="characters" nillable="true" type="q5:ArrayOfEveIntelCharacterInfo" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/eve_intel_server.Service" minOccurs="0" name="characters" nillable="true" type="q7:ArrayOfEveIntelCharacterInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

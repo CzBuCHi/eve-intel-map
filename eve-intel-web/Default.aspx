@@ -30,19 +30,20 @@
         <th>notes</th>
     </tr>
     <%
-        foreach (IntelData.intelDataRow intelPlayerRow in DataHelper.IntelData) {
+        var data = new IntelData();
+        foreach (var intelPlayerRow in data.IntelDataTable) {
     %>
         <tr>
-            <td><%= intelPlayerRow.characterID %></td>
-            <td><%= intelPlayerRow.characterName %></td>
-            <td><%= intelPlayerRow.corporationName %></td>
-            <td><%= intelPlayerRow.allianceName %></td>
-            <td><%= intelPlayerRow.characterKos %></td>
-            <td><%= intelPlayerRow.corporationKos %></td>
-            <td><%= intelPlayerRow.allianceKos %></td>
-            <td><%= intelPlayerRow.solarsystemID %></td>
-            <td><%= intelPlayerRow.shipTypeID %></td>
-            <td><%= intelPlayerRow.notes %></td>
+            <td><%= intelPlayerRow.CharacterID %></td>
+            <td><%= intelPlayerRow.CharacterName %></td>
+            <td><%= intelPlayerRow.CorporationName %></td>
+            <td><%= intelPlayerRow.AllianceName %></td>
+            <td><%= intelPlayerRow.CharacterKos %></td>
+            <td><%= intelPlayerRow.CorporationKos %></td>
+            <td><%= intelPlayerRow.AllianceKos %></td>
+            <td><%= intelPlayerRow.SolarsystemID %></td>
+            <td><%= intelPlayerRow.ShipTypeID %></td>
+            <td><%= intelPlayerRow.Notes %></td>
         </tr>
     <%
         }

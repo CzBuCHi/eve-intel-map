@@ -33,6 +33,14 @@ namespace eve_intel_server.Service
         /// <param name="characterNames">List of characters in local</param>
         [OperationContract(IsOneWay = true)]
         void UpdateLocal(Guid clientId, long solarsystemID, [NotNull] string[] characterNames);
+
+        /// <summary>
+        /// Client is asking server for ALL known characters
+        /// </summary>
+        /// <param name="clientId">Client id</param>
+        /// <returns>Info about all known kos characters</returns>
+        [OperationContract(IsOneWay = false)]
+        EveIntelCharacterInfo[] ClientGlobalUpdate(Guid clientId);
     }
 
     public interface IEveIntelCallback
@@ -55,8 +63,8 @@ namespace eve_intel_server.Service
         ///     Server informs clients about local characters
         /// </summary>
         /// <param name="solarsystemId">Client local system</param>
-        /// <param name="characters">INfo about characters in local</param>
+        /// <param name="characters">Info about characters in local</param>
         [OperationContract(IsOneWay = true)]
-        void ClientLocalUpdate(long solarsystemId, EveIntelCharacterInfo[] characters);
+        void ClientIntelUpdate(EveIntelCharacterInfo[] characters);
     }
 }

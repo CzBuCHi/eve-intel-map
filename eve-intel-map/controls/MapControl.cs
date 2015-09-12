@@ -13,13 +13,12 @@ namespace eve_intel_map.controls
     public partial class MapControl : UserControl
     {
         private readonly Dictionary<long, Node> _Nodes = new Dictionary<long, Node>();
+        private readonly StaticData _StaticData = new StaticData();
         private long _CurrentSystem;
         private long? _RegionId;
 
         public MapControl() {
             InitializeComponent();
-            mapSolarSystemsTableAdapter.Fill(staticData.mapSolarSystems);
-            mapSolarSystemJumpsTableAdapter.Fill(staticData.mapSolarSystemJumps);
         }
 
         public int MaxVisibleSystems { get; set; } = 20;
@@ -69,10 +68,10 @@ namespace eve_intel_map.controls
             lock (_Nodes) {
                 _Nodes.Clear();
                 foreach (SystemInfo info in systems) {
-                    if (!_Nodes.ContainsKey(info.System.solarSystemID)) {
-                        Node node = graph.AddNode(info.System.solarSystemID.ToString());
-                        node.LabelText = info.System.solarSystemName;
-                        _Nodes.Add(info.System.solarSystemID, node);
+                    if (!_Nodes.ContainsKey(info.System.SolarSystemID)) {
+                        Node node = graph.AddNode(info.System.SolarSystemID.ToString());
+                        node.LabelText = info.System.SolarSystemName;
+                        _Nodes.Add(info.System.SolarSystemID, node);
                     }
 
                     if (info.Parent == null) {
@@ -80,12 +79,12 @@ namespace eve_intel_map.controls
                     }
 
                     HashSet<long> list;
-                    if (!dict.TryGetValue(info.Parent.solarSystemID, out list)) {
+                    if (!dict.TryGetValue(info.Parent.SolarSystemID, out list)) {
                         list = new HashSet<long>();
-                        dict[info.Parent.solarSystemID] = list;
+                        dict[info.Parent.SolarSystemID] = list;
                     }
-                    if (!list.Contains(info.System.solarSystemID)) {
-                        list.Add(info.System.solarSystemID);
+                    if (!list.Contains(info.System.SolarSystemID)) {
+                        list.Add(info.System.SolarSystemID);
                     }
                 }
             }
@@ -107,14 +106,15 @@ namespace eve_intel_map.controls
 
         private IEnumerable<SystemInfo> GetSystems() {
             // find current system
-            IEnumerable<SystemInfo> q = from system in staticData.mapSolarSystems
-                                        where system.solarSystemID == CurrentSystem
+            
+            IEnumerable<SystemInfo> q = from system in _StaticData.MapSolarSystemTable
+                                        where system.SolarSystemID == CurrentSystem
                                         select new SystemInfo {
                                             System = system
                                         };
             if (RegionId != null) {
                 q = from system in q
-                    where system.System.regionID == RegionId.Value
+                    where system.System.RegionID == RegionId.Value
                     select system;
             }
 
@@ -122,8 +122,8 @@ namespace eve_intel_map.controls
             if (current.Length == 0) {
                 // current system is not in specified region - pick first system in region as current
                 if (RegionId != null) {
-                    current = (from system in staticData.mapSolarSystems
-                               where system.regionID == RegionId
+                    current = (from system in _StaticData.MapSolarSystemTable
+                               where system.RegionID == RegionId
                                select new SystemInfo {
                                    System = system
                                }).Take(1).ToArray();
@@ -134,7 +134,7 @@ namespace eve_intel_map.controls
 
             SystemInfo[] total = current.ToArray();
             while (RegionId != null || total.Length < MaxVisibleSystems) {
-                SystemInfo[] next = GetConnected(current, total.Select(o => o.System.solarSystemID).ToArray()).ToArray();
+                SystemInfo[] next = GetConnected(current, total.Select(o => o.System.SolarSystemID).ToArray()).ToArray();
                 if (RegionId == null && total.Length + next.Length > 20) {
                     int count = MaxVisibleSystems - total.Length;
                     if (count < next.Length) {
@@ -157,18 +157,18 @@ namespace eve_intel_map.controls
         [NotNull]
         private IEnumerable<SystemInfo> GetConnected([NotNull] IEnumerable<SystemInfo> prev, [NotNull] long[] prevIds) {
             foreach (SystemInfo o in prev) {
-                IEnumerable<StaticData.mapSolarSystemsRow> q = from jump in staticData.mapSolarSystemJumps
-                                                               join system in staticData.mapSolarSystems on jump.toSolarSystemID equals system.solarSystemID
-                                                               where jump.fromSolarSystemID == o.System.solarSystemID
-                                                               select system;
+                IEnumerable<StaticData.MapSolarSystemRow> q = from jump in _StaticData.MapSolarSystemJumpTable
+                                                               join system in _StaticData.MapSolarSystemTable on jump.ToSolarSystemID equals system.SolarSystemID
+                                                               where jump.FromSolarSystemID == o.System.SolarSystemID
+                                                              select system;
                 if (RegionId != null) {
                     q = from system in q
-                        where system.regionID == RegionId.Value
+                        where system.RegionID == RegionId.Value
                         select system;
                 }
 
-                foreach (StaticData.mapSolarSystemsRow o2 in q) {
-                    if (prevIds.Contains(o2.solarSystemID)) {
+                foreach (StaticData.MapSolarSystemRow o2 in q) {
+                    if (prevIds.Contains(o2.SolarSystemID)) {
                         continue;
                     }
 
@@ -182,8 +182,8 @@ namespace eve_intel_map.controls
 
         public class SystemInfo
         {
-            public StaticData.mapSolarSystemsRow System { get; set; }
-            public StaticData.mapSolarSystemsRow Parent { get; set; }
+            public StaticData.MapSolarSystemRow System { get; set; }
+            public StaticData.MapSolarSystemRow Parent { get; set; }
         }
     }
 }
