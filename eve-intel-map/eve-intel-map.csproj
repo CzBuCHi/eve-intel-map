@@ -43,6 +43,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Msagl">
       <HintPath>..\_libraries\Microsoft.Msagl\Debug\Microsoft.Msagl.dll</HintPath>
     </Reference>
@@ -112,7 +116,7 @@
       <DependentUpon>MapControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\IntelData.cs" />
-    <Compile Include="Data\StaticData.cs" />
+    <Compile Include="Data\ReadOnlyData.cs" />
     <Compile Include="FormConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,8 +167,6 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\eve_intel_map.Data.IntelData+IntelGridRow.datasource" />
     <None Include="Properties\DataSources\eve_intel_map.Data.StaticData+EveShipsRow.datasource" />
-    <None Include="Properties\DataSources\eve_intel_map.Data.StaticData+MapSolarSystemJumpRow.datasource" />
-    <None Include="Properties\DataSources\eve_intel_map.Data.StaticData+MapSolarSystemRow.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -25,7 +25,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.btnConnect = new System.Windows.Forms.Button();
             this.btnDisconnect = new System.Windows.Forms.Button();
@@ -34,9 +33,7 @@
             this.btnCheck = new System.Windows.Forms.Button();
             this.mapControl1 = new eve_intel_map.controls.MapControl();
             this.intelGrid1 = new eve_intel_map.controls.IntelGrid();
-            this.mapSolarSystemRowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mapSolarSystemRowBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -73,8 +70,6 @@
             this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox2.DataSource = this.mapSolarSystemRowBindingSource;
-            this.comboBox2.DisplayMember = "solarSystemName";
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(1166, 8);
             this.comboBox2.Name = "comboBox2";
@@ -124,10 +119,6 @@
             this.intelGrid1.Size = new System.Drawing.Size(1293, 150);
             this.intelGrid1.TabIndex = 12;
             // 
-            // mapSolarSystemRowBindingSource
-            // 
-            this.mapSolarSystemRowBindingSource.DataSource = typeof(eve_intel_map.Data.StaticData.MapSolarSystemRow);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,7 +131,6 @@
             this.Text = "FormMain";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mapSolarSystemRowBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -154,8 +144,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCheck;
         private controls.IntelGrid intelGrid1;
-        private Data.StaticData staticData;
-        private System.Windows.Forms.BindingSource mapSolarSystemRowBindingSource;
+        private Data.ReadOnlyData _ReadOnlyData;
     }
 }
 

@@ -175,6 +175,7 @@ namespace eve_intel_server.Service
             lock (_ClientsLock) {
                 Guid clientId;
                 if (_ClientHashes.TryGetValue(hashCode, out clientId)) {
+                    _ClientHashes.Remove(hashCode);
                     // inform first client and disconnect him 
                     DelayedBroadcast(new BroadcastMessage {
                         Action = client => {

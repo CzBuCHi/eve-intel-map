@@ -67,9 +67,9 @@ namespace eve_intel_map
         }
 
         public void SecondConnection(long solarsystemID) {            
-            IQueryable<string> q = from o in staticData.MapSolarSystemTable
-                                   join c in staticData.MapConstellationTable on o.ConstellationID equals c.ConstellationID
-                                   join r in staticData.MapRegionTable on o.RegionID equals r.RegionID
+            IQueryable<string> q = from o in _ReadOnlyData.MapSolarSystemTable
+                                   join c in _ReadOnlyData.MapConstellationTable on o.ConstellationID equals c.ConstellationID
+                                   join r in _ReadOnlyData.MapRegionTable on o.RegionID equals r.RegionID
                                    where o.SolarSystemID == solarsystemID
                                    select $"{o.SolarSystemName} {c.ConstellationName} {r.RegionName}";
 
@@ -107,6 +107,7 @@ namespace eve_intel_map
                     intelData.IntelDataTable.Add(row);
                 }
             }
+            intelData.SaveChanges();
             //mapControl1.UpdateData();
             intelGrid1.UpdateData();
         }

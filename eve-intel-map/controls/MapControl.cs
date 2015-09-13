@@ -13,7 +13,7 @@ namespace eve_intel_map.controls
     public partial class MapControl : UserControl
     {
         private readonly Dictionary<long, Node> _Nodes = new Dictionary<long, Node>();
-        private readonly StaticData _StaticData = new StaticData();
+        private readonly ReadOnlyData _ReadOnlyData = new ReadOnlyData();
         private long _CurrentSystem;
         private long? _RegionId;
 
@@ -107,7 +107,7 @@ namespace eve_intel_map.controls
         private IEnumerable<SystemInfo> GetSystems() {
             // find current system
             
-            IEnumerable<SystemInfo> q = from system in _StaticData.MapSolarSystemTable
+            IEnumerable<SystemInfo> q = from system in _ReadOnlyData.MapSolarSystemTable
                                         where system.SolarSystemID == CurrentSystem
                                         select new SystemInfo {
                                             System = system
@@ -122,7 +122,7 @@ namespace eve_intel_map.controls
             if (current.Length == 0) {
                 // current system is not in specified region - pick first system in region as current
                 if (RegionId != null) {
-                    current = (from system in _StaticData.MapSolarSystemTable
+                    current = (from system in _ReadOnlyData.MapSolarSystemTable
                                where system.RegionID == RegionId
                                select new SystemInfo {
                                    System = system
@@ -157,8 +157,8 @@ namespace eve_intel_map.controls
         [NotNull]
         private IEnumerable<SystemInfo> GetConnected([NotNull] IEnumerable<SystemInfo> prev, [NotNull] long[] prevIds) {
             foreach (SystemInfo o in prev) {
-                IEnumerable<StaticData.MapSolarSystemRow> q = from jump in _StaticData.MapSolarSystemJumpTable
-                                                               join system in _StaticData.MapSolarSystemTable on jump.ToSolarSystemID equals system.SolarSystemID
+                IEnumerable<ReadOnlyData.MapSolarSystemRow> q = from jump in _ReadOnlyData.MapSolarSystemJumpTable
+                                                               join system in _ReadOnlyData.MapSolarSystemTable on jump.ToSolarSystemID equals system.SolarSystemID
                                                                where jump.FromSolarSystemID == o.System.SolarSystemID
                                                               select system;
                 if (RegionId != null) {
@@ -167,7 +167,7 @@ namespace eve_intel_map.controls
                         select system;
                 }
 
-                foreach (StaticData.MapSolarSystemRow o2 in q) {
+                foreach (ReadOnlyData.MapSolarSystemRow o2 in q) {
                     if (prevIds.Contains(o2.SolarSystemID)) {
                         continue;
                     }
@@ -182,8 +182,8 @@ namespace eve_intel_map.controls
 
         public class SystemInfo
         {
-            public StaticData.MapSolarSystemRow System { get; set; }
-            public StaticData.MapSolarSystemRow Parent { get; set; }
+            public ReadOnlyData.MapSolarSystemRow System { get; set; }
+            public ReadOnlyData.MapSolarSystemRow Parent { get; set; }
         }
     }
 }
