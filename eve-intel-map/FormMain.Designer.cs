@@ -144,7 +144,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCheck;
         private controls.IntelGrid intelGrid1;
-        private Data.ReadOnlyData _ReadOnlyData;
     }
 }
 

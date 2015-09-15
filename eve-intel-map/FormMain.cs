@@ -66,14 +66,18 @@ namespace eve_intel_map
             label1.Text = @"clients: " + clientCount;
         }
 
-        public void SecondConnection(long solarsystemID) {            
-            IQueryable<string> q = from o in _ReadOnlyData.MapSolarSystemTable
-                                   join c in _ReadOnlyData.MapConstellationTable on o.ConstellationID equals c.ConstellationID
-                                   join r in _ReadOnlyData.MapRegionTable on o.RegionID equals r.RegionID
-                                   where o.SolarSystemID == solarsystemID
-                                   select $"{o.SolarSystemName} {c.ConstellationName} {r.RegionName}";
+        public void SecondConnection(long solarsystemID) {
+            string name;
+            using (ReadOnlyData context = new ReadOnlyData()) {
+                IQueryable<string> q = from o in context.MapSolarSystemTable
+                                       join c in context.MapConstellationTable on o.ConstellationID equals c.ConstellationID
+                                       join r in context.MapRegionTable on o.RegionID equals r.RegionID
+                                       where o.SolarSystemID == solarsystemID
+                                       select $"{o.SolarSystemName} {c.ConstellationName} {r.RegionName}";
+                name = q.FirstOrDefault();
+            }
 
-            MessageBox.Show($@"Second connection to server detected! Originated from: {q.FirstOrDefault()}. Disconnection both.");
+            MessageBox.Show($@"Second connection to server detected! Originated from: {name}. Disconnection both.");
             _ClientId = Guid.Empty;
             btnConnect.Enabled = true;
             btnDisconnect.Enabled = false;

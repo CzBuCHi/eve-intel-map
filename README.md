@@ -1,23 +1,18 @@
-# eve-intel-map
+# eve-intel-map (in developend)
 
-## momentally just and idea
-Show map like in [eve-log-watcher](https://github.com/CzBuCHi/eve-log-watcher) but dont use chatlog for gathering intel.
+## implemented:
+server:
+- client autentification via eve api key (used to kos-check every character associated with it - no client with kos character allowed)
+- clients supose to select all characters in local and send that info to server (via simple shortcut - aka: click in local, CTRL+A, CTRL+SHIFT+A) 
+- server will try load kos-information from cache or execute kos-check againts http://kos.cva-eve.org/api for unknown kos statuses and stores them in cache
+--- all detected kos characters are broadcsted to all active clients
+- also stores ship info and any text node on character
+client:
+- connection to server, local log file watch for current system detection
 
-App will know player current location by checking local chat for system message, when player uses kos check on local players and found some then server request will happend and kos info will be broadcasted to all online clients.
+## todo:
+- server cache expiration (currently data never expires)
+- server restart - every day like EVE ... (with cache cleaning?)
+- client that dont look like a crap
+- map representation in dotlan style with color visualisation of systems with kos players (more players, more red, etc.)
 
-So for example player 'Fred' is mining in 1-1I53. Second player 'Vilma' in R3-K7K find some unknown players in local and perform 'kos check' and find that there is one kos player 'Barney'. App will automatically send information about Barney location to server and he broadcast it back to 'Fred' who starts align to station just in case ...
-
-## idea2: list of all detected kos players in table: 
-
-| Player | Last known system | Ship | Notes |
-| --- | --- | --- | --- |
-| Barney | R3-K7K (15:13) | unknown | |
-| Betty | Misaba (15:03) | Velator (15:08) | hotdropper |
-
-any player can edit Ship and Notes columns and they will be broadcasted to other clients
-times in system and ship columns will be inserted automatically by server in EVE-time
-
-## implemented
-- server implemented as duplex wcf service hosted on IIS.
-- client not implemented yet, just some client-server testing code...
-- client static data (eve map and skip information)

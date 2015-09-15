@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
@@ -31,7 +33,7 @@ namespace eve_intel_map.controls
         private void dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e) {
             _ShipCombo = e.Control as ComboBox;
             if (_ShipCombo != null) {
-                _ShipCombo.DropDownStyle = ComboBoxStyle.DropDown;
+                _ShipCombo.DropDownStyle = ComboBoxStyle.Simple;
                 _ShipCombo.AutoCompleteMode  = AutoCompleteMode.SuggestAppend;
                 _ShipCombo.AutoCompleteSource = AutoCompleteSource.ListItems;
             }
@@ -63,12 +65,15 @@ namespace eve_intel_map.controls
                     row.ShipTypeTime = DateTime.UtcNow;
                     _IntelData.IntelDataTable.AddOrUpdate(row);
                     _IntelData.SaveChanges();
-                    _ReadOnlyData.IntelGridTable.Load();
-                    dataGridView.InvalidateRow(e.RowIndex);
+                    dataGridView.Refresh();
                 }
             }
+        }
 
-
+        private void dataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e) {
+            if (dataGridView.IsCurrentCellDirty) {
+                dataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
         }
     }
 }
